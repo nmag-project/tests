@@ -1,0 +1,35 @@
+m_sat = 860000.0
+m_sat_t = 1.08070787283
+theta = 0.955316618125
+phi = 0.785398163397
+
+# Computes the direction of the applied field
+ct = cos(theta)
+st = sin(theta)
+cp = cos(phi)
+sp = sin(phi)
+hx = st*cp
+hy = st*sp
+hz = ct
+
+mu0 = 16e-7*atan(1.0)
+
+set term postscript color enhanced
+set out "plot.ps"
+set xlabel "H/M_s"
+set ylabel "M/M_s"
+set xzeroaxis
+set yzeroaxis
+set key right bottom
+# NOTE: Magpar gives the field in units of kA/m
+#       OOMMF uses mT
+#       nmag uses A/m
+set ylabel "M/M_S (1)"
+set xlabel "Component of the applied field (10^6 A/m)"
+plot [] \
+     "oommf.dat" u (($1*hx+$2*hy+$3*hz)*1e-9/mu0):($4/m_sat) t "OOMMF x" w lines, \
+     "oommf.dat" u (($1*hx+$2*hy+$3*hz)*1e-9/mu0):($5/m_sat) t "OOMMF y" w lines, \
+     "oommf.dat" u (($1*hx+$2*hy+$3*hz)*1e-9/mu0):($6/m_sat) t "OOMMF z" w lines, \
+     "nmag.dat" u (($1*hx+$2*hy+$3*hz)/(1e6)):4 t "Nmag x" w lines, \
+     "nmag.dat" u (($1*hx+$2*hy+$3*hz)/(1e6)):5 t "Nmag y" w lines, \
+     "nmag.dat" u (($1*hx+$2*hy+$3*hz)/(1e6)):6 t "Nmag z" w lines

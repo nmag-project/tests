@@ -1,0 +1,53 @@
+set term postscript enhanced color
+set out "mrx.ps"
+set xlabel "d/l_{ex}"
+set ylabel "M_{r,x}"
+plot \
+  "streibl-shrefl.dat" u 1:2 t "Streibl-Schrefl" w linesp 2, \
+  "diaz-torres.dat" u 1:4 t "Diaz-Torres" w linesp 3, \
+  "oommf_1999.dat" u 1:5 t "OOMMF (1999)" w linesp 4, \
+  "oommf_2000.dat" u 1:5 t "OOMMF (2000)" w linesp 5, \
+  "nmag3.dat" u 1:3 t "nmag3" w linesp 1
+
+set out "mry.ps"
+set xlabel "d/l_{ex}"
+set ylabel "M_{r,y}"
+plot \
+  "streibl-shrefl.dat" u 1:3 t "Streibl-Schrefl" w linesp 2, \
+  "diaz-torres.dat" u 1:5 t "Diaz-Torres" w linesp 3, \
+  "oommf_1999.dat" u 1:6 t "OOMMF (1999)" w linesp 4, \
+  "oommf_2000.dat" u 1:6 t "OOMMF (2000)" w linesp 5, \
+  "nmag3.dat" u 1:4 t "nmag3" w linesp 1
+
+set out "hc.ps"
+set xlabel "d/l_{ex}"
+set ylabel "|H_c|/M_s"
+plot \
+  "streibl-shrefl.dat" u 1:(abs($5)) t "Streibl-Schrefl" w linesp 2, \
+  "diaz-torres.dat" u 1:2 t "Diaz-Torres" w linesp 3, \
+  "oommf_2000.dat" u 1:3 t "OOMMF (2000)" w linesp 5, \
+  "nmag3.dat" u ($1):(abs($2)) t "nmag3" w linesp 1
+
+set out "m_d010.ps"
+set xlabel "H/M_s"
+set ylabel "M/M_s"
+set xzeroaxis
+set yzeroaxis
+plot "m_d010.dat" u 1:2 t "" w linesp
+
+set out "m_d002.ps"
+set xlabel "H/M_s"
+set ylabel "M/M_s"
+set xzeroaxis
+set yzeroaxis
+plot "m_d002.dat" u 1:2 t "" w linesp
+
+set out "m_dall.ps"
+set xlabel "H/M_s"
+set ylabel "M/M_s"
+set xzeroaxis
+set yzeroaxis
+plot [-0.1:0] \
+  "m_d005.dat" u 1:2 t "d = 5 l_{ex}" w linesp, \
+  "m_d010.dat" u 1:2 t "d = 10 l_{ex}" w linesp, \
+  "m_d015.dat" u 1:2 t "d = 15 l_{ex}" w linesp

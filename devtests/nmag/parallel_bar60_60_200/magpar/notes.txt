@@ -1,0 +1,6 @@
+330MB BEM
+time to populate: 106 seconds
+
+memory footprint with BEM: 750 MB RSS, VMsize: 959 MB
+
+time to run: about 960 seconds -> 16 minutes   

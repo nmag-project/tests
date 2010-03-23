@@ -1,0 +1,31 @@
+
+soft_width = 10.0
+hard_width = 5.0
+width = soft_width + 2*hard_width
+
+mu0 = 4e-7*pi
+average(x, y) = (x*width + y*2*hard_width)/width
+tesla(x) = x*mu0
+
+f(x) = a + b*x
+g(x) = c
+
+set fit errorvariables
+
+fit [4:4.5] f(x) "hloop.dat" u (tesla($3)):(tesla(average($6, $9))) via a, b
+fit [0:3.5] g(x) "hloop.dat" u (tesla($3)):(tesla(average($6, $9))) via c
+
+plot [3.5:4.5] \
+  "hloop.dat" u (tesla($3)):(tesla(average($6, $9))) t "" w lp, \
+  f(x), g(x)
+
+cmina = c - a
+cmina_err = c_err + a_err
+
+hb = cmina/b
+hb_err = (cmina_err/cmina + b_err/b)*hb
+
+print "Estimated bending field is ", hb
+print "Estimated error is ", hb_err
+pause -1
+

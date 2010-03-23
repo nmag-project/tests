@@ -1,0 +1,9 @@
+set term postscript eps enhanced color
+set out "hyst_loop.eps"
+
+AM_to_T=4e-7*pi
+
+plot \
+  "hyst_loop.dat" u ($2*AM_to_T):($4*AM_to_T) t "Fe, x" w l, \
+  "hyst_loop.dat" u ($2*AM_to_T):($5*AM_to_T) t "Fe, y" w l, \
+  "hyst_loop.dat" u ($2*AM_to_T):($6*AM_to_T) t "Fe, z" w l

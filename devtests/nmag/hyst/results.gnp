@@ -1,0 +1,15 @@
+set term postscript eps enhanced solid color
+set out "results.eps"
+
+# Direction of the applied field
+nx = 1
+ny = -2
+nz = 3
+n = sqrt(nx*nx + ny*ny + nz*nz)
+
+scalar(x, y, z) = (x*nx + y*ny + z*nz)/n
+plot \
+  "results.dat" u (scalar($1, $2, $3)):(scalar($4, $5, $6)) t "" w lp 1, \
+  "results.dat" u (-scalar($1, $2, $3)):(-scalar($4, $5, $6)) t "" w lp 1
+
+

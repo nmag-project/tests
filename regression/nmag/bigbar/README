@@ -1,0 +1,22 @@
+This testing directory is built as follows:
+
+There is a global makefile in this directory, which calls all simulations in subdirectories.
+
+Each simulation produced a file with 4 columns, containing time, Mx,
+My, Mz in SI units and stores this in results/X where X is an
+indicative name (such as 'nmag3'.
+
+The global makefile provides a target 'plots' which will plot all data
+in the results directory togother.
+
+For the OOMMF and Magpar runs, I suggest to add their data in
+results/X to the svn repository so that these don't need to be
+computed again.
+
+The makefile target 'plot' will update files 'results.eps' and
+'results.png' which show reference data from oommf, magpar,
+nmag4_rXXXX, and any new data that has been copied into that
+directory.
+
+
+

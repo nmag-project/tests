@@ -1,0 +1,46 @@
+set term postscript eps enhanced "Helvetica" 18
+set out "es_hloop.eps"
+set style line 1 lt 1 lw 5
+
+soft_width = 10.0
+hard_width = 5.0
+width = soft_width + 2*hard_width
+
+mu0 = 4e-7*pi
+average(x, y) = (x*width + y*2*hard_width)/width
+tesla(x) = x*mu0
+
+set size 1.0, 1.0
+set multiplot
+set origin 0.0, 0.01
+set size 1.0, 1.0
+
+set xlabel "H_{app} (T)"
+set ylabel "<M_x> (10^6 A/m)"
+set format x "%.0f"
+set format y "%.1f"
+set key right bottom
+set ytics 0.2
+#set mxtics 1
+#set mytics 0.1
+#show mxtics
+#show mytics
+#set grid
+
+plot [-60:60] \
+  "hloop.dat" u ( tesla($3)):( tesla(average($6, $9))) t "" w l ls 1, \
+  "hloop.dat" u (-tesla($3)):(-tesla(average($6, $9))) t "" w l ls 1
+
+set format x "%.1f"
+set format y "%.2f"
+set xlabel ""
+set ylabel ""
+set origin 0.55, 0.37
+set size 0.35, 0.35
+set ytics 0.05
+set xtics 0.5
+#unset mxtics
+#unset mytics
+plot [3.5:4.5] [0.25:0.35] \
+  "hloop.dat" u (tesla($3)):(tesla(average($6, $9))) t "" w l ls 1
+

@@ -1,0 +1,4 @@
+We calculate the magnetisation for a simple 1D model of 
+exchange spring system. This is done numerically (Nmag)
+and analytically.
+

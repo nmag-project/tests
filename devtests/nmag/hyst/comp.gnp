@@ -1,0 +1,23 @@
+# Direction of the applied field
+nx = 1
+ny = -2
+nz = 3
+n = sqrt(nx*nx + ny*ny + nz*nz)
+
+scalar(x, y, z) = (x*nx + y*ny + z*nz)/n
+plot \
+  "np1/results.dat" u (scalar($1, $2, $3)):(scalar($4, $5, $6)) t "1 proc" w lp 1, \
+  "np1/results.dat" u (-scalar($1, $2, $3)):(-scalar($4, $5, $6)) t "" w lp 1, \
+  "np2/results.dat" u (scalar($1, $2, $3)):(scalar($4, $5, $6)) t "new 2 procs" w lp 2, \
+  "np2/results.dat" u (-scalar($1, $2, $3)):(-scalar($4, $5, $6)) t "" w lp 2
+
+#  "par1/results.dat" u (scalar($1, $2, $3)):(scalar($4, $5, $6)) t "par1" w lp 3, \
+#  "par1/results.dat" u (-scalar($1, $2, $3)):(-scalar($4, $5, $6)) t "" w lp 3, \
+#  "par2/results.dat" u (scalar($1, $2, $3)):(scalar($4, $5, $6)) t "par2" w lp 4, \
+#  "par2/results.dat" u (-scalar($1, $2, $3)):(-scalar($4, $5, $6)) t "" w lp 4
+
+pause -1
+
+set term postscript eps enhanced solid color
+set out "comp.eps"
+replot

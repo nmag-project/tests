@@ -1,0 +1,91 @@
+Dear docutils folks,
+
+we have a manual written in rst (available as html at
+http://nmag.soton.ac.uk/nmag/0.1/manual/html/manual.html and as pdf at
+http://nmag.soton.ac.uk/nmag/0.1/manual/manual.pdf).
+
+All is well, apart from the (missing) antialiasing of bitmap images in
+the html document (in some browsers). This document details the
+problems. Compiled html and pdf versions (test.pdf and test.html) are
+available at http://www.soton.ac.uk/~fangohr/geheim/rst together with
+a the source test.txt, a Makefile to build them and the bitmap files.
+
+Problem
+=======
+
+When including bitmaps into html, they look generally best if we allow
+the browser to display them in full size (so we get around any need
+for antialiasing). Here is an example for a bitmap with 789x437
+pixels. By not specifying the width of this image, we get great
+results in the html file but the image is exceeding the a4 page in the
+pdf file:
+
+.. image:: data_M.png
+   :align: center
+
+
+When we fix the width (here to 15cm), then this is the right size for
+pdf, but is poorly rendered in many web browsers (such as mozilla
+based family).
+
+.. image:: data_M.png
+   :align: center
+   :width: 15cm
+
+
+The same applies for smaller pictures (equation) where each line
+matters (often a minus sign would disappear if the bitmap is scaled
+down badly by the browser). This version is great for html (and
+happens to be okay in size for the pdf file):
+
+.. image:: l_ex_hard.png
+   :align: center
+
+
+Whereas the giving a width provides good results in the pdf file and
+poor rendering in the html page (depending on browser, of course).
+
+
+.. image:: l_ex_hard.png
+   :align: center
+   :width: 1.5cm
+
+
+
+Nasty solution
+==============
+
+We can, of course, use the ``raw`` directive to work around this. For
+example the following plot will look good on pdf and html:
+
+.. raw:: html
+
+   <div align="center" class="align-center"><img alt="data_M.png"
+   class="align-center" src="data_M.png" /></div>
+
+.. raw:: latex
+
+   %
+
+   { \hfill\includegraphics[width=0.9\textwidth]{data_M.png}\hfill}
+
+   % 
+
+I am not too concerned about the extra effort of adding the same
+command twice (if in return the document will realiably have good
+looking images and equations!).
+
+However, this is clearly not ideal (because of the duplication of
+effort and because of the very specific commands I need to put into
+the ``raw`` sections).
+
+Could anybody confirm that there is no better way to solve this (at
+the moment) or provide suggestions for better alternatives?
+
+Many thanks,
+
+Hans
+
+
+
+

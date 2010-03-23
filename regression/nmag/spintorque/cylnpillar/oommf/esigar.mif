@@ -1,0 +1,141 @@
+# MIF 2.1
+# The one-dimensional system representing a cylindrical nano-pillar
+# exchange spring system where a current is flowing and
+# the spin-transfer-torque is taken into account using
+# then Zhang-Li model (demag is neglected).
+
+set PI [expr {4*atan(1.)}]
+set MU0 [expr {4*$PI*1e-7}]
+
+set length 50.0e-9
+set softlength 40.0e-9
+set Ms 0.54861229676e6
+
+Specify Oxs_ImageAtlas:atlas [subst {
+  xrange {0 $length}
+  yrange {0 1e-9}
+  zrange {0 1e-9}
+  image esigar.gif
+  viewplane xy
+  colormap {
+    white nonmagnetic
+    black magnetic
+    red fixed
+  }
+}]
+
+Specify Oxs_RectangularMesh:mesh {
+  cellsize {1e-9 1e-9 1e-9}
+  atlas :atlas
+}
+
+Specify Oxs_UniformExchange {
+  A  14.6e-12
+}
+
+# Specify Oxs_FileVectorField:leftedge {
+#    file "./dw_edgefield_cut_cell4_160.ohf"
+#    spatial_scaling {1 1 1}
+#    spatial_offset  {0 0 0}
+#  }
+#
+#
+# #Field from the left edge
+# Specify Oxs_FixedZeeman:leftadj {
+#    field :leftedge
+#    multiplier -1
+# }
+
+# # Field from the right edge.  This is the same as the left edge field,
+# # but rotated about the origin via the 'M -1' entry (the *.ohf fields
+# # are located in the first octant), and translated into position with
+# # the offset entry.
+# Specify Oxs_FixedZeeman:rightadj [subst {
+#    field { Oxs_AffineOrientVectorField {
+#       field :leftedge
+#       M -1
+#       offset { $length $width $thickness }
+#    }}
+# }]
+
+
+
+# Specify Oxs_Demag {}
+
+# Field values in Tesla; scale to A/m
+Specify Oxs_UZeeman:extfield0 [subst {
+  multiplier [expr {1/$MU0}]
+  Hrange {
+    {0 0 0  0 0 0  0}
+  }
+}]
+
+#Evolver with spin-torque/spin-flip terms
+# For Permalloy u=J*P*7e-11 (Thiaville-epl)
+# proc uprofile { s } {
+#     set scale 0.0;
+#     if {$s==1} {
+#         set scale 0
+#     }
+#     return $scale
+# }
+
+# Notes: beta is the degree on non-adiabaticity, what is called xi
+#        in the original Zhang-Li paper.
+# u = P j mu_bohr / (e M_sat (1 + xi^2))
+# and is measured in m/s
+Specify Anv_SpinTEvolve {
+  do_precess 1
+  gamma_G 0.2211e6
+  method rkf54s
+  alpha 0.02
+  fixed_spins {
+    atlas fixed
+  }
+  u {Oxs_UniformScalarField {
+   value 10.5499
+  }}
+  beta 0.01
+}
+
+Specify Oxs_TimeDriver [subst {
+ basename esigar
+ evolver Anv_SpinTEvolve
+ mesh :mesh
+ stopping_dm_dt 1
+ stage_count 1
+ Ms {Oxs_AtlasScalarField {
+   atlas :atlas
+   values {
+     nonmagnetic  0
+     magnetic     $Ms
+     fixed        $Ms
+ } } }
+ m0 { Oxs_ScriptVectorField {
+   script { mag0 }
+   norm 1
+   atlas :atlas
+ } }
+}]
+
+proc mag0 { x y z } {
+    set length 50.0e-9
+    set softlength 40.0e-9
+    set w [expr 0.5*$softlength/$length]
+    set xx [expr ($x - 0.5)*$length/$softlength]
+
+    if { $xx > 0.5 } {
+      return "1 0 0"
+    }
+
+    if { $xx < -0.5 } {
+      return "-1 0 0"
+    }
+
+    set angle [expr 3.1415926*$xx]
+    return [list [expr sin($angle)] [expr cos($angle)] 0.0]
+}
+
+Destination archive mmArchive
+Schedule Oxs_TimeDriver::Magnetization archive step 1000
+Schedule DataTable archive Step 100

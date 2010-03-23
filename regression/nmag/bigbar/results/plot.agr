@@ -1,0 +1,4095 @@
+# Grace project file
+#
+@version 50120
+@page size 792, 612
+@page scroll 5%
+@page inout 5%
+@link page off
+@map font 8 to "Courier", "Courier"
+@map font 10 to "Courier-Bold", "Courier-Bold"
+@map font 11 to "Courier-BoldOblique", "Courier-BoldOblique"
+@map font 9 to "Courier-Oblique", "Courier-Oblique"
+@map font 0 to "Helvetica", "Helvetica"
+@map font 6 to "Helvetica-Bold", "Helvetica-Bold"
+@map font 7 to "Helvetica-BoldOblique", "Helvetica-BoldOblique"
+@map font 15 to "Helvetica-Narrow", "Helvetica-Narrow"
+@map font 16 to "Helvetica-Narrow-Bold", "Helvetica-Narrow-Bold"
+@map font 17 to "Helvetica-Narrow-BoldOblique", "Helvetica-Narrow-BoldOblique"
+@map font 18 to "Helvetica-Narrow-Oblique", "Helvetica-Narrow-Oblique"
+@map font 5 to "Helvetica-Oblique", "Helvetica-Oblique"
+@map font 20 to "NewCenturySchlbk-Bold", "NewCenturySchlbk-Bold"
+@map font 21 to "NewCenturySchlbk-BoldItalic", "NewCenturySchlbk-BoldItalic"
+@map font 22 to "NewCenturySchlbk-Italic", "NewCenturySchlbk-Italic"
+@map font 23 to "NewCenturySchlbk-Roman", "NewCenturySchlbk-Roman"
+@map font 24 to "Palatino-Bold", "Palatino-Bold"
+@map font 25 to "Palatino-BoldItalic", "Palatino-BoldItalic"
+@map font 26 to "Palatino-Italic", "Palatino-Italic"
+@map font 27 to "Palatino-Roman", "Palatino-Roman"
+@map font 12 to "Symbol", "Symbol"
+@map font 2 to "Times-Bold", "Times-Bold"
+@map font 3 to "Times-BoldItalic", "Times-BoldItalic"
+@map font 1 to "Times-Italic", "Times-Italic"
+@map font 4 to "Times-Roman", "Times-Roman"
+@map font 33 to "ZapfChancery-MediumItalic", "ZapfChancery-MediumItalic"
+@map font 13 to "ZapfDingbats", "ZapfDingbats"
+@map font 35 to "CharterBT-Bold", "CharterBT-Bold"
+@map font 36 to "CharterBT-BoldItalic", "CharterBT-BoldItalic"
+@map font 37 to "CharterBT-Italic", "CharterBT-Italic"
+@map font 38 to "CharterBT-Roman", "CharterBT-Roman"
+@map font 39 to "Hershey-Gothic-English", "Hershey-Gothic-English"
+@map font 40 to "Hershey-Gothic-German", "Hershey-Gothic-German"
+@map font 41 to "Hershey-Gothic-Italian", "Hershey-Gothic-Italian"
+@map font 42 to "Hershey-Plain-Duplex", "Hershey-Plain-Duplex"
+@map font 43 to "Hershey-Plain-Duplex-Italic", "Hershey-Plain-Duplex-Italic"
+@map font 44 to "Hershey-Plain-Triplex", "Hershey-Plain-Triplex"
+@map font 45 to "Hershey-Plain-Triplex-Italic", "Hershey-Plain-Triplex-Italic"
+@map font 46 to "Hershey-Script-Complex", "Hershey-Script-Complex"
+@map font 47 to "Hershey-Script-Simplex", "Hershey-Script-Simplex"
+@map font 48 to "Utopia-Bold", "Utopia-Bold"
+@map font 49 to "Utopia-BoldItalic", "Utopia-BoldItalic"
+@map font 50 to "Utopia-Italic", "Utopia-Italic"
+@map font 51 to "Utopia-Regular", "Utopia-Regular"
+@map color 0 to (255, 255, 255), "white"
+@map color 1 to (0, 0, 0), "black"
+@map color 2 to (0, 127, 0), "red"
+@map color 3 to (0, 0, 255), "blue"
+@map color 4 to (255, 0, 0), "green"
+@map color 5 to (255, 255, 0), "yellow"
+@map color 6 to (188, 143, 143), "brown"
+@map color 7 to (220, 220, 220), "grey"
+@map color 8 to (148, 0, 211), "violet"
+@map color 9 to (0, 255, 255), "cyan"
+@map color 10 to (255, 0, 255), "magenta"
+@map color 11 to (255, 165, 0), "orange"
+@map color 12 to (114, 33, 188), "indigo"
+@map color 13 to (103, 7, 72), "maroon"
+@map color 14 to (64, 224, 208), "turquoise"
+@map color 15 to (0, 139, 0), "green4"
+@reference date 0
+@date wrap off
+@date wrap year 1950
+@default linewidth 1.0
+@default linestyle 1
+@default color 1
+@default pattern 1
+@default font 0
+@default char size 1.000000
+@default symbol size 1.000000
+@default sformat "%.8g"
+@background color 0
+@page background fill on
+@timestamp off
+@timestamp 0.03, 0.03
+@timestamp color 1
+@timestamp rot 0
+@timestamp font 0
+@timestamp char size 1.000000
+@timestamp def "Tue Feb 13 15:42:58 2007"
+@r0 off
+@link r0 to g0
+@r0 type above
+@r0 linestyle 1
+@r0 linewidth 1.0
+@r0 color 1
+@r0 line 0, 0, 0, 0
+@r1 off
+@link r1 to g0
+@r1 type above
+@r1 linestyle 1
+@r1 linewidth 1.0
+@r1 color 1
+@r1 line 0, 0, 0, 0
+@r2 off
+@link r2 to g0
+@r2 type above
+@r2 linestyle 1
+@r2 linewidth 1.0
+@r2 color 1
+@r2 line 0, 0, 0, 0
+@r3 off
+@link r3 to g0
+@r3 type above
+@r3 linestyle 1
+@r3 linewidth 1.0
+@r3 color 1
+@r3 line 0, 0, 0, 0
+@r4 off
+@link r4 to g0
+@r4 type above
+@r4 linestyle 1
+@r4 linewidth 1.0
+@r4 color 1
+@r4 line 0, 0, 0, 0
+@g0 on
+@g0 hidden false
+@g0 type XY
+@g0 stacked false
+@g0 bar hgap 0.000000
+@g0 fixedpoint off
+@g0 fixedpoint type 0
+@g0 fixedpoint xy 0.000000, 630658.307210
+@g0 fixedpoint format general general
+@g0 fixedpoint prec 6, 6
+@with g0
+@    world 0, -60000, 3e-10, 900000
+@    stack world 0, 3e-10, -60000, 900000
+@    znorm 1
+@    view 0.150000, 0.150000, 1.150000, 0.850000
+@    title ""
+@    title font 0
+@    title size 1.520000
+@    title color 1
+@    subtitle ""
+@    subtitle font 0
+@    subtitle size 1.000000
+@    subtitle color 1
+@    xaxes scale Normal
+@    yaxes scale Normal
+@    xaxes invert off
+@    yaxes invert off
+@    xaxis  on
+@    xaxis  type zero false
+@    xaxis  offset 0.000000 , 0.000000
+@    xaxis  bar on
+@    xaxis  bar color 1
+@    xaxis  bar linestyle 1
+@    xaxis  bar linewidth 1.0
+@    xaxis  label "time (ns)"
+@    xaxis  label layout para
+@    xaxis  label place auto
+@    xaxis  label char size 1.800000
+@    xaxis  label font 0
+@    xaxis  label color 1
+@    xaxis  label place normal
+@    xaxis  tick on
+@    xaxis  tick major 1e-10
+@    xaxis  tick minor ticks 1
+@    xaxis  tick default 6
+@    xaxis  tick place rounded true
+@    xaxis  tick in
+@    xaxis  tick major size 1.000000
+@    xaxis  tick major color 1
+@    xaxis  tick major linewidth 1.0
+@    xaxis  tick major linestyle 1
+@    xaxis  tick major grid off
+@    xaxis  tick minor color 1
+@    xaxis  tick minor linewidth 1.0
+@    xaxis  tick minor linestyle 1
+@    xaxis  tick minor grid off
+@    xaxis  tick minor size 0.500000
+@    xaxis  ticklabel on
+@    xaxis  ticklabel format general
+@    xaxis  ticklabel prec 5
+@    xaxis  ticklabel formula "$t*1e9"
+@    xaxis  ticklabel append ""
+@    xaxis  ticklabel prepend ""
+@    xaxis  ticklabel angle 0
+@    xaxis  ticklabel skip 0
+@    xaxis  ticklabel stagger 0
+@    xaxis  ticklabel place normal
+@    xaxis  ticklabel offset auto
+@    xaxis  ticklabel offset 0.000000 , 0.010000
+@    xaxis  ticklabel start type auto
+@    xaxis  ticklabel start 0.000000
+@    xaxis  ticklabel stop type auto
+@    xaxis  ticklabel stop 0.000000
+@    xaxis  ticklabel char size 1.600000
+@    xaxis  ticklabel font 0
+@    xaxis  ticklabel color 1
+@    xaxis  tick place both
+@    xaxis  tick spec type none
+@    yaxis  on
+@    yaxis  type zero false
+@    yaxis  offset 0.000000 , 0.000000
+@    yaxis  bar on
+@    yaxis  bar color 1
+@    yaxis  bar linestyle 1
+@    yaxis  bar linewidth 1.0
+@    yaxis  label "(10\S6\N A/m)"
+@    yaxis  label layout para
+@    yaxis  label place auto
+@    yaxis  label char size 1.480000
+@    yaxis  label font 0
+@    yaxis  label color 1
+@    yaxis  label place normal
+@    yaxis  tick on
+@    yaxis  tick major 200000
+@    yaxis  tick minor ticks 1
+@    yaxis  tick default 6
+@    yaxis  tick place rounded true
+@    yaxis  tick in
+@    yaxis  tick major size 1.000000
+@    yaxis  tick major color 1
+@    yaxis  tick major linewidth 1.0
+@    yaxis  tick major linestyle 1
+@    yaxis  tick major grid off
+@    yaxis  tick minor color 1
+@    yaxis  tick minor linewidth 1.0
+@    yaxis  tick minor linestyle 1
+@    yaxis  tick minor grid off
+@    yaxis  tick minor size 0.500000
+@    yaxis  ticklabel on
+@    yaxis  ticklabel format general
+@    yaxis  ticklabel prec 5
+@    yaxis  ticklabel formula "$t/1000000"
+@    yaxis  ticklabel append ""
+@    yaxis  ticklabel prepend ""
+@    yaxis  ticklabel angle 0
+@    yaxis  ticklabel skip 0
+@    yaxis  ticklabel stagger 0
+@    yaxis  ticklabel place normal
+@    yaxis  ticklabel offset auto
+@    yaxis  ticklabel offset 0.000000 , 0.010000
+@    yaxis  ticklabel start type auto
+@    yaxis  ticklabel start 0.000000
+@    yaxis  ticklabel stop type auto
+@    yaxis  ticklabel stop 0.000000
+@    yaxis  ticklabel char size 1.600000
+@    yaxis  ticklabel font 0
+@    yaxis  ticklabel color 1
+@    yaxis  tick place both
+@    yaxis  tick spec type none
+@    altxaxis  off
+@    altyaxis  off
+@    legend on
+@    legend loctype view
+@    legend 0.85, 0.8
+@    legend box color 1
+@    legend box pattern 1
+@    legend box linewidth 1.0
+@    legend box linestyle 1
+@    legend box fill color 0
+@    legend box fill pattern 1
+@    legend font 0
+@    legend char size 1.820000
+@    legend color 1
+@    legend length 4
+@    legend vgap 1
+@    legend hgap 1
+@    legend invert false
+@    frame type 0
+@    frame linestyle 1
+@    frame linewidth 1.0
+@    frame color 1
+@    frame pattern 1
+@    frame background color 0
+@    frame background pattern 0
+@    s0 hidden false
+@    s0 type xy
+@    s0 symbol 0
+@    s0 symbol size 0.800000
+@    s0 symbol color 1
+@    s0 symbol pattern 1
+@    s0 symbol fill color 1
+@    s0 symbol fill pattern 0
+@    s0 symbol linewidth 2.0
+@    s0 symbol linestyle 1
+@    s0 symbol char 65
+@    s0 symbol char font 0
+@    s0 symbol skip 0
+@    s0 line type 1
+@    s0 line linestyle 1
+@    s0 line linewidth 2.0
+@    s0 line color 4
+@    s0 line pattern 1
+@    s0 baseline type 0
+@    s0 baseline off
+@    s0 dropline off
+@    s0 fill type 0
+@    s0 fill rule 0
+@    s0 fill color 1
+@    s0 fill pattern 1
+@    s0 avalue off
+@    s0 avalue type 2
+@    s0 avalue char size 1.000000
+@    s0 avalue font 0
+@    s0 avalue color 1
+@    s0 avalue rot 0
+@    s0 avalue format general
+@    s0 avalue prec 3
+@    s0 avalue prepend ""
+@    s0 avalue append ""
+@    s0 avalue offset 0.000000 , 0.000000
+@    s0 errorbar on
+@    s0 errorbar place both
+@    s0 errorbar color 1
+@    s0 errorbar pattern 1
+@    s0 errorbar size 1.000000
+@    s0 errorbar linewidth 1.0
+@    s0 errorbar linestyle 1
+@    s0 errorbar riser linewidth 1.0
+@    s0 errorbar riser linestyle 1
+@    s0 errorbar riser clip off
+@    s0 errorbar riser clip length 0.100000
+@    s0 comment "Cols 1:2"
+@    s0 legend  "OOMMF"
+@    s1 hidden false
+@    s1 type xy
+@    s1 symbol 0
+@    s1 symbol size 0.800000
+@    s1 symbol color 1
+@    s1 symbol pattern 1
+@    s1 symbol fill color 2
+@    s1 symbol fill pattern 0
+@    s1 symbol linewidth 2.0
+@    s1 symbol linestyle 1
+@    s1 symbol char 65
+@    s1 symbol char font 0
+@    s1 symbol skip 0
+@    s1 line type 1
+@    s1 line linestyle 1
+@    s1 line linewidth 2.0
+@    s1 line color 4
+@    s1 line pattern 1
+@    s1 baseline type 0
+@    s1 baseline off
+@    s1 dropline off
+@    s1 fill type 0
+@    s1 fill rule 0
+@    s1 fill color 1
+@    s1 fill pattern 1
+@    s1 avalue off
+@    s1 avalue type 2
+@    s1 avalue char size 1.000000
+@    s1 avalue font 0
+@    s1 avalue color 1
+@    s1 avalue rot 0
+@    s1 avalue format general
+@    s1 avalue prec 3
+@    s1 avalue prepend ""
+@    s1 avalue append ""
+@    s1 avalue offset 0.000000 , 0.000000
+@    s1 errorbar on
+@    s1 errorbar place both
+@    s1 errorbar color 2
+@    s1 errorbar pattern 1
+@    s1 errorbar size 1.000000
+@    s1 errorbar linewidth 1.0
+@    s1 errorbar linestyle 1
+@    s1 errorbar riser linewidth 1.0
+@    s1 errorbar riser linestyle 1
+@    s1 errorbar riser clip off
+@    s1 errorbar riser clip length 0.100000
+@    s1 comment "Cols 1:3"
+@    s1 legend  ""
+@    s2 hidden false
+@    s2 type xy
+@    s2 symbol 0
+@    s2 symbol size 0.800000
+@    s2 symbol color 1
+@    s2 symbol pattern 1
+@    s2 symbol fill color 3
+@    s2 symbol fill pattern 0
+@    s2 symbol linewidth 2.0
+@    s2 symbol linestyle 1
+@    s2 symbol char 65
+@    s2 symbol char font 0
+@    s2 symbol skip 0
+@    s2 line type 1
+@    s2 line linestyle 1
+@    s2 line linewidth 2.0
+@    s2 line color 4
+@    s2 line pattern 1
+@    s2 baseline type 0
+@    s2 baseline off
+@    s2 dropline off
+@    s2 fill type 0
+@    s2 fill rule 0
+@    s2 fill color 1
+@    s2 fill pattern 1
+@    s2 avalue off
+@    s2 avalue type 2
+@    s2 avalue char size 1.000000
+@    s2 avalue font 0
+@    s2 avalue color 1
+@    s2 avalue rot 0
+@    s2 avalue format general
+@    s2 avalue prec 3
+@    s2 avalue prepend ""
+@    s2 avalue append ""
+@    s2 avalue offset 0.000000 , 0.000000
+@    s2 errorbar on
+@    s2 errorbar place both
+@    s2 errorbar color 3
+@    s2 errorbar pattern 1
+@    s2 errorbar size 1.000000
+@    s2 errorbar linewidth 1.0
+@    s2 errorbar linestyle 1
+@    s2 errorbar riser linewidth 1.0
+@    s2 errorbar riser linestyle 1
+@    s2 errorbar riser clip off
+@    s2 errorbar riser clip length 0.100000
+@    s2 comment "Cols 1:4"
+@    s2 legend  ""
+@    s3 hidden false
+@    s3 type xy
+@    s3 symbol 8
+@    s3 symbol size 0.800000
+@    s3 symbol color 2
+@    s3 symbol pattern 1
+@    s3 symbol fill color 2
+@    s3 symbol fill pattern 1
+@    s3 symbol linewidth 2.0
+@    s3 symbol linestyle 1
+@    s3 symbol char 65
+@    s3 symbol char font 0
+@    s3 symbol skip 20
+@    s3 line type 1
+@    s3 line linestyle 1
+@    s3 line linewidth 1.0
+@    s3 line color 2
+@    s3 line pattern 1
+@    s3 baseline type 0
+@    s3 baseline off
+@    s3 dropline off
+@    s3 fill type 0
+@    s3 fill rule 0
+@    s3 fill color 1
+@    s3 fill pattern 1
+@    s3 avalue off
+@    s3 avalue type 2
+@    s3 avalue char size 1.000000
+@    s3 avalue font 0
+@    s3 avalue color 1
+@    s3 avalue rot 0
+@    s3 avalue format general
+@    s3 avalue prec 3
+@    s3 avalue prepend ""
+@    s3 avalue append ""
+@    s3 avalue offset 0.000000 , 0.000000
+@    s3 errorbar on
+@    s3 errorbar place both
+@    s3 errorbar color 2
+@    s3 errorbar pattern 1
+@    s3 errorbar size 1.000000
+@    s3 errorbar linewidth 1.0
+@    s3 errorbar linestyle 1
+@    s3 errorbar riser linewidth 1.0
+@    s3 errorbar riser linestyle 1
+@    s3 errorbar riser clip off
+@    s3 errorbar riser clip length 0.100000
+@    s3 comment "Cols 1:2"
+@    s3 legend  "Magpar"
+@    s4 hidden false
+@    s4 type xy
+@    s4 symbol 8
+@    s4 symbol size 0.800000
+@    s4 symbol color 2
+@    s4 symbol pattern 1
+@    s4 symbol fill color 4
+@    s4 symbol fill pattern 0
+@    s4 symbol linewidth 2.0
+@    s4 symbol linestyle 1
+@    s4 symbol char 65
+@    s4 symbol char font 0
+@    s4 symbol skip 20
+@    s4 line type 1
+@    s4 line linestyle 1
+@    s4 line linewidth 1.0
+@    s4 line color 2
+@    s4 line pattern 1
+@    s4 baseline type 0
+@    s4 baseline off
+@    s4 dropline off
+@    s4 fill type 0
+@    s4 fill rule 0
+@    s4 fill color 1
+@    s4 fill pattern 1
+@    s4 avalue off
+@    s4 avalue type 2
+@    s4 avalue char size 1.000000
+@    s4 avalue font 0
+@    s4 avalue color 1
+@    s4 avalue rot 0
+@    s4 avalue format general
+@    s4 avalue prec 3
+@    s4 avalue prepend ""
+@    s4 avalue append ""
+@    s4 avalue offset 0.000000 , 0.000000
+@    s4 errorbar on
+@    s4 errorbar place both
+@    s4 errorbar color 4
+@    s4 errorbar pattern 1
+@    s4 errorbar size 1.000000
+@    s4 errorbar linewidth 1.0
+@    s4 errorbar linestyle 1
+@    s4 errorbar riser linewidth 1.0
+@    s4 errorbar riser linestyle 1
+@    s4 errorbar riser clip off
+@    s4 errorbar riser clip length 0.100000
+@    s4 comment "Cols 1:3"
+@    s4 legend  ""
+@    s5 hidden false
+@    s5 type xy
+@    s5 symbol 8
+@    s5 symbol size 0.800000
+@    s5 symbol color 2
+@    s5 symbol pattern 1
+@    s5 symbol fill color 4
+@    s5 symbol fill pattern 0
+@    s5 symbol linewidth 2.0
+@    s5 symbol linestyle 1
+@    s5 symbol char 65
+@    s5 symbol char font 0
+@    s5 symbol skip 20
+@    s5 line type 1
+@    s5 line linestyle 1
+@    s5 line linewidth 1.0
+@    s5 line color 2
+@    s5 line pattern 1
+@    s5 baseline type 0
+@    s5 baseline off
+@    s5 dropline off
+@    s5 fill type 0
+@    s5 fill rule 0
+@    s5 fill color 1
+@    s5 fill pattern 1
+@    s5 avalue off
+@    s5 avalue type 2
+@    s5 avalue char size 1.000000
+@    s5 avalue font 0
+@    s5 avalue color 1
+@    s5 avalue rot 0
+@    s5 avalue format general
+@    s5 avalue prec 3
+@    s5 avalue prepend "M"
+@    s5 avalue append ""
+@    s5 avalue offset 0.000000 , 0.000000
+@    s5 errorbar on
+@    s5 errorbar place both
+@    s5 errorbar color 4
+@    s5 errorbar pattern 1
+@    s5 errorbar size 1.000000
+@    s5 errorbar linewidth 1.0
+@    s5 errorbar linestyle 1
+@    s5 errorbar riser linewidth 1.0
+@    s5 errorbar riser linestyle 1
+@    s5 errorbar riser clip off
+@    s5 errorbar riser clip length 0.100000
+@    s5 comment "Cols 1:4"
+@    s5 legend  ""
+@    s6 hidden false
+@    s6 type xy
+@    s6 symbol 9
+@    s6 symbol size 0.800000
+@    s6 symbol color 3
+@    s6 symbol pattern 1
+@    s6 symbol fill color 7
+@    s6 symbol fill pattern 0
+@    s6 symbol linewidth 1.0
+@    s6 symbol linestyle 1
+@    s6 symbol char 65
+@    s6 symbol char font 0
+@    s6 symbol skip 0
+@    s6 line type 1
+@    s6 line linestyle 1
+@    s6 line linewidth 1.0
+@    s6 line color 3
+@    s6 line pattern 1
+@    s6 baseline type 0
+@    s6 baseline off
+@    s6 dropline off
+@    s6 fill type 0
+@    s6 fill rule 0
+@    s6 fill color 1
+@    s6 fill pattern 1
+@    s6 avalue off
+@    s6 avalue type 2
+@    s6 avalue char size 1.000000
+@    s6 avalue font 0
+@    s6 avalue color 1
+@    s6 avalue rot 0
+@    s6 avalue format general
+@    s6 avalue prec 3
+@    s6 avalue prepend ""
+@    s6 avalue append ""
+@    s6 avalue offset 0.000000 , 0.000000
+@    s6 errorbar on
+@    s6 errorbar place both
+@    s6 errorbar color 7
+@    s6 errorbar pattern 1
+@    s6 errorbar size 1.000000
+@    s6 errorbar linewidth 1.0
+@    s6 errorbar linestyle 1
+@    s6 errorbar riser linewidth 1.0
+@    s6 errorbar riser linestyle 1
+@    s6 errorbar riser clip off
+@    s6 errorbar riser clip length 0.100000
+@    s6 comment "Cols 1:2"
+@    s6 legend  "Nmag"
+@    s7 hidden false
+@    s7 type xy
+@    s7 symbol 9
+@    s7 symbol size 0.800000
+@    s7 symbol color 3
+@    s7 symbol pattern 1
+@    s7 symbol fill color 8
+@    s7 symbol fill pattern 0
+@    s7 symbol linewidth 1.0
+@    s7 symbol linestyle 1
+@    s7 symbol char 65
+@    s7 symbol char font 0
+@    s7 symbol skip 0
+@    s7 line type 1
+@    s7 line linestyle 1
+@    s7 line linewidth 1.0
+@    s7 line color 3
+@    s7 line pattern 1
+@    s7 baseline type 0
+@    s7 baseline off
+@    s7 dropline off
+@    s7 fill type 0
+@    s7 fill rule 0
+@    s7 fill color 1
+@    s7 fill pattern 1
+@    s7 avalue off
+@    s7 avalue type 2
+@    s7 avalue char size 1.000000
+@    s7 avalue font 0
+@    s7 avalue color 1
+@    s7 avalue rot 0
+@    s7 avalue format general
+@    s7 avalue prec 3
+@    s7 avalue prepend ""
+@    s7 avalue append ""
+@    s7 avalue offset 0.000000 , 0.000000
+@    s7 errorbar on
+@    s7 errorbar place both
+@    s7 errorbar color 8
+@    s7 errorbar pattern 1
+@    s7 errorbar size 1.000000
+@    s7 errorbar linewidth 1.0
+@    s7 errorbar linestyle 1
+@    s7 errorbar riser linewidth 1.0
+@    s7 errorbar riser linestyle 1
+@    s7 errorbar riser clip off
+@    s7 errorbar riser clip length 0.100000
+@    s7 comment "Cols 1:3"
+@    s7 legend  ""
+@    s8 hidden false
+@    s8 type xy
+@    s8 symbol 9
+@    s8 symbol size 0.800000
+@    s8 symbol color 3
+@    s8 symbol pattern 1
+@    s8 symbol fill color 9
+@    s8 symbol fill pattern 0
+@    s8 symbol linewidth 1.0
+@    s8 symbol linestyle 1
+@    s8 symbol char 65
+@    s8 symbol char font 0
+@    s8 symbol skip 0
+@    s8 line type 1
+@    s8 line linestyle 1
+@    s8 line linewidth 1.0
+@    s8 line color 3
+@    s8 line pattern 1
+@    s8 baseline type 0
+@    s8 baseline off
+@    s8 dropline off
+@    s8 fill type 0
+@    s8 fill rule 0
+@    s8 fill color 1
+@    s8 fill pattern 1
+@    s8 avalue off
+@    s8 avalue type 2
+@    s8 avalue char size 1.000000
+@    s8 avalue font 0
+@    s8 avalue color 1
+@    s8 avalue rot 0
+@    s8 avalue format general
+@    s8 avalue prec 3
+@    s8 avalue prepend ""
+@    s8 avalue append ""
+@    s8 avalue offset 0.000000 , 0.000000
+@    s8 errorbar on
+@    s8 errorbar place both
+@    s8 errorbar color 9
+@    s8 errorbar pattern 1
+@    s8 errorbar size 1.000000
+@    s8 errorbar linewidth 1.0
+@    s8 errorbar linestyle 1
+@    s8 errorbar riser linewidth 1.0
+@    s8 errorbar riser linestyle 1
+@    s8 errorbar riser clip off
+@    s8 errorbar riser clip length 0.100000
+@    s8 comment "Cols 1:4"
+@    s8 legend  ""
+@target G0.S0
+@type xy
+9.5530289e-16 608105.02
+9.8522543e-15 608041.56
+9.2711572e-14 607446.92
+6.7775979e-13 603065.81
+1.7868372e-12 593897.05
+3.6861516e-12 575730.7
+5.6157821e-12 554337.38
+6.742276e-12 540592.94
+7.7933157e-12 527011.62
+8.8439528e-12 512757.31
+9.8889079e-12 497957.08
+1.093148e-11 482620.7
+1.1973685e-11 466770.42
+1.3012629e-11 450503.21
+1.4053591e-11 433789.16
+1.5093099e-11 416737.32
+1.6109594e-11 399767.4
+1.7119593e-11 382670.44
+1.8124782e-11 365476.39
+1.9123756e-11 348267.5
+2.0119904e-11 331042.72
+2.1114991e-11 313828.06
+2.2117328e-11 296536.47
+2.3118033e-11 279378.34
+2.4114746e-11 262448.61
+2.5111314e-11 245734.39
+2.6107094e-11 229297.43
+2.7102101e-11 213185.37
+2.8096545e-11 197439.52
+2.9093687e-11 182051.54
+3.0089425e-11 167124.05
+3.108686e-11 152645.32
+3.2080629e-11 138722.32
+3.3070662e-11 125376.54
+3.4053515e-11 112667.42
+3.5028073e-11 100613.98
+3.6004435e-11 89099.032
+3.6979231e-11 78172.562
+3.7957122e-11 67790.028
+3.8940817e-11 57933.826
+3.9918545e-11 48722.384
+4.089978e-11 40061.331
+4.1879124e-11 31994.67
+4.2856171e-11 24514.397
+4.3833309e-11 17590.4
+4.4814353e-11 11187.04
+4.5796671e-11 5312.151
+4.6782706e-11 -60.393595
+4.7777142e-11 -4963.8539
+4.8772518e-11 -9372.7641
+4.9760749e-11 -13275.488
+5.0751699e-11 -16735.064
+5.1741856e-11 -19759.195
+5.2734115e-11 -22377.993
+5.3720384e-11 -24594.669
+5.4707794e-11 -26450.827
+5.56951e-11 -27966.277
+5.6683401e-11 -29165.116
+5.7673664e-11 -30070.021
+5.8661936e-11 -30700.047
+5.9651115e-11 -31080.027
+6.0640419e-11 -31231.412
+6.1632269e-11 -31175.516
+6.2622414e-11 -30933.585
+6.3610921e-11 -30527.23
+6.4600345e-11 -29975.642
+6.5589697e-11 -29298.54
+6.6579527e-11 -28514.126
+6.7565657e-11 -27643.979
+6.8553083e-11 -26700.999
+6.9539814e-11 -25703.127
+7.0528094e-11 -24663.335
+7.1516584e-11 -23597.386
+7.2505713e-11 -22518.404
+7.3493169e-11 -21441.63
+7.4481842e-11 -20375.745
+7.5470352e-11 -19333.211
+7.646008e-11 -18322.705
+7.7446613e-11 -17357.831
+7.8433648e-11 -16443.116
+7.9420942e-11 -15586.33
+8.0408112e-11 -14794.49
+8.1394631e-11 -14073.807
+8.238028e-11 -13429.358
+8.3365039e-11 -12865.268
+8.4350593e-11 -12384.149
+8.5336503e-11 -11989.261
+8.632337e-11 -11682.767
+8.730871e-11 -11466.958
+8.8294716e-11 -11342.195
+8.9281014e-11 -11309.05
+9.0267018e-11 -11367.375
+9.1252727e-11 -11516.4
+9.223621e-11 -11754.318
+9.3221254e-11 -12080.305
+9.4205267e-11 -12491.531
+9.5190136e-11 -12986.305
+9.6172956e-11 -13560.226
+9.7156525e-11 -14211.631
+9.8140943e-11 -14937.346
+9.9123921e-11 -15731.938
+1.0010974e-10 -16595.06
+1.0109262e-10 -17517.547
+1.0207773e-10 -18499.834
+1.030614e-10 -19533.898
+1.0404671e-10 -20618.409
+1.0503056e-10 -21745.316
+1.0601423e-10 -22911.229
+1.0699904e-10 -24113.02
+1.0798236e-10 -25342.672
+1.0896731e-10 -26599.335
+1.0995008e-10 -27873.377
+1.1093524e-10 -29166.051
+1.1191877e-10 -30467.458
+1.1290445e-10 -31778.075
+1.1388802e-10 -33087.822
+1.1487364e-10 -34397.889
+1.158578e-10 -35699.438
+1.1684342e-10 -36992.293
+1.1782799e-10 -38269.271
+1.1881249e-10 -39527.966
+1.1979826e-10 -40766.501
+1.2078206e-10 -41977.486
+1.2176815e-10 -43163.005
+1.2275149e-10 -44314.055
+1.237377e-10 -45434.427
+1.247218e-10 -46515.881
+1.2570872e-10 -47561.444
+1.2669298e-10 -48563.119
+1.276797e-10 -49524.214
+1.2866452e-10 -50438.692
+1.2965133e-10 -51308.614
+1.3063669e-10 -52129.575
+1.316221e-10 -52901.789
+1.3260841e-10 -53624.906
+1.335934e-10 -54296.562
+1.3458004e-10 -54918.192
+1.3556431e-10 -55486.905
+1.3655081e-10 -56005.159
+1.3753582e-10 -56470.859
+1.3852229e-10 -56885.502
+1.3950814e-10 -57248.383
+1.4049348e-10 -57560.012
+1.414801e-10 -57821.411
+1.4246543e-10 -58032.539
+1.4345219e-10 -58194.728
+1.4443729e-10 -58308.345
+1.4542308e-10 -58374.702
+1.4640871e-10 -58394.76
+1.4739443e-10 -58369.671
+1.4837988e-10 -58300.671
+1.4936478e-10 -58189.115
+1.5035033e-10 -58036.209
+1.5133558e-10 -57843.471
+1.523215e-10 -57612.129
+1.5330691e-10 -57343.928
+1.5429249e-10 -57040.212
+1.552781e-10 -56702.544
+1.56264e-10 -56332.366
+1.5724963e-10 -55931.451
+1.582349e-10 -55501.423
+1.5922055e-10 -55043.527
+1.6020594e-10 -54559.613
+1.6119167e-10 -54050.921
+1.6217636e-10 -53519.725
+1.6316201e-10 -52966.455
+1.6414679e-10 -52393.617
+1.6513273e-10 -51801.485
+1.661179e-10 -51192.625
+1.671036e-10 -50567.638
+1.6808875e-10 -49928.552
+1.6907455e-10 -49275.92
+1.7006011e-10 -48611.582
+1.7104538e-10 -47936.814
+1.7203064e-10 -47252.616
+1.7301591e-10 -46560.104
+1.7400147e-10 -45860.175
+1.7498635e-10 -45154.565
+1.7597157e-10 -44443.529
+1.7695659e-10 -43728.411
+1.7794184e-10 -43009.776
+1.7892752e-10 -42288.341
+1.7991253e-10 -41565.693
+1.8089846e-10 -40841.413
+1.8188327e-10 -40117.709
+1.8286961e-10 -39393.289
+1.838547e-10 -38670.794
+1.8484033e-10 -37949.477
+1.8582567e-10 -37230.472
+1.868112e-10 -36513.89
+1.8779688e-10 -35800.215
+1.887818e-10 -35090.485
+1.8976749e-10 -34383.963
+1.9075261e-10 -33681.933
+1.917383e-10 -32983.87
+1.9272393e-10 -32290.478
+1.9370951e-10 -31601.97
+1.9469523e-10 -30918.409
+1.956811e-10 -30239.959
+1.9666666e-10 -29567.073
+1.9765266e-10 -28899.354
+1.9863806e-10 -28237.601
+1.9962405e-10 -27581.085
+2.0060952e-10 -26930.605
+2.0159527e-10 -26285.656
+2.0258119e-10 -25646.337
+2.0356643e-10 -25013.205
+2.0455264e-10 -24385.195
+2.0553786e-10 -23763.534
+2.0652418e-10 -23146.872
+2.0750961e-10 -22536.422
+2.0849565e-10 -21931.205
+2.0948141e-10 -21331.73
+2.1046714e-10 -20737.778
+2.1145338e-10 -20148.97
+2.1243845e-10 -19566.248
+2.1342504e-10 -18987.957
+2.144099e-10 -18415.943
+2.1539665e-10 -17848.033
+2.1638129e-10 -17286.465
+2.1736796e-10 -16728.826
+2.1835285e-10 -16177.211
+2.1933925e-10 -15629.712
+2.2032452e-10 -15087.753
+2.2131055e-10 -14550.242
+2.2229622e-10 -14017.75
+2.2328188e-10 -13490.039
+2.2426789e-10 -12966.892
+2.2525311e-10 -12448.882
+2.2623945e-10 -11934.977
+2.272244e-10 -11426.467
+2.2821089e-10 -10921.83
+2.2919556e-10 -10422.769
+2.3018215e-10 -9927.3918
+2.3116684e-10 -9437.6234
+2.3215333e-10 -8951.6192
+2.3313821e-10 -8471.0878
+2.3412447e-10 -7994.5776
+2.3510963e-10 -7523.317
+2.3609562e-10 -7056.4141
+2.3708107e-10 -6594.5447
+2.3806666e-10 -6137.4249
+2.3905243e-10 -5685.0866
+2.4003771e-10 -5237.873
+2.4102373e-10 -4795.2848
+2.4200869e-10 -4358.1719
+2.4299489e-10 -3925.57
+2.439797e-10 -3498.6912
+2.4496599e-10 -3076.3464
+2.459508e-10 -2659.8745
+2.4693707e-10 -2248.0852
+2.4792193e-10 -1842.2446
+2.4890811e-10 -1441.2901
+2.4989312e-10 -1046.3025
+2.5087907e-10 -656.50056
+2.5186424e-10 -272.62877
+2.5284998e-10 105.77496
+2.5383538e-10 478.29372
+2.5482083e-10 845.01327
+2.5580642e-10 1205.9049
+2.5679165e-10 1560.7254
+2.5777748e-10 1909.7578
+2.5876259e-10 2252.4779
+2.5974853e-10 2589.3723
+2.6073362e-10 2919.811
+2.6171954e-10 3244.3079
+2.6270475e-10 3562.3056
+2.6369053e-10 3874.1731
+2.6467587e-10 4179.5518
+2.6566145e-10 4478.6107
+2.6664693e-10 4771.2089
+2.6763244e-10 5057.3605
+2.6861791e-10 5337.0096
+2.6960341e-10 5610.1549
+2.7058888e-10 5876.7549
+2.7157457e-10 6136.8591
+2.7255995e-10 6390.3153
+2.7354575e-10 6637.2993
+2.745311e-10 6877.5855
+2.7551698e-10 7111.409
+2.7650236e-10 7338.5273
+2.7748814e-10 7559.1533
+2.7847367e-10 7773.148
+2.7945928e-10 7980.5959
+2.80445e-10 8181.5196
+2.8143035e-10 8375.8395
+2.8241623e-10 8563.7556
+2.8340151e-10 8745.0794
+2.8438742e-10 8920.0671
+2.8537269e-10 9088.5274
+2.8635858e-10 9250.7084
+2.8734405e-10 9406.4798
+2.8832975e-10 9555.9852
+2.8931541e-10 9699.2295
+2.9030083e-10 9836.2335
+2.9128689e-10 9967.1673
+2.9227197e-10 10091.869
+2.932583e-10 10210.677
+2.942431e-10 10323.317
+2.9522966e-10 10430.222
+2.9621434e-10 10531.062
+2.9720094e-10 10626.291
+2.9818567e-10 10715.609
+2.9917214e-10 10799.411
+3.0015707e-10 10877.49
+3.0114332e-10 10950.143
+3.0212855e-10 11017.269
+3.0311447e-10 11079.063
+3.0410002e-10 11135.53
+3.050856e-10 11186.773
+&
+@target G0.S1
+@type xy
+9.5530289e-16 19.260441
+9.8522543e-15 198.6273
+9.2711572e-14 1868.2361
+6.7775979e-13 13606.672
+1.7868372e-12 35554.661
+3.6861516e-12 71945.754
+5.6157821e-12 106929.11
+6.742276e-12 126237.89
+7.7933157e-12 143456.23
+8.8439528e-12 159855.88
+9.8889079e-12 175323.55
+1.093148e-11 189885.65
+1.1973685e-11 203546.29
+1.3012629e-11 216249.09
+1.4053591e-11 228041.29
+1.5093099e-11 238867.46
+1.6109594e-11 248524.65
+1.7119593e-11 257203.46
+1.8124782e-11 264930.34
+1.9123756e-11 271709.42
+2.0119904e-11 277579.64
+2.1114991e-11 282563.84
+2.2117328e-11 286706.69
+2.3118033e-11 289978.56
+2.4114746e-11 292397.37
+2.5111314e-11 293999.85
+2.6107094e-11 294811.52
+2.7102101e-11 294862.91
+2.8096545e-11 294187.18
+2.9093687e-11 292814.28
+3.0089425e-11 290785.18
+3.108686e-11 288132.23
+3.2080629e-11 284911.64
+3.3070662e-11 281171.2
+3.4053515e-11 276973.88
+3.5028073e-11 272376.59
+3.6004435e-11 267376.85
+3.6979231e-11 262032.08
+3.7957122e-11 256356.13
+3.8940817e-11 250369.05
+3.9918545e-11 244181.46
+4.089978e-11 237772.53
+4.1879124e-11 231213.83
+4.2856171e-11 224544.5
+4.3833309e-11 217782.57
+4.4814353e-11 210933.61
+4.5796671e-11 204046.7
+4.6782706e-11 197134.23
+4.7777142e-11 190191.93
+4.8772518e-11 183299.35
+4.9760749e-11 176536.97
+5.0751699e-11 169859.79
+5.1741856e-11 163313.02
+5.2734115e-11 156897.22
+5.3720384e-11 150681.41
+5.4707794e-11 144635.07
+5.56951e-11 138779.98
+5.6683401e-11 133122.07
+5.7673664e-11 127667.25
+5.8661936e-11 122446.25
+5.9651115e-11 117450.63
+6.0640419e-11 112690.49
+6.1632269e-11 108159.36
+6.2622414e-11 103879.91
+6.3610921e-11 99852.079
+6.4600345e-11 96065.353
+6.5589697e-11 92522.812
+6.6579527e-11 89220.478
+6.7565657e-11 86167.945
+6.8553083e-11 83344.632
+6.9539814e-11 80751.389
+7.0528094e-11 78376.678
+7.1516584e-11 76217.654
+7.2505713e-11 74266.309
+7.3493169e-11 72518.971
+7.4481842e-11 70961.907
+7.5470352e-11 69588.712
+7.646008e-11 68388.451
+7.7446613e-11 67356.429
+7.8433648e-11 66478.281
+7.9420942e-11 65744.437
+8.0408112e-11 65145.118
+8.1394631e-11 64670.341
+8.238028e-11 64309.78
+8.3365039e-11 64053.057
+8.4350593e-11 63889.697
+8.5336503e-11 63810.043
+8.632337e-11 63804.45
+8.730871e-11 63863.327
+8.8294716e-11 63977.39
+8.9281014e-11 64137.605
+9.0267018e-11 64335.092
+9.1252727e-11 64561.342
+9.223621e-11 64807.697
+9.3221254e-11 65067.308
+9.4205267e-11 65332.107
+9.5190136e-11 65595.566
+9.6172956e-11 65850.285
+9.7156525e-11 66090.775
+9.8140943e-11 66311.184
+9.9123921e-11 66505.587
+1.0010974e-10 66669.738
+1.0109262e-10 66798.053
+1.0207773e-10 66887.029
+1.030614e-10 66932.469
+1.0404671e-10 66931.089
+1.0503056e-10 66879.854
+1.0601423e-10 66776.197
+1.0699904e-10 66617.649
+1.0798236e-10 66402.781
+1.0896731e-10 66129.377
+1.0995008e-10 65797.368
+1.1093524e-10 65404.358
+1.1191877e-10 64951.362
+1.1290445e-10 64436.391
+1.1388802e-10 63861.736
+1.1487364e-10 63225.367
+1.158578e-10 62530.115
+1.1684342e-10 61774.81
+1.1782799e-10 60962.453
+1.1881249e-10 60093.667
+1.1979826e-10 59168.727
+1.2078206e-10 58192.443
+1.2176815e-10 57162.463
+1.2275149e-10 56086.12
+1.237377e-10 54959.482
+1.247218e-10 53790.462
+1.2570872e-10 52575.59
+1.2669298e-10 51324.129
+1.276797e-10 50032.162
+1.2866452e-10 48708.019
+1.2965133e-10 47349.203
+1.3063669e-10 45963.152
+1.316221e-10 44550.591
+1.3260841e-10 43113.042
+1.335934e-10 41656.545
+1.3458004e-10 40179.459
+1.3556431e-10 38690.577
+1.3655081e-10 37185.641
+1.3753582e-10 35673.007
+1.3852229e-10 34150.764
+1.3950814e-10 32624.681
+1.4049348e-10 31097.096
+1.414801e-10 29567.684
+1.4246543e-10 28042.746
+1.4345219e-10 26520.367
+1.4443729e-10 25007.5
+1.4542308e-10 23502.615
+1.4640871e-10 22009.006
+1.4739443e-10 20528.183
+1.4837988e-10 19062.485
+1.4936478e-10 17613.985
+1.5035033e-10 16182.535
+1.5133558e-10 14770.996
+1.523215e-10 13379.348
+1.5330691e-10 12010.553
+1.5429249e-10 10664.822
+1.552781e-10 9343.414
+1.56264e-10 8046.9396
+1.5724963e-10 6777.023
+1.582349e-10 5534.4925
+1.5922055e-10 4319.0972
+1.6020594e-10 3132.2087
+1.6119167e-10 1973.5664
+1.6217636e-10 845.17668
+1.6316201e-10 -254.9596
+1.6414679e-10 -1324.566
+1.6513273e-10 -2365.6813
+1.661179e-10 -3376.1783
+1.671036e-10 -4357.3921
+1.6808875e-10 -5308.3218
+1.6907455e-10 -6230.2196
+1.7006011e-10 -7122.4373
+1.7104538e-10 -7985.1812
+1.7203064e-10 -8818.9951
+1.7301591e-10 -9624.2367
+1.7400147e-10 -10401.49
+1.7498635e-10 -11150.418
+1.7597157e-10 -11872.272
+1.7695659e-10 -12567.119
+1.7794184e-10 -13235.785
+1.7892752e-10 -13878.896
+1.7991253e-10 -14496.311
+1.8089846e-10 -15089.59
+1.8188327e-10 -15658.092
+1.8286961e-10 -16203.932
+1.838547e-10 -16726.175
+1.8484033e-10 -17226.404
+1.8582567e-10 -17704.805
+1.868112e-10 -18162.239
+1.8779688e-10 -18599.285
+1.887818e-10 -19016.179
+1.8976749e-10 -19414.172
+1.9075261e-10 -19793.317
+1.917383e-10 -20154.646
+1.9272393e-10 -20498.494
+1.9370951e-10 -20825.44
+1.9469523e-10 -21136.1
+1.956811e-10 -21431.013
+1.9666666e-10 -21710.571
+1.9765266e-10 -21975.5
+1.9863806e-10 -22226.015
+1.9962405e-10 -22462.9
+2.0060952e-10 -22686.342
+2.0159527e-10 -22896.974
+2.0258119e-10 -23095.188
+2.0356643e-10 -23281.225
+2.0455264e-10 -23455.778
+2.0553786e-10 -23618.871
+2.0652418e-10 -23771.199
+2.0750961e-10 -23912.782
+2.0849565e-10 -24044.155
+2.0948141e-10 -24165.491
+2.1046714e-10 -24277.105
+2.1145338e-10 -24379.317
+2.1243845e-10 -24472.207
+2.1342504e-10 -24556.257
+2.144099e-10 -24631.409
+2.1539665e-10 -24698.141
+2.1638129e-10 -24756.375
+2.1736796e-10 -24806.531
+2.1835285e-10 -24848.577
+2.1933925e-10 -24882.811
+2.2032452e-10 -24909.276
+2.2131055e-10 -24928.16
+2.2229622e-10 -24939.559
+2.2328188e-10 -24943.596
+2.2426789e-10 -24940.374
+2.2525311e-10 -24929.999
+2.2623945e-10 -24912.542
+2.272244e-10 -24888.135
+2.2821089e-10 -24856.787
+2.2919556e-10 -24818.682
+2.3018215e-10 -24773.751
+2.3116684e-10 -24722.236
+2.3215333e-10 -24664.012
+2.3313821e-10 -24599.345
+2.3412447e-10 -24528.104
+2.3510963e-10 -24450.527
+2.3609562e-10 -24366.531
+2.3708107e-10 -24276.29
+2.3806666e-10 -24179.807
+2.3905243e-10 -24077.142
+2.4003771e-10 -23968.429
+2.4102373e-10 -23853.599
+2.4200869e-10 -23732.93
+2.4299489e-10 -23606.21
+2.439797e-10 -23473.849
+2.4496599e-10 -23335.535
+2.459508e-10 -23191.763
+2.4693707e-10 -23042.18
+2.4792193e-10 -22887.305
+2.4890811e-10 -22726.796
+2.4989312e-10 -22561.144
+2.5087907e-10 -22390.091
+2.5186424e-10 -22214.026
+2.5284998e-10 -22032.809
+2.5383538e-10 -21846.708
+2.5482083e-10 -21655.754
+2.5580642e-10 -21460.037
+2.5679165e-10 -21259.768
+2.5777748e-10 -21054.865
+2.5876259e-10 -20845.718
+2.5974853e-10 -20632.115
+2.6073362e-10 -20414.544
+2.6171954e-10 -20192.757
+2.6270475e-10 -19967.227
+2.6369053e-10 -19737.791
+2.6467587e-10 -19504.811
+2.6566145e-10 -19268.262
+2.6664693e-10 -19028.362
+2.6763244e-10 -18785.207
+2.6861791e-10 -18538.959
+2.6960341e-10 -18289.734
+2.7058888e-10 -18037.689
+2.7157457e-10 -17782.898
+2.7255995e-10 -17525.637
+2.7354575e-10 -17265.857
+2.745311e-10 -17003.929
+2.7551698e-10 -16739.734
+2.7650236e-10 -16473.687
+2.7748814e-10 -16205.685
+2.7847367e-10 -15936.047
+2.7945928e-10 -15664.822
+2.80445e-10 -15392.137
+2.8143035e-10 -15118.268
+2.8241623e-10 -14843.099
+2.8340151e-10 -14567.081
+2.8438742e-10 -14290.003
+2.8537269e-10 -14012.352
+2.8635858e-10 -13733.909
+2.8734405e-10 -13455.092
+2.8832975e-10 -13175.85
+2.8931541e-10 -12896.38
+2.9030083e-10 -12616.863
+2.9128689e-10 -12337.168
+2.9227197e-10 -12057.881
+2.932583e-10 -11778.482
+2.942431e-10 -11499.871
+2.9522966e-10 -11221.234
+2.9621434e-10 -10943.703
+2.9720094e-10 -10666.32
+2.9818567e-10 -10390.248
+2.9917214e-10 -10114.583
+3.0015707e-10 -9840.3363
+3.0114332e-10 -9566.8135
+3.0212855e-10 -9294.7512
+3.0311447e-10 -9023.7725
+3.0410002e-10 -8754.2568
+3.050856e-10 -8486.1804
+&
+@target G0.S2
+@type xy
+9.5530289e-16 608118.64
+9.8522543e-15 608182.04
+9.2711572e-14 608770.83
+6.7775979e-13 612847.71
+1.7868372e-12 620241.92
+3.6861516e-12 632086.24
+5.6157821e-12 643385.11
+6.742276e-12 649773.64
+7.7933157e-12 655629.79
+8.8439528e-12 661406.84
+9.8889079e-12 667094.26
+1.093148e-11 672721.35
+1.1973685e-11 678303.32
+1.3012629e-11 683823.39
+1.4053591e-11 689303.09
+1.5093099e-11 694713.82
+1.6109594e-11 699933.32
+1.7119593e-11 705035.31
+1.8124782e-11 710015.66
+1.9123756e-11 714855.5
+2.0119904e-11 719560.36
+2.1114991e-11 724128.52
+2.2117328e-11 728587.91
+2.3118033e-11 732891.19
+2.4114746e-11 737025.05
+2.5111314e-11 741004.09
+2.6107094e-11 744825.79
+2.7102101e-11 748492.22
+2.8096545e-11 752007.68
+2.9093687e-11 755387.71
+3.0089425e-11 758623.69
+3.108686e-11 761731.86
+3.2080629e-11 764702.63
+3.3070662e-11 767544.03
+3.4053515e-11 770254.85
+3.5028073e-11 772841.04
+3.6004435e-11 775336.45
+3.6979231e-11 777738.23
+3.7957122e-11 780063.02
+3.8940817e-11 782321.07
+3.9918545e-11 784490.02
+4.089978e-11 786595.17
+4.1879124e-11 788628.46
+4.2856171e-11 790592.67
+4.3833309e-11 792495.65
+4.4814353e-11 794346.93
+4.5796671e-11 796143.31
+4.6782706e-11 797890.81
+4.7777142e-11 799598.47
+4.8772518e-11 801254.38
+4.9760749e-11 802847.12
+5.0751699e-11 804394.24
+5.1741856e-11 805891.4
+5.2734115e-11 807344.09
+5.3720384e-11 808741.95
+5.4707794e-11 810096.54
+5.56951e-11 811407.2
+5.6683401e-11 812676.43
+5.7673664e-11 813906.39
+5.8661936e-11 815093.29
+5.9651115e-11 816241.77
+6.0640419e-11 817351.94
+6.1632269e-11 818427.45
+6.2622414e-11 819464.72
+6.3610921e-11 820465.08
+6.4600345e-11 821432.18
+6.5589697e-11 822366.04
+6.6579527e-11 823268.18
+6.7565657e-11 824135.94
+6.8553083e-11 824974.8
+6.9539814e-11 825784
+7.0528094e-11 826566.26
+7.1516584e-11 827321.39
+7.2505713e-11 828050.58
+7.3493169e-11 828753.06
+7.4481842e-11 829431.78
+7.5470352e-11 830086.6
+7.646008e-11 830719.25
+7.7446613e-11 831327.81
+7.8433648e-11 831915.45
+7.9420942e-11 832482.79
+8.0408112e-11 833030.38
+8.1394631e-11 833558.72
+8.238028e-11 834068.46
+8.3365039e-11 834560.36
+8.4350593e-11 835035.96
+8.5336503e-11 835495.7
+8.632337e-11 835940.49
+8.730871e-11 836369.86
+8.8294716e-11 836785.4
+8.9281014e-11 837187.52
+9.0267018e-11 837576.58
+9.1252727e-11 837953.12
+9.223621e-11 838317
+9.3221254e-11 838670.12
+9.4205267e-11 839012.06
+9.5190136e-11 839343.92
+9.6172956e-11 839665.22
+9.7156525e-11 839977.3
+9.8140943e-11 840280.59
+9.9123921e-11 840574.8
+1.0010974e-10 840861.56
+1.0109262e-10 841139.56
+1.0207773e-10 841410.63
+1.030614e-10 841674.07
+1.0404671e-10 841931.04
+1.0503056e-10 842181.04
+1.0601423e-10 842424.69
+1.0699904e-10 842662.61
+1.0798236e-10 842894.42
+1.0896731e-10 843121.12
+1.0995008e-10 843342.08
+1.1093524e-10 843558.57
+1.1191877e-10 843769.91
+1.1290445e-10 843977.13
+1.1388802e-10 844179.52
+1.1487364e-10 844378.14
+1.158578e-10 844572.46
+1.1684342e-10 844763.2
+1.1782799e-10 844950.06
+1.1881249e-10 845133.36
+1.1979826e-10 845313.47
+1.2078206e-10 845489.95
+1.2176815e-10 845663.67
+1.2275149e-10 845833.86
+1.237377e-10 846001.58
+1.247218e-10 846166.07
+1.2570872e-10 846328.24
+1.2669298e-10 846487.27
+1.276797e-10 846644.05
+1.2866452e-10 846797.95
+1.2965133e-10 846949.63
+1.3063669e-10 847098.61
+1.316221e-10 847245.17
+1.3260841e-10 847389.48
+1.335934e-10 847531.25
+1.3458004e-10 847670.93
+1.3556431e-10 847808
+1.3655081e-10 847943.12
+1.3753582e-10 848075.81
+1.3852229e-10 848206.47
+1.3950814e-10 848334.87
+1.4049348e-10 848461.04
+1.414801e-10 848585.22
+1.4246543e-10 848707.11
+1.4345219e-10 848827.06
+1.4443729e-10 848944.72
+1.4542308e-10 849060.39
+1.4640871e-10 849173.99
+1.4739443e-10 849285.57
+1.4837988e-10 849395.1
+1.4936478e-10 849502.57
+1.5035033e-10 849608.15
+1.5133558e-10 849711.73
+1.523215e-10 849813.46
+1.5330691e-10 849913.23
+1.5429249e-10 850011.13
+1.552781e-10 850107.17
+1.56264e-10 850201.4
+1.5724963e-10 850293.8
+1.582349e-10 850384.37
+1.5922055e-10 850473.23
+1.6020594e-10 850560.33
+1.6119167e-10 850645.76
+1.6217636e-10 850729.43
+1.6316201e-10 850811.53
+1.6414679e-10 850891.95
+1.6513273e-10 850970.87
+1.661179e-10 851048.17
+1.671036e-10 851123.98
+1.6808875e-10 851198.26
+1.6907455e-10 851271.11
+1.7006011e-10 851342.5
+1.7104538e-10 851412.46
+1.7203064e-10 851481.03
+1.7301591e-10 851548.26
+1.7400147e-10 851614.17
+1.7498635e-10 851678.75
+1.7597157e-10 851742.08
+1.7695659e-10 851804.16
+1.7794184e-10 851865.05
+1.7892752e-10 851924.77
+1.7991253e-10 851983.29
+1.8089846e-10 852040.73
+1.8188327e-10 852097
+1.8286961e-10 852152.27
+1.838547e-10 852206.41
+1.8484033e-10 852259.55
+1.8582567e-10 852311.66
+1.868112e-10 852362.8
+1.8779688e-10 852412.97
+1.887818e-10 852462.17
+1.8976749e-10 852510.48
+1.9075261e-10 852557.86
+1.917383e-10 852604.39
+1.9272393e-10 852650.06
+1.9370951e-10 852694.88
+1.9469523e-10 852738.88
+1.956811e-10 852782.08
+1.9666666e-10 852824.49
+1.9765266e-10 852866.14
+1.9863806e-10 852907.01
+1.9962405e-10 852947.17
+2.0060952e-10 852986.59
+2.0159527e-10 853025.32
+2.0258119e-10 853063.35
+2.0356643e-10 853100.69
+2.0455264e-10 853137.4
+2.0553786e-10 853173.42
+2.0652418e-10 853208.85
+2.0750961e-10 853243.62
+2.0849565e-10 853277.8
+2.0948141e-10 853311.38
+2.1046714e-10 853344.36
+2.1145338e-10 853376.79
+2.1243845e-10 853408.61
+2.1342504e-10 853439.93
+2.144099e-10 853470.65
+2.1539665e-10 853500.9
+2.1638129e-10 853530.56
+2.1736796e-10 853559.76
+2.1835285e-10 853588.41
+2.1933925e-10 853616.61
+2.2032452e-10 853644.29
+2.2131055e-10 853671.51
+2.2229622e-10 853698.25
+2.2328188e-10 853724.53
+2.2426789e-10 853750.37
+2.2525311e-10 853775.74
+2.2623945e-10 853800.7
+2.272244e-10 853825.2
+2.2821089e-10 853849.32
+2.2919556e-10 853872.97
+2.3018215e-10 853896.26
+2.3116684e-10 853919.1
+2.3215333e-10 853941.6
+2.3313821e-10 853963.66
+2.3412447e-10 853985.38
+2.3510963e-10 854006.7
+2.3609562e-10 854027.66
+2.3708107e-10 854048.26
+2.3806666e-10 854068.5
+2.3905243e-10 854088.39
+2.4003771e-10 854107.92
+2.4102373e-10 854127.14
+2.4200869e-10 854146
+2.4299489e-10 854164.55
+2.439797e-10 854182.76
+2.4496599e-10 854200.68
+2.459508e-10 854218.26
+2.4693707e-10 854235.55
+2.4792193e-10 854252.53
+2.4890811e-10 854269.23
+2.4989312e-10 854285.62
+2.5087907e-10 854301.74
+2.5186424e-10 854317.57
+2.5284998e-10 854333.13
+2.5383538e-10 854348.41
+2.5482083e-10 854363.43
+2.5580642e-10 854378.18
+2.5679165e-10 854392.68
+2.5777748e-10 854406.93
+2.5876259e-10 854420.92
+2.5974853e-10 854434.68
+2.6073362e-10 854448.19
+2.6171954e-10 854461.47
+2.6270475e-10 854474.51
+2.6369053e-10 854487.33
+2.6467587e-10 854499.93
+2.6566145e-10 854512.3
+2.6664693e-10 854524.46
+2.6763244e-10 854536.41
+2.6861791e-10 854548.15
+2.6960341e-10 854559.69
+2.7058888e-10 854571.02
+2.7157457e-10 854582.16
+2.7255995e-10 854593.11
+2.7354575e-10 854603.87
+2.745311e-10 854614.43
+2.7551698e-10 854624.82
+2.7650236e-10 854635.02
+2.7748814e-10 854645.06
+2.7847367e-10 854654.91
+2.7945928e-10 854664.59
+2.80445e-10 854674.11
+2.8143035e-10 854683.46
+2.8241623e-10 854692.66
+2.8340151e-10 854701.68
+2.8438742e-10 854710.56
+2.8537269e-10 854719.28
+2.8635858e-10 854727.86
+2.8734405e-10 854736.28
+2.8832975e-10 854744.56
+2.8931541e-10 854752.7
+2.9030083e-10 854760.69
+2.9128689e-10 854768.55
+2.9227197e-10 854776.27
+2.932583e-10 854783.87
+2.942431e-10 854791.32
+2.9522966e-10 854798.66
+2.9621434e-10 854805.86
+2.9720094e-10 854812.95
+2.9818567e-10 854819.9
+2.9917214e-10 854826.75
+3.0015707e-10 854833.47
+3.0114332e-10 854840.08
+3.0212855e-10 854846.57
+3.0311447e-10 854852.95
+3.0410002e-10 854859.22
+3.050856e-10 854865.39
+&
+@target G0.S3
+@type xy
+0 608112
+5.5094e-15 608073
+1.10188e-14 608034
+2.03572e-14 607968
+5.17072e-14 607745
+8.30572e-14 607521
+1.14407e-13 607296
+1.45757e-13 607070
+1.9536e-13 606712
+2.44962e-13 606350
+2.94564e-13 605987
+3.44167e-13 605621
+3.93769e-13 605253
+4.43372e-13 604882
+4.92974e-13 604510
+5.42576e-13 604135
+5.92179e-13 603757
+6.41781e-13 603378
+6.91383e-13 602996
+7.40986e-13 602612
+7.90588e-13 602226
+8.40191e-13 601837
+8.89793e-13 601446
+9.39395e-13 601053
+9.88998e-13 600658
+1.0386e-12 600260
+1.0882e-12 599861
+1.13781e-12 599459
+1.18741e-12 599055
+1.23701e-12 598648
+1.28661e-12 598240
+1.33621e-12 597829
+1.4111e-12 597205
+1.48598e-12 596575
+1.56086e-12 595941
+1.63575e-12 595302
+1.71063e-12 594658
+1.78551e-12 594009
+1.86039e-12 593355
+1.93528e-12 592697
+2.01016e-12 592033
+2.08504e-12 591365
+2.15992e-12 590692
+2.23481e-12 590014
+2.30969e-12 589331
+2.38457e-12 588644
+2.45946e-12 587951
+2.53434e-12 587255
+2.60922e-12 586553
+2.6841e-12 585847
+2.75899e-12 585136
+2.83387e-12 584420
+2.90875e-12 583700
+2.98363e-12 582975
+3.09723e-12 581867
+3.21082e-12 580748
+3.32441e-12 579619
+3.438e-12 578479
+3.5516e-12 577330
+3.66519e-12 576169
+3.77878e-12 574999
+3.89237e-12 573819
+4.00597e-12 572628
+4.11956e-12 571428
+4.23315e-12 570218
+4.34675e-12 568998
+4.46034e-12 567767
+4.57393e-12 566528
+4.68752e-12 565278
+4.80112e-12 564019
+4.91471e-12 562751
+5.0283e-12 561473
+5.14189e-12 560185
+5.25549e-12 558889
+5.36908e-12 557582
+5.48267e-12 556267
+5.59627e-12 554943
+5.70986e-12 553609
+5.82345e-12 552267
+5.93705e-12 550915
+6.05064e-12 549555
+6.16423e-12 548185
+6.27782e-12 546807
+6.39142e-12 545420
+6.50501e-12 544025
+6.6186e-12 542621
+6.73219e-12 541208
+6.84579e-12 539787
+6.95938e-12 538358
+7.12994e-12 536196
+7.3005e-12 534016
+7.47107e-12 531817
+7.64163e-12 529600
+7.81219e-12 527365
+7.98275e-12 525112
+8.15331e-12 522843
+8.32388e-12 520555
+8.49444e-12 518251
+8.665e-12 515930
+8.83556e-12 513592
+9.00613e-12 511238
+9.17669e-12 508867
+9.34725e-12 506481
+9.51781e-12 504079
+9.68838e-12 501661
+9.85894e-12 499228
+1.00295e-11 496780
+1.02001e-11 494317
+1.03706e-11 491839
+1.05412e-11 489347
+1.07118e-11 486841
+1.08823e-11 484321
+1.10529e-11 481787
+1.12234e-11 479239
+1.1394e-11 476678
+1.15646e-11 474104
+1.17351e-11 471517
+1.19057e-11 468917
+1.20763e-11 466305
+1.22468e-11 463680
+1.24174e-11 461044
+1.25879e-11 458396
+1.27585e-11 455736
+1.29291e-11 453065
+1.30996e-11 450383
+1.32702e-11 447690
+1.34407e-11 444986
+1.36113e-11 442272
+1.37819e-11 439548
+1.39524e-11 436814
+1.4123e-11 434070
+1.42936e-11 431317
+1.44641e-11 428555
+1.46347e-11 425783
+1.48052e-11 423003
+1.49758e-11 420214
+1.51464e-11 417417
+1.53169e-11 414613
+1.54875e-11 411800
+1.5658e-11 408980
+1.58286e-11 406152
+1.59992e-11 403318
+1.61697e-11 400476
+1.63403e-11 397629
+1.65109e-11 394775
+1.66814e-11 391915
+1.6852e-11 389049
+1.70226e-11 386177
+1.71931e-11 383301
+1.73637e-11 380419
+1.75342e-11 377533
+1.77048e-11 374642
+1.78754e-11 371747
+1.80459e-11 368848
+1.82165e-11 365945
+1.83871e-11 363039
+1.85576e-11 360130
+1.87282e-11 357218
+1.88987e-11 354303
+1.90693e-11 351386
+1.92399e-11 348467
+1.94104e-11 345545
+1.9581e-11 342623
+1.97515e-11 339699
+1.99221e-11 336774
+2.00927e-11 333848
+2.02632e-11 330921
+2.04338e-11 327995
+2.06044e-11 325068
+2.07749e-11 322142
+2.09455e-11 319216
+2.1116e-11 316291
+2.12866e-11 313368
+2.14572e-11 310445
+2.16277e-11 307525
+2.17983e-11 304606
+2.19689e-11 301689
+2.21394e-11 298775
+2.231e-11 295863
+2.24805e-11 292955
+2.26511e-11 290049
+2.28217e-11 287148
+2.29922e-11 284249
+2.31628e-11 281355
+2.33334e-11 278466
+2.35039e-11 275580
+2.36745e-11 272700
+2.3845e-11 269825
+2.40156e-11 266954
+2.41862e-11 264090
+2.43567e-11 261231
+2.45273e-11 258379
+2.46979e-11 255532
+2.48684e-11 252693
+2.5039e-11 249860
+2.52095e-11 247034
+2.53801e-11 244215
+2.55507e-11 241404
+2.57212e-11 238601
+2.58918e-11 235806
+2.60624e-11 233019
+2.62329e-11 230240
+2.64035e-11 227470
+2.6574e-11 224709
+2.67446e-11 221958
+2.69152e-11 219215
+2.70857e-11 216483
+2.72563e-11 213760
+2.74269e-11 211047
+2.75974e-11 208344
+2.7768e-11 205652
+2.79385e-11 202971
+2.81091e-11 200300
+2.82797e-11 197641
+2.84502e-11 194993
+2.86208e-11 192356
+2.87913e-11 189731
+2.89619e-11 187118
+2.91325e-11 184516
+2.9303e-11 181928
+2.94736e-11 179351
+2.96442e-11 176787
+2.98147e-11 174236
+2.99853e-11 171698
+3.01558e-11 169173
+3.03264e-11 166661
+3.0497e-11 164163
+3.06675e-11 161678
+3.09244e-11 157962
+3.11813e-11 154278
+3.14381e-11 150626
+3.1695e-11 147007
+3.19519e-11 143421
+3.22087e-11 139869
+3.24656e-11 136350
+3.27225e-11 132867
+3.29793e-11 129418
+3.32362e-11 126004
+3.34931e-11 122626
+3.37499e-11 119284
+3.40068e-11 115979
+3.42637e-11 112710
+3.45205e-11 109478
+3.47774e-11 106283
+3.50343e-11 103126
+3.52911e-11 100007
+3.5548e-11 96925.5
+3.58049e-11 93882.4
+3.60617e-11 90877.7
+3.63186e-11 87911.6
+3.65755e-11 84984.3
+3.68324e-11 82096
+3.70892e-11 79246.7
+3.73461e-11 76436.6
+3.7603e-11 73665.8
+3.78598e-11 70934.4
+3.81167e-11 68242.5
+3.83736e-11 65590.2
+3.86304e-11 62977.4
+3.88873e-11 60404.3
+3.91442e-11 57870.8
+3.9401e-11 55376.9
+3.96579e-11 52922.7
+3.99148e-11 50508.2
+4.01716e-11 48133.2
+4.04285e-11 45797.8
+4.06854e-11 43501.9
+4.09422e-11 41245.4
+4.11991e-11 39028.3
+4.1456e-11 36850.4
+4.17128e-11 34711.6
+4.19697e-11 32611.9
+4.22266e-11 30551.1
+4.24834e-11 28529
+4.27403e-11 26545.6
+4.29972e-11 24600.6
+4.3254e-11 22693.9
+4.35109e-11 20825.3
+4.37678e-11 18994.6
+4.40247e-11 17201.6
+4.42815e-11 15446.1
+4.45384e-11 13728
+4.47953e-11 12046.9
+4.50521e-11 10402.6
+4.5309e-11 8795
+4.55658e-11 7223.69
+4.58227e-11 5688.47
+4.60796e-11 4189.09
+4.63365e-11 2725.27
+4.65933e-11 1296.74
+4.68502e-11 -96.7794
+4.71071e-11 -1455.59
+4.73639e-11 -2780.01
+4.76208e-11 -4070.33
+4.78777e-11 -5326.85
+4.81345e-11 -6549.87
+4.83914e-11 -7739.73
+4.86483e-11 -8896.74
+4.89051e-11 -10021.2
+4.9162e-11 -11113.5
+4.94189e-11 -12174
+4.96757e-11 -13203
+4.99326e-11 -14200.8
+5.01895e-11 -15167.9
+5.04463e-11 -16104.5
+5.07032e-11 -17011
+5.09601e-11 -17887.8
+5.12169e-11 -18735.3
+5.14738e-11 -19553.8
+5.17307e-11 -20343.6
+5.19875e-11 -21105.2
+5.22444e-11 -21838.9
+5.25013e-11 -22545.2
+5.27581e-11 -23224.3
+5.3015e-11 -23876.7
+5.32719e-11 -24502.7
+5.35288e-11 -25102.8
+5.37856e-11 -25677.4
+5.40425e-11 -26226.7
+5.42994e-11 -26751.3
+5.45562e-11 -27251.5
+5.48131e-11 -27727.6
+5.507e-11 -28180.2
+5.53268e-11 -28609.5
+5.55837e-11 -29016
+5.58406e-11 -29400.1
+5.60974e-11 -29762.1
+5.63543e-11 -30102.5
+5.66112e-11 -30421.7
+5.6868e-11 -30720
+5.71249e-11 -30997.8
+5.73818e-11 -31255.5
+5.76386e-11 -31493.5
+5.78955e-11 -31712.3
+5.81524e-11 -31912.2
+5.84092e-11 -32093.5
+5.86661e-11 -32256.8
+5.8923e-11 -32402.3
+5.91798e-11 -32530.4
+5.94367e-11 -32641.6
+5.96936e-11 -32736.3
+5.99504e-11 -32814.7
+6.02073e-11 -32877.4
+6.04642e-11 -32924.5
+6.0721e-11 -32956.7
+6.09779e-11 -32974.2
+6.12348e-11 -32977.3
+6.14917e-11 -32966.5
+6.17485e-11 -32942.2
+6.20054e-11 -32904.7
+6.22623e-11 -32854.3
+6.25191e-11 -32791.4
+6.2776e-11 -32716.5
+6.30329e-11 -32629.8
+6.32897e-11 -32531.6
+6.35466e-11 -32422.5
+6.38035e-11 -32302.6
+6.40603e-11 -32172.4
+6.43172e-11 -32032.1
+6.45741e-11 -31882.2
+6.48309e-11 -31723
+6.50878e-11 -31554.7
+6.53447e-11 -31377.8
+6.56015e-11 -31192.5
+6.58584e-11 -30999.3
+6.61153e-11 -30798.3
+6.63721e-11 -30590
+6.6629e-11 -30374.5
+6.68859e-11 -30152.4
+6.71427e-11 -29923.8
+6.73996e-11 -29689
+6.76565e-11 -29448.5
+6.79133e-11 -29202.3
+6.81702e-11 -28950.9
+6.84271e-11 -28694.6
+6.86839e-11 -28433.5
+6.89408e-11 -28168.1
+6.91977e-11 -27898.6
+6.94546e-11 -27625.2
+6.97114e-11 -27348.3
+6.99683e-11 -27068
+7.02252e-11 -26784.8
+7.0482e-11 -26498.7
+7.07389e-11 -26210.1
+7.09958e-11 -25919.3
+7.12526e-11 -25626.4
+7.15095e-11 -25331.8
+7.17664e-11 -25035.6
+7.20232e-11 -24738.2
+7.22801e-11 -24439.6
+7.2537e-11 -24140.3
+7.27938e-11 -23840.3
+7.30507e-11 -23539.9
+7.33076e-11 -23239.4
+7.35644e-11 -22938.8
+7.38213e-11 -22638.6
+7.40782e-11 -22338.8
+7.4335e-11 -22039.6
+7.45919e-11 -21741.3
+7.48488e-11 -21444
+7.51056e-11 -21148
+7.53625e-11 -20853.4
+7.56194e-11 -20560.4
+7.58762e-11 -20269.2
+7.61331e-11 -19979.9
+7.639e-11 -19692.7
+7.66468e-11 -19407.8
+7.69037e-11 -19125.4
+7.71606e-11 -18845.5
+7.74174e-11 -18568.5
+7.76743e-11 -18294.3
+7.79312e-11 -18023.3
+7.81881e-11 -17755.4
+7.84449e-11 -17490.9
+7.87018e-11 -17229.8
+7.89587e-11 -16972.3
+7.92155e-11 -16718.6
+7.94724e-11 -16468.8
+7.97293e-11 -16222.9
+7.99861e-11 -15981.2
+8.0243e-11 -15743.7
+8.04999e-11 -15510.5
+8.07567e-11 -15281.7
+8.10136e-11 -15057.4
+8.12705e-11 -14837.8
+8.15273e-11 -14623
+8.17842e-11 -14413
+8.20411e-11 -14207.9
+8.22979e-11 -14007.7
+8.25548e-11 -13812.7
+8.28117e-11 -13622.9
+8.30685e-11 -13438.2
+8.33254e-11 -13258.9
+8.35823e-11 -13085
+8.38391e-11 -12916.6
+8.4096e-11 -12753.6
+8.43529e-11 -12596.2
+8.46097e-11 -12444.5
+8.48666e-11 -12298.4
+8.51235e-11 -12158.1
+8.53803e-11 -12023.5
+8.56372e-11 -11894.8
+8.58941e-11 -11772
+8.61509e-11 -11655.1
+8.64078e-11 -11544.1
+8.66647e-11 -11439.1
+8.69216e-11 -11340.1
+8.71784e-11 -11247.1
+8.74353e-11 -11160.2
+8.76921e-11 -11079.4
+8.7949e-11 -11004.7
+8.82059e-11 -10936.1
+8.84628e-11 -10873.6
+8.87196e-11 -10817.3
+8.89765e-11 -10767.1
+8.92334e-11 -10723.1
+8.94902e-11 -10685.3
+8.97471e-11 -10653.7
+9.0004e-11 -10628.2
+9.02608e-11 -10608.8
+9.05177e-11 -10595.7
+9.07746e-11 -10588.7
+9.10314e-11 -10587.8
+9.12883e-11 -10593
+9.15452e-11 -10604.4
+9.19306e-11 -10632.9
+9.2316e-11 -10675
+9.27014e-11 -10730.8
+9.30868e-11 -10800
+9.34722e-11 -10882.7
+9.38576e-11 -10978.6
+9.4243e-11 -11087.7
+9.46284e-11 -11209.9
+9.50139e-11 -11345.1
+9.53993e-11 -11493
+9.57847e-11 -11653.5
+9.61701e-11 -11826.6
+9.65555e-11 -12011.9
+9.69409e-11 -12209.4
+9.73263e-11 -12418.9
+9.77117e-11 -12640.2
+9.80971e-11 -12873
+9.84825e-11 -13117.3
+9.88679e-11 -13372.7
+9.92534e-11 -13639.1
+9.96388e-11 -13916.3
+1.00024e-10 -14204
+1.0041e-10 -14502
+1.00795e-10 -14810.1
+1.0118e-10 -15128
+1.01566e-10 -15455.6
+1.01951e-10 -15792.5
+1.02337e-10 -16138.5
+1.02722e-10 -16493.4
+1.03107e-10 -16856.9
+1.03493e-10 -17228.7
+1.03878e-10 -17608.6
+1.04264e-10 -17996.4
+1.04649e-10 -18391.7
+1.05035e-10 -18794.4
+1.0542e-10 -19204
+1.05805e-10 -19620.4
+1.06191e-10 -20043.3
+1.06576e-10 -20472.4
+1.06962e-10 -20907.5
+1.07347e-10 -21348.2
+1.07732e-10 -21794.3
+1.08118e-10 -22245.5
+1.08503e-10 -22701.5
+1.08889e-10 -23162.2
+1.09274e-10 -23627.1
+1.09659e-10 -24096
+1.10045e-10 -24568.6
+1.1043e-10 -25044.8
+1.10816e-10 -25524.1
+1.11201e-10 -26006.3
+1.11586e-10 -26491.2
+1.11972e-10 -26978.5
+1.12357e-10 -27467.8
+1.12743e-10 -27959.1
+1.13128e-10 -28451.9
+1.13514e-10 -28946
+1.13899e-10 -29441.2
+1.14284e-10 -29937.2
+1.1467e-10 -30433.8
+1.15055e-10 -30930.6
+1.15441e-10 -31427.6
+1.15826e-10 -31924.3
+1.16211e-10 -32420.6
+1.16597e-10 -32916.2
+1.16982e-10 -33410.9
+1.17368e-10 -33904.5
+1.17753e-10 -34396.6
+1.18337e-10 -35139.7
+1.18922e-10 -35878.3
+1.19506e-10 -36611.6
+1.20091e-10 -37339
+1.20675e-10 -38059.7
+1.2126e-10 -38773
+1.21844e-10 -39478.3
+1.22429e-10 -40174.9
+1.23013e-10 -40862.1
+1.23597e-10 -41539.5
+1.24182e-10 -42206.3
+1.24766e-10 -42862
+1.25351e-10 -43506.2
+1.25935e-10 -44138.2
+1.2652e-10 -44757.6
+1.27104e-10 -45364
+1.27689e-10 -45956.8
+1.28273e-10 -46535.7
+1.28858e-10 -47100.2
+1.29442e-10 -47650.1
+1.30026e-10 -48184.9
+1.30611e-10 -48704.4
+1.31195e-10 -49208.2
+1.3178e-10 -49696.1
+1.32364e-10 -50167.8
+1.32949e-10 -50623
+1.33533e-10 -51061.7
+1.34118e-10 -51483.5
+1.34702e-10 -51888.3
+1.35287e-10 -52276.1
+1.35871e-10 -52646.6
+1.36455e-10 -52999.8
+1.3704e-10 -53335.5
+1.37624e-10 -53653.8
+1.38209e-10 -53954.6
+1.38793e-10 -54237.8
+1.39378e-10 -54503.5
+1.39962e-10 -54751.7
+1.40546e-10 -54982.4
+1.41131e-10 -55195.6
+1.41715e-10 -55391.5
+1.423e-10 -55570.1
+1.42884e-10 -55731.4
+1.43469e-10 -55875.7
+1.44053e-10 -56003.1
+1.44638e-10 -56113.6
+1.45222e-10 -56207.5
+1.45807e-10 -56284.8
+1.46391e-10 -56345.9
+1.46976e-10 -56390.8
+1.4756e-10 -56419.8
+1.48144e-10 -56433.1
+1.48729e-10 -56430.9
+1.49313e-10 -56413.4
+1.49898e-10 -56380.9
+1.50482e-10 -56333.6
+1.51067e-10 -56271.9
+1.51651e-10 -56195.9
+1.52235e-10 -56105.9
+1.5282e-10 -56002.2
+1.53404e-10 -55885.1
+1.53989e-10 -55754.8
+1.54573e-10 -55611.7
+1.55158e-10 -55456
+1.55742e-10 -55288.1
+1.56327e-10 -55108.1
+1.56911e-10 -54916.5
+1.57496e-10 -54713.5
+1.5808e-10 -54499.5
+1.58665e-10 -54274.6
+1.59249e-10 -54039.5
+1.59833e-10 -53794.1
+1.60418e-10 -53538.9
+1.61002e-10 -53274.3
+1.61587e-10 -53000.5
+1.62171e-10 -52717.7
+1.62756e-10 -52426.4
+1.6334e-10 -52126.7
+1.63925e-10 -51819.2
+1.64509e-10 -51503.9
+1.65093e-10 -51181.3
+1.65678e-10 -50851.7
+1.66262e-10 -50515.2
+1.66847e-10 -50172.3
+1.67431e-10 -49823.3
+1.68016e-10 -49468.2
+1.686e-10 -49107.6
+1.69185e-10 -48741.7
+1.69769e-10 -48370.6
+1.70353e-10 -47994.7
+1.70938e-10 -47614.3
+1.71522e-10 -47229.7
+1.72107e-10 -46840.9
+1.72691e-10 -46448.3
+1.73276e-10 -46052.2
+1.7386e-10 -45652.9
+1.74445e-10 -45250.5
+1.75029e-10 -44845.3
+1.75614e-10 -44437.2
+1.76198e-10 -44026.8
+1.76782e-10 -43614.3
+1.77367e-10 -43199.8
+1.77951e-10 -42783.4
+1.78536e-10 -42365.6
+1.7912e-10 -41946.3
+1.79705e-10 -41525.7
+1.80622e-10 -40863.5
+1.8154e-10 -40199.4
+1.82458e-10 -39534
+1.83375e-10 -38867.9
+1.84293e-10 -38201.5
+1.8521e-10 -37535.5
+1.86128e-10 -36870.3
+1.87046e-10 -36206.4
+1.87963e-10 -35544.2
+1.88881e-10 -34884
+1.89798e-10 -34226.3
+1.90716e-10 -33571.5
+1.91634e-10 -32919.8
+1.92551e-10 -32271.6
+1.93469e-10 -31627
+1.94387e-10 -30986.4
+1.95304e-10 -30350
+1.96222e-10 -29717.9
+1.97139e-10 -29090.2
+1.98057e-10 -28467.3
+1.98975e-10 -27849.1
+1.99892e-10 -27235.9
+2.0081e-10 -26627.6
+2.01727e-10 -26024.5
+2.02645e-10 -25426.4
+2.03563e-10 -24833.5
+2.0448e-10 -24245.8
+2.05398e-10 -23663.4
+2.06316e-10 -23086.2
+2.07233e-10 -22514.3
+2.08151e-10 -21947.6
+2.09068e-10 -21386.3
+2.09986e-10 -20830
+2.10903e-10 -20279.1
+2.11821e-10 -19733.2
+2.12739e-10 -19192.6
+2.13656e-10 -18657
+2.14574e-10 -18126.5
+2.15492e-10 -17600.9
+2.16409e-10 -17080.4
+2.17327e-10 -16564.7
+2.18244e-10 -16054
+2.19162e-10 -15548.1
+2.2008e-10 -15047
+2.20997e-10 -14550.7
+2.21915e-10 -14059
+2.22832e-10 -13572
+2.2375e-10 -13089.6
+2.24668e-10 -12611.8
+2.25585e-10 -12138.4
+2.26503e-10 -11669.6
+2.27421e-10 -11205.2
+2.28338e-10 -10745.2
+2.29256e-10 -10289.7
+2.30173e-10 -9838.53
+2.31091e-10 -9391.73
+2.32472e-10 -8727.76
+2.33852e-10 -8073.63
+2.35233e-10 -7429.31
+2.36613e-10 -6794.82
+2.37994e-10 -6170.17
+2.39374e-10 -5555.4
+2.40755e-10 -4950.55
+2.42136e-10 -4355.71
+2.43516e-10 -3770.94
+2.44897e-10 -3196.35
+2.46277e-10 -2632.03
+2.47658e-10 -2078.09
+2.49038e-10 -1534.67
+2.50419e-10 -1001.87
+2.518e-10 -479.847
+2.5318e-10 31.2775
+2.54561e-10 531.364
+2.55941e-10 1020.27
+2.57322e-10 1497.87
+2.58702e-10 1964.02
+2.60083e-10 2418.6
+2.61464e-10 2861.47
+2.62844e-10 3292.51
+2.64225e-10 3711.62
+2.65605e-10 4118.7
+2.66986e-10 4513.63
+2.68366e-10 4896.35
+2.69747e-10 5266.77
+2.71127e-10 5624.84
+2.72508e-10 5970.49
+2.73889e-10 6303.69
+2.75269e-10 6624.41
+2.7665e-10 6932.64
+2.7803e-10 7228.37
+2.79411e-10 7511.62
+2.80791e-10 7782.4
+2.82172e-10 8040.77
+2.83552e-10 8286.76
+2.84933e-10 8520.44
+2.86314e-10 8741.89
+2.87694e-10 8951.19
+2.89075e-10 9148.44
+2.90455e-10 9333.76
+2.91836e-10 9507.26
+2.93217e-10 9669.08
+2.94597e-10 9819.32
+2.95978e-10 9958.15
+2.97358e-10 10085.9
+2.98739e-10 10202.5
+3.00119e-10 10308.4
+3.00119e-10 10308.4
+&
+@target G0.S4
+@type xy
+0 0
+5.5094e-15 110.215
+1.10188e-14 220.422
+2.03572e-14 407.199
+5.17072e-14 1034.07
+8.30572e-14 1660.72
+1.14407e-13 2287.11
+1.45757e-13 2913.26
+1.9536e-13 3903.41
+2.44962e-13 4892.9
+2.94564e-13 5881.71
+3.44167e-13 6869.83
+3.93769e-13 7857.25
+4.43372e-13 8843.96
+4.92974e-13 9829.96
+5.42576e-13 10815.2
+5.92179e-13 11799.8
+6.41781e-13 12783.5
+6.91383e-13 13766.5
+7.40986e-13 14748.8
+7.90588e-13 15730.2
+8.40191e-13 16710.9
+8.89793e-13 17690.8
+9.39395e-13 18669.8
+9.88998e-13 19648.1
+1.0386e-12 20625.5
+1.0882e-12 21602
+1.13781e-12 22577.8
+1.18741e-12 23552.6
+1.23701e-12 24526.6
+1.28661e-12 25499.7
+1.33621e-12 26471.9
+1.4111e-12 27937.9
+1.48598e-12 29401.9
+1.56086e-12 30863.7
+1.63575e-12 32323.3
+1.71063e-12 33780.8
+1.78551e-12 35236.1
+1.86039e-12 36689.2
+1.93528e-12 38139.9
+2.01016e-12 39588.4
+2.08504e-12 41034.6
+2.15992e-12 42478.4
+2.23481e-12 43919.8
+2.30969e-12 45358.8
+2.38457e-12 46795.3
+2.45946e-12 48229.4
+2.53434e-12 49660.9
+2.60922e-12 51089.9
+2.6841e-12 52516.4
+2.75899e-12 53940.3
+2.83387e-12 55361.5
+2.90875e-12 56780.1
+2.98363e-12 58196
+3.09723e-12 60338.7
+3.21082e-12 62475.1
+3.32441e-12 64605.1
+3.438e-12 66728.6
+3.5516e-12 68845.5
+3.66519e-12 70955.7
+3.77878e-12 73059.2
+3.89237e-12 75155.8
+4.00597e-12 77245.5
+4.11956e-12 79328.2
+4.23315e-12 81403.8
+4.34675e-12 83472.2
+4.46034e-12 85533.3
+4.57393e-12 87587
+4.68752e-12 89633.4
+4.80112e-12 91672.2
+4.91471e-12 93703.5
+5.0283e-12 95727.1
+5.14189e-12 97743
+5.25549e-12 99751.1
+5.36908e-12 101751
+5.48267e-12 103744
+5.59627e-12 105728
+5.70986e-12 107704
+5.82345e-12 109672
+5.93705e-12 111632
+6.05064e-12 113583
+6.16423e-12 115526
+6.27782e-12 117461
+6.39142e-12 119387
+6.50501e-12 121305
+6.6186e-12 123214
+6.73219e-12 125115
+6.84579e-12 127006
+6.95938e-12 128889
+7.12994e-12 131700
+7.3005e-12 134490
+7.47107e-12 137260
+7.64163e-12 140009
+7.81219e-12 142738
+7.98275e-12 145446
+8.15331e-12 148133
+8.32388e-12 150799
+8.49444e-12 153443
+8.665e-12 156066
+8.83556e-12 158666
+9.00613e-12 161246
+9.17669e-12 163803
+9.34725e-12 166337
+9.51781e-12 168850
+9.68838e-12 171340
+9.85894e-12 173807
+1.00295e-11 176252
+1.02001e-11 178674
+1.03706e-11 181073
+1.05412e-11 183448
+1.07118e-11 185801
+1.08823e-11 188130
+1.10529e-11 190435
+1.12234e-11 192717
+1.1394e-11 194975
+1.15646e-11 197210
+1.17351e-11 199420
+1.19057e-11 201607
+1.20763e-11 203769
+1.22468e-11 205907
+1.24174e-11 208020
+1.25879e-11 210110
+1.27585e-11 212174
+1.29291e-11 214215
+1.30996e-11 216230
+1.32702e-11 218221
+1.34407e-11 220187
+1.36113e-11 222128
+1.37819e-11 224044
+1.39524e-11 225935
+1.4123e-11 227800
+1.42936e-11 229641
+1.44641e-11 231457
+1.46347e-11 233247
+1.48052e-11 235011
+1.49758e-11 236751
+1.51464e-11 238465
+1.53169e-11 240153
+1.54875e-11 241816
+1.5658e-11 243453
+1.58286e-11 245065
+1.59992e-11 246651
+1.61697e-11 248211
+1.63403e-11 249746
+1.65109e-11 251255
+1.66814e-11 252738
+1.6852e-11 254195
+1.70226e-11 255627
+1.71931e-11 257033
+1.73637e-11 258413
+1.75342e-11 259767
+1.77048e-11 261095
+1.78754e-11 262397
+1.80459e-11 263674
+1.82165e-11 264924
+1.83871e-11 266149
+1.85576e-11 267348
+1.87282e-11 268521
+1.88987e-11 269669
+1.90693e-11 270790
+1.92399e-11 271886
+1.94104e-11 272956
+1.9581e-11 274000
+1.97515e-11 275019
+1.99221e-11 276012
+2.00927e-11 276979
+2.02632e-11 277921
+2.04338e-11 278837
+2.06044e-11 279728
+2.07749e-11 280593
+2.09455e-11 281433
+2.1116e-11 282248
+2.12866e-11 283037
+2.14572e-11 283801
+2.16277e-11 284540
+2.17983e-11 285254
+2.19689e-11 285943
+2.21394e-11 286607
+2.231e-11 287246
+2.24805e-11 287860
+2.26511e-11 288450
+2.28217e-11 289014
+2.29922e-11 289555
+2.31628e-11 290071
+2.33334e-11 290562
+2.35039e-11 291030
+2.36745e-11 291473
+2.3845e-11 291892
+2.40156e-11 292287
+2.41862e-11 292658
+2.43567e-11 293006
+2.45273e-11 293330
+2.46979e-11 293630
+2.48684e-11 293907
+2.5039e-11 294161
+2.52095e-11 294392
+2.53801e-11 294600
+2.55507e-11 294785
+2.57212e-11 294947
+2.58918e-11 295086
+2.60624e-11 295203
+2.62329e-11 295298
+2.64035e-11 295371
+2.6574e-11 295421
+2.67446e-11 295450
+2.69152e-11 295457
+2.70857e-11 295443
+2.72563e-11 295407
+2.74269e-11 295349
+2.75974e-11 295271
+2.7768e-11 295172
+2.79385e-11 295052
+2.81091e-11 294911
+2.82797e-11 294750
+2.84502e-11 294569
+2.86208e-11 294368
+2.87913e-11 294147
+2.89619e-11 293906
+2.91325e-11 293645
+2.9303e-11 293366
+2.94736e-11 293067
+2.96442e-11 292749
+2.98147e-11 292412
+2.99853e-11 292057
+3.01558e-11 291683
+3.03264e-11 291291
+3.0497e-11 290881
+3.06675e-11 290453
+3.09244e-11 289775
+3.11813e-11 289058
+3.14381e-11 288302
+3.1695e-11 287509
+3.19519e-11 286678
+3.22087e-11 285810
+3.24656e-11 284907
+3.27225e-11 283968
+3.29793e-11 282995
+3.32362e-11 281988
+3.34931e-11 280948
+3.37499e-11 279875
+3.40068e-11 278771
+3.42637e-11 277636
+3.45205e-11 276471
+3.47774e-11 275276
+3.50343e-11 274053
+3.52911e-11 272801
+3.5548e-11 271523
+3.58049e-11 270217
+3.60617e-11 268886
+3.63186e-11 267530
+3.65755e-11 266149
+3.68324e-11 264745
+3.70892e-11 263318
+3.73461e-11 261868
+3.7603e-11 260397
+3.78598e-11 258905
+3.81167e-11 257393
+3.83736e-11 255861
+3.86304e-11 254311
+3.88873e-11 252743
+3.91442e-11 251158
+3.9401e-11 249555
+3.96579e-11 247937
+3.99148e-11 246304
+4.01716e-11 244656
+4.04285e-11 242994
+4.06854e-11 241319
+4.09422e-11 239632
+4.11991e-11 237932
+4.1456e-11 236221
+4.17128e-11 234500
+4.19697e-11 232768
+4.22266e-11 231027
+4.24834e-11 229277
+4.27403e-11 227520
+4.29972e-11 225754
+4.3254e-11 223982
+4.35109e-11 222203
+4.37678e-11 220419
+4.40247e-11 218629
+4.42815e-11 216835
+4.45384e-11 215037
+4.47953e-11 213236
+4.50521e-11 211431
+4.5309e-11 209624
+4.55658e-11 207815
+4.58227e-11 206005
+4.60796e-11 204195
+4.63365e-11 202383
+4.65933e-11 200573
+4.68502e-11 198763
+4.71071e-11 196954
+4.73639e-11 195146
+4.76208e-11 193342
+4.78777e-11 191539
+4.81345e-11 189740
+4.83914e-11 187944
+4.86483e-11 186153
+4.89051e-11 184365
+4.9162e-11 182583
+4.94189e-11 180806
+4.96757e-11 179035
+4.99326e-11 177269
+5.01895e-11 175510
+5.04463e-11 173758
+5.07032e-11 172014
+5.09601e-11 170277
+5.12169e-11 168547
+5.14738e-11 166827
+5.17307e-11 165114
+5.19875e-11 163411
+5.22444e-11 161717
+5.25013e-11 160033
+5.27581e-11 158359
+5.3015e-11 156695
+5.32719e-11 155041
+5.35288e-11 153399
+5.37856e-11 151767
+5.40425e-11 150147
+5.42994e-11 148539
+5.45562e-11 146943
+5.48131e-11 145358
+5.507e-11 143786
+5.53268e-11 142227
+5.55837e-11 140681
+5.58406e-11 139147
+5.60974e-11 137627
+5.63543e-11 136121
+5.66112e-11 134628
+5.6868e-11 133149
+5.71249e-11 131684
+5.73818e-11 130233
+5.76386e-11 128797
+5.78955e-11 127375
+5.81524e-11 125968
+5.84092e-11 124576
+5.86661e-11 123199
+5.8923e-11 121837
+5.91798e-11 120490
+5.94367e-11 119159
+5.96936e-11 117843
+5.99504e-11 116543
+6.02073e-11 115258
+6.04642e-11 113989
+6.0721e-11 112736
+6.09779e-11 111499
+6.12348e-11 110278
+6.14917e-11 109072
+6.17485e-11 107883
+6.20054e-11 106711
+6.22623e-11 105554
+6.25191e-11 104414
+6.2776e-11 103290
+6.30329e-11 102182
+6.32897e-11 101091
+6.35466e-11 100016
+6.38035e-11 98957.4
+6.40603e-11 97915.1
+6.43172e-11 96889.3
+6.45741e-11 95879.9
+6.48309e-11 94886.9
+6.50878e-11 93910.2
+6.53447e-11 92949.8
+6.56015e-11 92005.8
+6.58584e-11 91078
+6.61153e-11 90166.5
+6.63721e-11 89271.2
+6.6629e-11 88392
+6.68859e-11 87529
+6.71427e-11 86682.1
+6.73996e-11 85851.1
+6.76565e-11 85036
+6.79133e-11 84236.9
+6.81702e-11 83453.5
+6.84271e-11 82685.8
+6.86839e-11 81933.8
+6.89408e-11 81197.4
+6.91977e-11 80476.5
+6.94546e-11 79770.9
+6.97114e-11 79080.6
+6.99683e-11 78405.5
+7.02252e-11 77745.5
+7.0482e-11 77100.5
+7.07389e-11 76470.5
+7.09958e-11 75855.1
+7.12526e-11 75254.4
+7.15095e-11 74668.3
+7.17664e-11 74096.6
+7.20232e-11 73539.1
+7.22801e-11 72995.9
+7.2537e-11 72466.7
+7.27938e-11 71951.4
+7.30507e-11 71449.9
+7.33076e-11 70962
+7.35644e-11 70487.6
+7.38213e-11 70026.6
+7.40782e-11 69578.8
+7.4335e-11 69144.1
+7.45919e-11 68722.3
+7.48488e-11 68313.3
+7.51056e-11 67916.9
+7.53625e-11 67533
+7.56194e-11 67161.4
+7.58762e-11 66801.9
+7.61331e-11 66454.5
+7.639e-11 66118.9
+7.66468e-11 65795
+7.69037e-11 65482.6
+7.71606e-11 65181.6
+7.74174e-11 64891.7
+7.76743e-11 64612.9
+7.79312e-11 64345
+7.81881e-11 64087.7
+7.84449e-11 63841
+7.87018e-11 63604.6
+7.89587e-11 63378.4
+7.92155e-11 63162.2
+7.94724e-11 62955.8
+7.97293e-11 62759.1
+7.99861e-11 62572
+8.0243e-11 62394.1
+8.04999e-11 62225.4
+8.07567e-11 62065.6
+8.10136e-11 61914.7
+8.12705e-11 61772.3
+8.15273e-11 61638.5
+8.17842e-11 61512.9
+8.20411e-11 61395.4
+8.22979e-11 61285.8
+8.25548e-11 61184
+8.28117e-11 61089.7
+8.30685e-11 61002.9
+8.33254e-11 60923.3
+8.35823e-11 60850.7
+8.38391e-11 60785
+8.4096e-11 60726
+8.43529e-11 60673.6
+8.46097e-11 60627.5
+8.48666e-11 60587.6
+8.51235e-11 60553.7
+8.53803e-11 60525.7
+8.56372e-11 60503.3
+8.58941e-11 60486.5
+8.61509e-11 60475
+8.64078e-11 60468.6
+8.66647e-11 60467.3
+8.69216e-11 60470.8
+8.71784e-11 60479
+8.74353e-11 60491.7
+8.76921e-11 60508.8
+8.7949e-11 60530
+8.82059e-11 60555.3
+8.84628e-11 60584.4
+8.87196e-11 60617.3
+8.89765e-11 60653.6
+8.92334e-11 60693.4
+8.94902e-11 60736.4
+8.97471e-11 60782.5
+9.0004e-11 60831.6
+9.02608e-11 60883.4
+9.05177e-11 60937.8
+9.07746e-11 60994.8
+9.10314e-11 61054
+9.12883e-11 61115.5
+9.15452e-11 61178.9
+9.19306e-11 61277.6
+9.2316e-11 61380.1
+9.27014e-11 61485.9
+9.30868e-11 61594.6
+9.34722e-11 61705.7
+9.38576e-11 61818.7
+9.4243e-11 61933.3
+9.46284e-11 62049
+9.50139e-11 62165.3
+9.53993e-11 62282
+9.57847e-11 62398.5
+9.61701e-11 62514.5
+9.65555e-11 62629.5
+9.69409e-11 62743.3
+9.73263e-11 62855.4
+9.77117e-11 62965.5
+9.80971e-11 63073.2
+9.84825e-11 63178.2
+9.88679e-11 63280.2
+9.92534e-11 63378.8
+9.96388e-11 63473.7
+1.00024e-10 63564.7
+1.0041e-10 63651.4
+1.00795e-10 63733.5
+1.0118e-10 63810.8
+1.01566e-10 63883
+1.01951e-10 63949.8
+1.02337e-10 64011
+1.02722e-10 64066.4
+1.03107e-10 64115.6
+1.03493e-10 64158.6
+1.03878e-10 64195.1
+1.04264e-10 64224.8
+1.04649e-10 64247.7
+1.05035e-10 64263.4
+1.0542e-10 64271.8
+1.05805e-10 64272.8
+1.06191e-10 64266.3
+1.06576e-10 64251.9
+1.06962e-10 64229.7
+1.07347e-10 64199.4
+1.07732e-10 64161
+1.08118e-10 64114.3
+1.08503e-10 64059.2
+1.08889e-10 63995.6
+1.09274e-10 63923.5
+1.09659e-10 63842.7
+1.10045e-10 63753.1
+1.1043e-10 63654.8
+1.10816e-10 63547.5
+1.11201e-10 63431.4
+1.11586e-10 63306.3
+1.11972e-10 63172.2
+1.12357e-10 63029
+1.12743e-10 62876.7
+1.13128e-10 62715.4
+1.13514e-10 62545
+1.13899e-10 62365.5
+1.14284e-10 62176.8
+1.1467e-10 61979.1
+1.15055e-10 61772.3
+1.15441e-10 61556.4
+1.15826e-10 61331.5
+1.16211e-10 61097.6
+1.16597e-10 60854.7
+1.16982e-10 60602.9
+1.17368e-10 60342.2
+1.17753e-10 60072.7
+1.18337e-10 59647.4
+1.18922e-10 59202.2
+1.19506e-10 58737.3
+1.20091e-10 58253
+1.20675e-10 57749.7
+1.2126e-10 57227.6
+1.21844e-10 56687.2
+1.22429e-10 56128.7
+1.23013e-10 55552.5
+1.23597e-10 54959.2
+1.24182e-10 54349
+1.24766e-10 53722.4
+1.25351e-10 53079.8
+1.25935e-10 52421.9
+1.2652e-10 51748.9
+1.27104e-10 51061.4
+1.27689e-10 50359.9
+1.28273e-10 49644.9
+1.28858e-10 48916.9
+1.29442e-10 48176.4
+1.30026e-10 47424.1
+1.30611e-10 46660.3
+1.31195e-10 45885.7
+1.3178e-10 45100.8
+1.32364e-10 44306.2
+1.32949e-10 43502.3
+1.33533e-10 42689.9
+1.34118e-10 41869.3
+1.34702e-10 41041.2
+1.35287e-10 40206.1
+1.35871e-10 39364.6
+1.36455e-10 38517.2
+1.3704e-10 37664.5
+1.37624e-10 36806.9
+1.38209e-10 35945.1
+1.38793e-10 35079.6
+1.39378e-10 34210.8
+1.39962e-10 33339.4
+1.40546e-10 32465.8
+1.41131e-10 31590.6
+1.41715e-10 30714.2
+1.423e-10 29837.1
+1.42884e-10 28959.9
+1.43469e-10 28082.9
+1.44053e-10 27206.8
+1.44638e-10 26331.8
+1.45222e-10 25458.5
+1.45807e-10 24587.3
+1.46391e-10 23718.6
+1.46976e-10 22852.9
+1.4756e-10 21990.5
+1.48144e-10 21131.9
+1.48729e-10 20277.4
+1.49313e-10 19427.4
+1.49898e-10 18582.3
+1.50482e-10 17742.3
+1.51067e-10 16908
+1.51651e-10 16079.4
+1.52235e-10 15257.1
+1.5282e-10 14441.2
+1.53404e-10 13632.1
+1.53989e-10 12830
+1.54573e-10 12035.3
+1.55158e-10 11248
+1.55742e-10 10468.5
+1.56327e-10 9697.02
+1.56911e-10 8933.76
+1.57496e-10 8178.86
+1.5808e-10 7432.62
+1.58665e-10 6695.1
+1.59249e-10 5966.58
+1.59833e-10 5247.12
+1.60418e-10 4536.96
+1.61002e-10 3836.18
+1.61587e-10 3144.92
+1.62171e-10 2463.21
+1.62756e-10 1791.27
+1.6334e-10 1129.09
+1.63925e-10 476.848
+1.64509e-10 -165.481
+1.65093e-10 -797.737
+1.65678e-10 -1419.89
+1.66262e-10 -2032
+1.66847e-10 -2633.89
+1.67431e-10 -3225.61
+1.68016e-10 -3807.18
+1.686e-10 -4378.51
+1.69185e-10 -4939.64
+1.69769e-10 -5490.6
+1.70353e-10 -6031.37
+1.70938e-10 -6561.98
+1.71522e-10 -7082.44
+1.72107e-10 -7592.88
+1.72691e-10 -8093.27
+1.73276e-10 -8583.64
+1.7386e-10 -9064.04
+1.74445e-10 -9534.55
+1.75029e-10 -9995.22
+1.75614e-10 -10446.2
+1.76198e-10 -10887.5
+1.76782e-10 -11319.2
+1.77367e-10 -11741.4
+1.77951e-10 -12154.2
+1.78536e-10 -12557.7
+1.7912e-10 -12951.9
+1.79705e-10 -13336.9
+1.80622e-10 -13923.4
+1.8154e-10 -14488
+1.82458e-10 -15031.2
+1.83375e-10 -15553.3
+1.84293e-10 -16055
+1.8521e-10 -16536.5
+1.86128e-10 -16998.5
+1.87046e-10 -17441.3
+1.87963e-10 -17865.5
+1.88881e-10 -18271.4
+1.89798e-10 -18659.7
+1.90716e-10 -19030.6
+1.91634e-10 -19384.9
+1.92551e-10 -19722.8
+1.93469e-10 -20044.8
+1.94387e-10 -20351.5
+1.95304e-10 -20643.3
+1.96222e-10 -20920.6
+1.97139e-10 -21183.8
+1.98057e-10 -21433.4
+1.98975e-10 -21669.9
+1.99892e-10 -21893.5
+2.0081e-10 -22104.8
+2.01727e-10 -22304
+2.02645e-10 -22491.6
+2.03563e-10 -22668
+2.0448e-10 -22833.4
+2.05398e-10 -22988.3
+2.06316e-10 -23132.9
+2.07233e-10 -23267.6
+2.08151e-10 -23392.7
+2.09068e-10 -23508.3
+2.09986e-10 -23614.9
+2.10903e-10 -23712.7
+2.11821e-10 -23801.9
+2.12739e-10 -23882.8
+2.13656e-10 -23955.6
+2.14574e-10 -24020.5
+2.15492e-10 -24077.7
+2.16409e-10 -24127.4
+2.17327e-10 -24169.8
+2.18244e-10 -24205.1
+2.19162e-10 -24233.4
+2.2008e-10 -24254.9
+2.20997e-10 -24269.6
+2.21915e-10 -24277.9
+2.22832e-10 -24279.7
+2.2375e-10 -24275.2
+2.24668e-10 -24264.5
+2.25585e-10 -24247.8
+2.26503e-10 -24225
+2.27421e-10 -24196.4
+2.28338e-10 -24161.9
+2.29256e-10 -24121.8
+2.30173e-10 -24076
+2.31091e-10 -24024.6
+2.32472e-10 -23937
+2.33852e-10 -23837.2
+2.35233e-10 -23725.5
+2.36613e-10 -23601.9
+2.37994e-10 -23466.8
+2.39374e-10 -23320.3
+2.40755e-10 -23162.5
+2.42136e-10 -22993.8
+2.43516e-10 -22814.2
+2.44897e-10 -22624
+2.46277e-10 -22423.4
+2.47658e-10 -22212.6
+2.49038e-10 -21991.8
+2.50419e-10 -21761.2
+2.518e-10 -21521
+2.5318e-10 -21271.5
+2.54561e-10 -21013
+2.55941e-10 -20745.6
+2.57322e-10 -20469.7
+2.58702e-10 -20185.6
+2.60083e-10 -19893.5
+2.61464e-10 -19593.7
+2.62844e-10 -19286.5
+2.64225e-10 -18972.3
+2.65605e-10 -18651.3
+2.66986e-10 -18324
+2.68366e-10 -17990.6
+2.69747e-10 -17651.5
+2.71127e-10 -17307
+2.72508e-10 -16957.5
+2.73889e-10 -16603.3
+2.75269e-10 -16244.9
+2.7665e-10 -15882.5
+2.7803e-10 -15516.6
+2.79411e-10 -15147.5
+2.80791e-10 -14775.5
+2.82172e-10 -14401.1
+2.83552e-10 -14024.5
+2.84933e-10 -13646.2
+2.86314e-10 -13266.5
+2.87694e-10 -12885.7
+2.89075e-10 -12504.3
+2.90455e-10 -12122.4
+2.91836e-10 -11740.4
+2.93217e-10 -11358.5
+2.94597e-10 -10977.2
+2.95978e-10 -10597
+2.97358e-10 -10218.1
+2.98739e-10 -9840.73
+3.00119e-10 -9465.19
+3.00119e-10 -9465.19
+&
+@target G0.S5
+@type xy
+0 608112
+5.5094e-15 608151
+1.10188e-14 608190
+2.03572e-14 608256
+5.17072e-14 608477
+8.30572e-14 608698
+1.14407e-13 608919
+1.45757e-13 609139
+1.9536e-13 609487
+2.44962e-13 609833
+2.94564e-13 610179
+3.44167e-13 610525
+3.93769e-13 610869
+4.43372e-13 611212
+4.92974e-13 611555
+5.42576e-13 611896
+5.92179e-13 612237
+6.41781e-13 612577
+6.91383e-13 612916
+7.40986e-13 613255
+7.90588e-13 613592
+8.40191e-13 613929
+8.89793e-13 614265
+9.39395e-13 614600
+9.88998e-13 614934
+1.0386e-12 615268
+1.0882e-12 615601
+1.13781e-12 615933
+1.18741e-12 616264
+1.23701e-12 616595
+1.28661e-12 616924
+1.33621e-12 617253
+1.4111e-12 617749
+1.48598e-12 618242
+1.56086e-12 618734
+1.63575e-12 619224
+1.71063e-12 619713
+1.78551e-12 620200
+1.86039e-12 620686
+1.93528e-12 621170
+2.01016e-12 621652
+2.08504e-12 622133
+2.15992e-12 622613
+2.23481e-12 623091
+2.30969e-12 623568
+2.38457e-12 624043
+2.45946e-12 624517
+2.53434e-12 624989
+2.60922e-12 625460
+2.6841e-12 625930
+2.75899e-12 626398
+2.83387e-12 626865
+2.90875e-12 627331
+2.98363e-12 627795
+3.09723e-12 628498
+3.21082e-12 629197
+3.32441e-12 629893
+3.438e-12 630587
+3.5516e-12 631279
+3.66519e-12 631967
+3.77878e-12 632653
+3.89237e-12 633337
+4.00597e-12 634018
+4.11956e-12 634696
+4.23315e-12 635373
+4.34675e-12 636047
+4.46034e-12 636719
+4.57393e-12 637388
+4.68752e-12 638056
+4.80112e-12 638721
+4.91471e-12 639385
+5.0283e-12 640046
+5.14189e-12 640706
+5.25549e-12 641364
+5.36908e-12 642019
+5.48267e-12 642674
+5.59627e-12 643326
+5.70986e-12 643976
+5.82345e-12 644625
+5.93705e-12 645273
+6.05064e-12 645918
+6.16423e-12 646563
+6.27782e-12 647205
+6.39142e-12 647846
+6.50501e-12 648486
+6.6186e-12 649125
+6.73219e-12 649762
+6.84579e-12 650397
+6.95938e-12 651032
+7.12994e-12 651982
+7.3005e-12 652929
+7.47107e-12 653874
+7.64163e-12 654816
+7.81219e-12 655756
+7.98275e-12 656694
+8.15331e-12 657629
+8.32388e-12 658562
+8.49444e-12 659493
+8.665e-12 660422
+8.83556e-12 661349
+9.00613e-12 662274
+9.17669e-12 663198
+9.34725e-12 664119
+9.51781e-12 665039
+9.68838e-12 665957
+9.85894e-12 666873
+1.00295e-11 667788
+1.02001e-11 668701
+1.03706e-11 669613
+1.05412e-11 670523
+1.07118e-11 671432
+1.08823e-11 672339
+1.10529e-11 673245
+1.12234e-11 674150
+1.1394e-11 675053
+1.15646e-11 675954
+1.17351e-11 676855
+1.19057e-11 677753
+1.20763e-11 678651
+1.22468e-11 679547
+1.24174e-11 680441
+1.25879e-11 681334
+1.27585e-11 682226
+1.29291e-11 683116
+1.30996e-11 684005
+1.32702e-11 684892
+1.34407e-11 685778
+1.36113e-11 686662
+1.37819e-11 687544
+1.39524e-11 688425
+1.4123e-11 689304
+1.42936e-11 690181
+1.44641e-11 691057
+1.46347e-11 691931
+1.48052e-11 692803
+1.49758e-11 693673
+1.51464e-11 694541
+1.53169e-11 695407
+1.54875e-11 696272
+1.5658e-11 697134
+1.58286e-11 697994
+1.59992e-11 698852
+1.61697e-11 699707
+1.63403e-11 700561
+1.65109e-11 701412
+1.66814e-11 702260
+1.6852e-11 703107
+1.70226e-11 703950
+1.71931e-11 704791
+1.73637e-11 705630
+1.75342e-11 706466
+1.77048e-11 707299
+1.78754e-11 708129
+1.80459e-11 708957
+1.82165e-11 709781
+1.83871e-11 710603
+1.85576e-11 711422
+1.87282e-11 712237
+1.88987e-11 713050
+1.90693e-11 713859
+1.92399e-11 714665
+1.94104e-11 715468
+1.9581e-11 716268
+1.97515e-11 717064
+1.99221e-11 717856
+2.00927e-11 718646
+2.02632e-11 719431
+2.04338e-11 720213
+2.06044e-11 720992
+2.07749e-11 721767
+2.09455e-11 722538
+2.1116e-11 723305
+2.12866e-11 724069
+2.14572e-11 724829
+2.16277e-11 725585
+2.17983e-11 726337
+2.19689e-11 727085
+2.21394e-11 727830
+2.231e-11 728570
+2.24805e-11 729306
+2.26511e-11 730038
+2.28217e-11 730766
+2.29922e-11 731490
+2.31628e-11 732210
+2.33334e-11 732926
+2.35039e-11 733637
+2.36745e-11 734345
+2.3845e-11 735048
+2.40156e-11 735747
+2.41862e-11 736441
+2.43567e-11 737132
+2.45273e-11 737818
+2.46979e-11 738500
+2.48684e-11 739178
+2.5039e-11 739851
+2.52095e-11 740520
+2.53801e-11 741185
+2.55507e-11 741846
+2.57212e-11 742502
+2.58918e-11 743154
+2.60624e-11 743801
+2.62329e-11 744445
+2.64035e-11 745084
+2.6574e-11 745719
+2.67446e-11 746349
+2.69152e-11 746975
+2.70857e-11 747597
+2.72563e-11 748215
+2.74269e-11 748829
+2.75974e-11 749438
+2.7768e-11 750043
+2.79385e-11 750644
+2.81091e-11 751241
+2.82797e-11 751834
+2.84502e-11 752422
+2.86208e-11 753006
+2.87913e-11 753587
+2.89619e-11 754163
+2.91325e-11 754735
+2.9303e-11 755303
+2.94736e-11 755867
+2.96442e-11 756428
+2.98147e-11 756984
+2.99853e-11 757536
+3.01558e-11 758084
+3.03264e-11 758629
+3.0497e-11 759169
+3.06675e-11 759706
+3.09244e-11 760507
+3.11813e-11 761300
+3.14381e-11 762085
+3.1695e-11 762861
+3.19519e-11 763628
+3.22087e-11 764388
+3.24656e-11 765140
+3.27225e-11 765884
+3.29793e-11 766620
+3.32362e-11 767348
+3.34931e-11 768069
+3.37499e-11 768783
+3.40068e-11 769489
+3.42637e-11 770187
+3.45205e-11 770879
+3.47774e-11 771564
+3.50343e-11 772241
+3.52911e-11 772912
+3.5548e-11 773576
+3.58049e-11 774234
+3.60617e-11 774885
+3.63186e-11 775529
+3.65755e-11 776168
+3.68324e-11 776800
+3.70892e-11 777426
+3.73461e-11 778045
+3.7603e-11 778659
+3.78598e-11 779268
+3.81167e-11 779870
+3.83736e-11 780467
+3.86304e-11 781058
+3.88873e-11 781644
+3.91442e-11 782224
+3.9401e-11 782799
+3.96579e-11 783369
+3.99148e-11 783933
+4.01716e-11 784493
+4.04285e-11 785047
+4.06854e-11 785597
+4.09422e-11 786142
+4.11991e-11 786682
+4.1456e-11 787217
+4.17128e-11 787747
+4.19697e-11 788273
+4.22266e-11 788795
+4.24834e-11 789311
+4.27403e-11 789824
+4.29972e-11 790332
+4.3254e-11 790836
+4.35109e-11 791335
+4.37678e-11 791830
+4.40247e-11 792322
+4.42815e-11 792809
+4.45384e-11 793292
+4.47953e-11 793770
+4.50521e-11 794245
+4.5309e-11 794716
+4.55658e-11 795183
+4.58227e-11 795647
+4.60796e-11 796106
+4.63365e-11 796562
+4.65933e-11 797014
+4.68502e-11 797462
+4.71071e-11 797906
+4.73639e-11 798347
+4.76208e-11 798784
+4.78777e-11 799218
+4.81345e-11 799648
+4.83914e-11 800075
+4.86483e-11 800498
+4.89051e-11 800918
+4.9162e-11 801334
+4.94189e-11 801747
+4.96757e-11 802156
+4.99326e-11 802563
+5.01895e-11 802965
+5.04463e-11 803365
+5.07032e-11 803761
+5.09601e-11 804154
+5.12169e-11 804544
+5.14738e-11 804930
+5.17307e-11 805314
+5.19875e-11 805694
+5.22444e-11 806071
+5.25013e-11 806445
+5.27581e-11 806816
+5.3015e-11 807184
+5.32719e-11 807548
+5.35288e-11 807910
+5.37856e-11 808269
+5.40425e-11 808624
+5.42994e-11 808977
+5.45562e-11 809327
+5.48131e-11 809674
+5.507e-11 810017
+5.53268e-11 810358
+5.55837e-11 810697
+5.58406e-11 811032
+5.60974e-11 811364
+5.63543e-11 811694
+5.66112e-11 812021
+5.6868e-11 812345
+5.71249e-11 812666
+5.73818e-11 812984
+5.76386e-11 813300
+5.78955e-11 813613
+5.81524e-11 813924
+5.84092e-11 814231
+5.86661e-11 814537
+5.8923e-11 814839
+5.91798e-11 815139
+5.94367e-11 815436
+5.96936e-11 815731
+5.99504e-11 816023
+6.02073e-11 816313
+6.04642e-11 816600
+6.0721e-11 816884
+6.09779e-11 817166
+6.12348e-11 817446
+6.14917e-11 817723
+6.17485e-11 817998
+6.20054e-11 818270
+6.22623e-11 818540
+6.25191e-11 818808
+6.2776e-11 819073
+6.30329e-11 819336
+6.32897e-11 819596
+6.35466e-11 819855
+6.38035e-11 820111
+6.40603e-11 820364
+6.43172e-11 820616
+6.45741e-11 820865
+6.48309e-11 821112
+6.50878e-11 821357
+6.53447e-11 821600
+6.56015e-11 821841
+6.58584e-11 822079
+6.61153e-11 822315
+6.63721e-11 822549
+6.6629e-11 822782
+6.68859e-11 823012
+6.71427e-11 823240
+6.73996e-11 823465
+6.76565e-11 823689
+6.79133e-11 823911
+6.81702e-11 824131
+6.84271e-11 824349
+6.86839e-11 824565
+6.89408e-11 824780
+6.91977e-11 824992
+6.94546e-11 825202
+6.97114e-11 825410
+6.99683e-11 825617
+7.02252e-11 825822
+7.0482e-11 826024
+7.07389e-11 826226
+7.09958e-11 826425
+7.12526e-11 826622
+7.15095e-11 826818
+7.17664e-11 827012
+7.20232e-11 827204
+7.22801e-11 827394
+7.2537e-11 827583
+7.27938e-11 827770
+7.30507e-11 827955
+7.33076e-11 828139
+7.35644e-11 828321
+7.38213e-11 828501
+7.40782e-11 828680
+7.4335e-11 828857
+7.45919e-11 829033
+7.48488e-11 829207
+7.51056e-11 829379
+7.53625e-11 829550
+7.56194e-11 829719
+7.58762e-11 829887
+7.61331e-11 830053
+7.639e-11 830218
+7.66468e-11 830382
+7.69037e-11 830543
+7.71606e-11 830704
+7.74174e-11 830863
+7.76743e-11 831020
+7.79312e-11 831176
+7.81881e-11 831331
+7.84449e-11 831484
+7.87018e-11 831636
+7.89587e-11 831786
+7.92155e-11 831936
+7.94724e-11 832083
+7.97293e-11 832230
+7.99861e-11 832375
+8.0243e-11 832519
+8.04999e-11 832662
+8.07567e-11 832803
+8.10136e-11 832943
+8.12705e-11 833082
+8.15273e-11 833219
+8.17842e-11 833356
+8.20411e-11 833491
+8.22979e-11 833625
+8.25548e-11 833757
+8.28117e-11 833889
+8.30685e-11 834019
+8.33254e-11 834149
+8.35823e-11 834277
+8.38391e-11 834404
+8.4096e-11 834529
+8.43529e-11 834654
+8.46097e-11 834778
+8.48666e-11 834900
+8.51235e-11 835022
+8.53803e-11 835142
+8.56372e-11 835261
+8.58941e-11 835380
+8.61509e-11 835497
+8.64078e-11 835613
+8.66647e-11 835728
+8.69216e-11 835843
+8.71784e-11 835956
+8.74353e-11 836068
+8.76921e-11 836179
+8.7949e-11 836290
+8.82059e-11 836399
+8.84628e-11 836507
+8.87196e-11 836615
+8.89765e-11 836721
+8.92334e-11 836827
+8.94902e-11 836932
+8.97471e-11 837036
+9.0004e-11 837139
+9.02608e-11 837241
+9.05177e-11 837342
+9.07746e-11 837442
+9.10314e-11 837542
+9.12883e-11 837641
+9.15452e-11 837738
+9.19306e-11 837884
+9.2316e-11 838027
+9.27014e-11 838169
+9.30868e-11 838309
+9.34722e-11 838447
+9.38576e-11 838584
+9.4243e-11 838719
+9.46284e-11 838852
+9.50139e-11 838984
+9.53993e-11 839114
+9.57847e-11 839243
+9.61701e-11 839370
+9.65555e-11 839495
+9.69409e-11 839620
+9.73263e-11 839742
+9.77117e-11 839863
+9.80971e-11 839983
+9.84825e-11 840102
+9.88679e-11 840219
+9.92534e-11 840334
+9.96388e-11 840449
+1.00024e-10 840562
+1.0041e-10 840674
+1.00795e-10 840784
+1.0118e-10 840894
+1.01566e-10 841002
+1.01951e-10 841109
+1.02337e-10 841215
+1.02722e-10 841320
+1.03107e-10 841423
+1.03493e-10 841526
+1.03878e-10 841627
+1.04264e-10 841727
+1.04649e-10 841827
+1.05035e-10 841925
+1.0542e-10 842022
+1.05805e-10 842118
+1.06191e-10 842213
+1.06576e-10 842308
+1.06962e-10 842401
+1.07347e-10 842493
+1.07732e-10 842585
+1.08118e-10 842675
+1.08503e-10 842765
+1.08889e-10 842854
+1.09274e-10 842942
+1.09659e-10 843029
+1.10045e-10 843115
+1.1043e-10 843201
+1.10816e-10 843285
+1.11201e-10 843369
+1.11586e-10 843452
+1.11972e-10 843535
+1.12357e-10 843616
+1.12743e-10 843697
+1.13128e-10 843777
+1.13514e-10 843857
+1.13899e-10 843936
+1.14284e-10 844014
+1.1467e-10 844091
+1.15055e-10 844168
+1.15441e-10 844244
+1.15826e-10 844319
+1.16211e-10 844394
+1.16597e-10 844468
+1.16982e-10 844542
+1.17368e-10 844615
+1.17753e-10 844687
+1.18337e-10 844796
+1.18922e-10 844903
+1.19506e-10 845009
+1.20091e-10 845114
+1.20675e-10 845217
+1.2126e-10 845320
+1.21844e-10 845421
+1.22429e-10 845521
+1.23013e-10 845620
+1.23597e-10 845718
+1.24182e-10 845814
+1.24766e-10 845910
+1.25351e-10 846005
+1.25935e-10 846099
+1.2652e-10 846191
+1.27104e-10 846283
+1.27689e-10 846374
+1.28273e-10 846464
+1.28858e-10 846553
+1.29442e-10 846641
+1.30026e-10 846728
+1.30611e-10 846814
+1.31195e-10 846900
+1.3178e-10 846984
+1.32364e-10 847068
+1.32949e-10 847151
+1.33533e-10 847233
+1.34118e-10 847314
+1.34702e-10 847395
+1.35287e-10 847475
+1.35871e-10 847554
+1.36455e-10 847632
+1.3704e-10 847709
+1.37624e-10 847786
+1.38209e-10 847862
+1.38793e-10 847937
+1.39378e-10 848011
+1.39962e-10 848085
+1.40546e-10 848158
+1.41131e-10 848230
+1.41715e-10 848302
+1.423e-10 848373
+1.42884e-10 848443
+1.43469e-10 848512
+1.44053e-10 848581
+1.44638e-10 848649
+1.45222e-10 848716
+1.45807e-10 848783
+1.46391e-10 848849
+1.46976e-10 848915
+1.4756e-10 848979
+1.48144e-10 849043
+1.48729e-10 849107
+1.49313e-10 849169
+1.49898e-10 849231
+1.50482e-10 849293
+1.51067e-10 849353
+1.51651e-10 849413
+1.52235e-10 849473
+1.5282e-10 849532
+1.53404e-10 849590
+1.53989e-10 849647
+1.54573e-10 849704
+1.55158e-10 849761
+1.55742e-10 849816
+1.56327e-10 849872
+1.56911e-10 849926
+1.57496e-10 849980
+1.5808e-10 850033
+1.58665e-10 850086
+1.59249e-10 850138
+1.59833e-10 850190
+1.60418e-10 850241
+1.61002e-10 850291
+1.61587e-10 850341
+1.62171e-10 850390
+1.62756e-10 850439
+1.6334e-10 850487
+1.63925e-10 850535
+1.64509e-10 850582
+1.65093e-10 850628
+1.65678e-10 850674
+1.66262e-10 850720
+1.66847e-10 850765
+1.67431e-10 850809
+1.68016e-10 850853
+1.686e-10 850897
+1.69185e-10 850940
+1.69769e-10 850982
+1.70353e-10 851024
+1.70938e-10 851065
+1.71522e-10 851106
+1.72107e-10 851147
+1.72691e-10 851187
+1.73276e-10 851227
+1.7386e-10 851266
+1.74445e-10 851304
+1.75029e-10 851343
+1.75614e-10 851380
+1.76198e-10 851418
+1.76782e-10 851455
+1.77367e-10 851491
+1.77951e-10 851527
+1.78536e-10 851563
+1.7912e-10 851598
+1.79705e-10 851633
+1.80622e-10 851687
+1.8154e-10 851740
+1.82458e-10 851792
+1.83375e-10 851843
+1.84293e-10 851893
+1.8521e-10 851942
+1.86128e-10 851990
+1.87046e-10 852038
+1.87963e-10 852085
+1.88881e-10 852130
+1.89798e-10 852175
+1.90716e-10 852220
+1.91634e-10 852263
+1.92551e-10 852306
+1.93469e-10 852348
+1.94387e-10 852389
+1.95304e-10 852430
+1.96222e-10 852469
+1.97139e-10 852508
+1.98057e-10 852547
+1.98975e-10 852585
+1.99892e-10 852622
+2.0081e-10 852658
+2.01727e-10 852694
+2.02645e-10 852729
+2.03563e-10 852764
+2.0448e-10 852798
+2.05398e-10 852831
+2.06316e-10 852864
+2.07233e-10 852897
+2.08151e-10 852929
+2.09068e-10 852960
+2.09986e-10 852991
+2.10903e-10 853021
+2.11821e-10 853051
+2.12739e-10 853080
+2.13656e-10 853109
+2.14574e-10 853137
+2.15492e-10 853165
+2.16409e-10 853192
+2.17327e-10 853219
+2.18244e-10 853245
+2.19162e-10 853272
+2.2008e-10 853297
+2.20997e-10 853322
+2.21915e-10 853347
+2.22832e-10 853371
+2.2375e-10 853395
+2.24668e-10 853419
+2.25585e-10 853442
+2.26503e-10 853465
+2.27421e-10 853487
+2.28338e-10 853510
+2.29256e-10 853531
+2.30173e-10 853553
+2.31091e-10 853574
+2.32472e-10 853605
+2.33852e-10 853635
+2.35233e-10 853665
+2.36613e-10 853693
+2.37994e-10 853721
+2.39374e-10 853749
+2.40755e-10 853776
+2.42136e-10 853802
+2.43516e-10 853827
+2.44897e-10 853852
+2.46277e-10 853877
+2.47658e-10 853900
+2.49038e-10 853923
+2.50419e-10 853946
+2.518e-10 853968
+2.5318e-10 853989
+2.54561e-10 854010
+2.55941e-10 854031
+2.57322e-10 854051
+2.58702e-10 854070
+2.60083e-10 854089
+2.61464e-10 854108
+2.62844e-10 854126
+2.64225e-10 854144
+2.65605e-10 854161
+2.66986e-10 854178
+2.68366e-10 854194
+2.69747e-10 854210
+2.71127e-10 854226
+2.72508e-10 854241
+2.73889e-10 854256
+2.75269e-10 854271
+2.7665e-10 854285
+2.7803e-10 854299
+2.79411e-10 854312
+2.80791e-10 854325
+2.82172e-10 854338
+2.83552e-10 854350
+2.84933e-10 854363
+2.86314e-10 854375
+2.87694e-10 854386
+2.89075e-10 854398
+2.90455e-10 854409
+2.91836e-10 854419
+2.93217e-10 854430
+2.94597e-10 854440
+2.95978e-10 854450
+2.97358e-10 854460
+2.98739e-10 854469
+3.00119e-10 854479
+3.00119e-10 854479
+&
+@target G0.S6
+@type xy
+5e-18 608112
+5e-12 561792
+1e-11 497204
+1.5e-11 419818
+2e-11 335439
+2.5e-11 250509
+3e-11 171485
+3.5e-11 103551
+4e-11 49722.4
+4.5e-11 10741.2
+5e-11 -14449.4
+5.5e-11 -28052.1
+6e-11 -32821.5
+6.5e-11 -31609.3
+7e-11 -27031.4
+7.5e-11 -21269.2
+8e-11 -15969.7
+8.5e-11 -12227.2
+9e-11 -10631.7
+9.5e-11 -11343.6
+1e-10 -14189.1
+1.05e-10 -18761.8
+1.1e-10 -24517.7
+1.15e-10 -30864.3
+1.2e-10 -37231.7
+1.25e-10 -43126.8
+1.3e-10 -48166
+1.35e-10 -52091.3
+1.4e-10 -54767.9
+1.45e-10 -56171.8
+1.5e-10 -56369.6
+1.55e-10 -55492.8
+1.6e-10 -53713.8
+1.65e-10 -51223.5
+1.7e-10 -48211.8
+1.75e-10 -44853.9
+1.8e-10 -41301
+1.85e-10 -37675.5
+1.9e-10 -34070.3
+1.95e-10 -30549.9
+2e-10 -27155.1
+2.05e-10 -23907.5
+2.1e-10 -20814.8
+2.15e-10 -17875.9
+2.2e-10 -15085
+2.25e-10 -12433.9
+2.3e-10 -9917.26
+2.35e-10 -7530.64
+2.4e-10 -5272.42
+2.45e-10 -3144.38
+2.5e-10 -1150.97
+2.55e-10 700.677
+2.6e-10 2404.64
+2.65e-10 3954.19
+2.7e-10 5344.69
+2.75e-10 6572.84
+2.8e-10 7637.07
+2.85e-10 8537.81
+2.9e-10 9278.2
+2.95e-10 9863.43
+3e-10 10300.3
+&
+@target G0.S7
+@type xy
+5e-18 0.100032
+5e-12 95223.5
+1e-11 175830
+1.5e-11 236994
+2e-11 276455
+2.5e-11 294101
+3e-11 292022
+3.5e-11 274214
+4e-11 245756
+4.5e-11 211796
+5e-11 176807
+5.5e-11 144213
+6e-11 116293
+6.5e-11 94241.4
+7e-11 78321.7
+7.5e-11 68076
+8e-11 62557.8
+8.5e-11 60563.5
+9e-11 60823.6
+9.5e-11 62152.5
+1e-10 63550.1
+1.05e-10 64252.7
+1.1e-10 63753.7
+1.15e-10 61791.2
+1.2e-10 58316.7
+1.25e-10 53452.6
+1.3e-10 47441.2
+1.35e-10 40597.1
+1.4e-10 33262.3
+1.45e-10 25769.6
+1.5e-10 18415.1
+1.55e-10 11440.9
+1.6e-10 5026.33
+1.65e-10 -712.896
+1.7e-10 -5719.34
+1.75e-10 -9984.69
+1.8e-10 -13538.7
+1.85e-10 -16436.9
+1.9e-10 -18750.1
+1.95e-10 -20554.4
+2e-10 -21924.5
+2.05e-10 -22927.6
+2.1e-10 -23621.8
+2.15e-10 -24053.4
+2.2e-10 -24259.1
+2.25e-10 -24264.7
+2.3e-10 -24090.5
+2.35e-10 -23750
+2.4e-10 -23254.2
+2.45e-10 -22612
+2.5e-10 -21832.2
+2.55e-10 -20925.9
+2.6e-10 -19905.3
+2.65e-10 -18784.2
+2.7e-10 -17577.6
+2.75e-10 -16302
+2.8e-10 -14974.4
+2.85e-10 -13612.2
+2.9e-10 -12232.1
+2.95e-10 -10850.5
+3e-10 -9482.36
+&
+@target G0.S8
+@type xy
+5e-18 608112
+5e-12 639882
+1e-11 667629
+1.5e-11 693795
+2e-11 718214
+2.5e-11 739694
+3e-11 757578
+3.5e-11 772144
+4e-11 784111
+4.5e-11 794139
+5e-11 802656
+5.5e-11 809911
+6e-11 816064
+6.5e-11 821259
+7e-11 825627
+7.5e-11 829292
+8e-11 832366
+8.5e-11 834946
+9e-11 837119
+9.5e-11 838962
+1e-10 840536
+1.05e-10 841898
+1.1e-10 843087
+1.15e-10 844138
+1.2e-10 845079
+1.25e-10 845930
+1.3e-10 846705
+1.35e-10 847417
+1.4e-10 848072
+1.45e-10 848673
+1.5e-10 849223
+1.55e-10 849727
+1.6e-10 850186
+1.65e-10 850603
+1.7e-10 850980
+1.75e-10 851322
+1.8e-10 851631
+1.85e-10 851912
+1.9e-10 852166
+1.95e-10 852397
+2e-10 852607
+2.05e-10 852798
+2.1e-10 852971
+2.15e-10 853130
+2.2e-10 853275
+2.25e-10 853407
+2.3e-10 853528
+2.35e-10 853639
+2.4e-10 853741
+2.45e-10 853835
+2.5e-10 853920
+2.55e-10 853997
+2.6e-10 854069
+2.65e-10 854134
+2.7e-10 854194
+2.75e-10 854248
+2.8e-10 854298
+2.85e-10 854344
+2.9e-10 854386
+2.95e-10 854424
+3e-10 854458
+&

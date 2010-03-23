@@ -1,0 +1,6 @@
+set term postscript color enhanced
+set out "result.ps"
+plot \
+  "m.dat" u ($3):($6) t "" w lp 1, \
+  "m.dat" u (-$3):(-$6) t "" w lp 1
+

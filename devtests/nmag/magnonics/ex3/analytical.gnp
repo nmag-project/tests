@@ -1,0 +1,13 @@
+set term png
+set out "analytical.png"
+
+gamma = 2.210173e5 # m/A s 
+exch_coupling = 13.0e-12 # J/m
+Msat = 0.86e6 # in A/m
+mu0 = 4.0e-7*pi # N/A^2 = J/m A^2
+C = 2*exch_coupling/(mu0*Msat) # A m
+f2(x) = gamma*C*x*x # 1/s
+f1(x) = 0.5*gamma*Msat + f2(x)
+plot [-0.5e9:0.5e9] (f1(x)/(2*pi)), (f2(x)/(2*pi))
+
+

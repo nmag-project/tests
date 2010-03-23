@@ -1,0 +1,6 @@
+set pm3d map
+splot [] [0:] 'real-space.dat' u 2:($1/(2*pi*1e9)):5
+pause -1
+
+splot [] [0:] 'rec-space.dat' u 2:($1/(2*pi*1e9)):5
+pause -1

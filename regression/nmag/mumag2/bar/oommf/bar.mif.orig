@@ -1,0 +1,52 @@
+# MIF 2.1
+# Sample problem description for muMAG Standard Problem #2
+set pi [expr 4*atan(1.0)]
+set mu0 [expr 4*$pi*1e-7]
+
+Specify Oxs_BoxAtlas:atlas {
+  xrange {0 BAR_L}
+  yrange {0 BAR_d}
+  zrange {0 BAR_t}
+}
+
+Specify Oxs_RectangularMesh:mesh {
+  cellsize {CELL_x CELL_y CELL_z}
+  atlas :atlas
+}
+
+Specify Oxs_UniformExchange {A  EXCHANGE_COUPLING}
+
+Specify Oxs_Demag {}
+
+Specify Oxs_UZeeman "
+  Hrange {
+    { HIX HIY HIZ HFX HFY HFZ NUM_STAGES }
+  }"
+
+Specify Oxs_EulerEvolve {
+  alpha 1.0
+  start_dm 0.0001
+  gamma_G 0.2211e6
+  absolute_step_error 0.02
+  relative_step_error 0.02
+}
+
+# stage_iteration_limit 550000
+# total_iteration_limit 3100
+# stage_count 11
+Specify Oxs_TimeDriver {
+ basename SIM_NAME
+ evolver Oxs_EulerEvolve
+ stopping_dm_dt 1.0
+ mesh :mesh
+ Ms { Oxs_UniformScalarField { value M_SAT } }
+ m0 { Oxs_UniformVectorField {
+  norm 1
+  vector {1 1 1}
+ } }
+}
+
+Destination archive mmArchive
+
+OOMMF_SAVE_STAGE
+OOMMF_SAVE_STEP

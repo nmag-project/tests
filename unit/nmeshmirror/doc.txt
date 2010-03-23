@@ -1,0 +1,100 @@
+.. comment:
+  . -*- mode: rst -*-
+
+.. sectnum::
+
+Nmeshmirror
+===========
+
+Nmeshmirror is a script which allows to create a periodic mesh
+out of a regular periodic-free mesh. The given mesh must be a
+segment in 1D, a rectangle in 2D or a prism in 3D, and the 
+periodicity can be defined along any of the main axes of the mesh.
+Given a mesh, the script searches for the minimum and maximum
+values of the points coordinates along the main axes. These
+values are used to define planes, which are then used to
+mirror the mesh according to the parameter defining the 
+mirroring directions. When the value for a given axis is 1, 
+the mesh is mirrored along the positive direction of that axis,
+while it is mirrored along the negative direction if the value is -1. 
+When the value is 0, the mesh is not mirrored along the given axis.
+To recognize which points on the mirroring plane should be considered
+coincident we use the parameter ``error1``: a mirrored point which is 
+within an error1 distance from its parent point is considered
+coincident with the parent point. A further parameter
+is the ``error2``. Taking the plane of the points which will become
+periodic under the mirroring operation, a point is assumed to lie on
+the plane only if the distance plane-point is smaller than error2.
+To make this definitions clearer, we use the mesh defined in
+`org.nmesh <org.nmesh>`__  as the initial mesh: 
+
+  .. include:: org.nmesh
+    :literal:
+
+Such mesh has the following structure:
+
+.. image:: orig-mesh.png
+   :width: 7.0cm
+   :align: center
+
+If now we mirror this mesh along the positive x-axis (that is along the
+plane defined by x=1), the result is the following:
+
+.. image:: mirror1.png
+   :width: 12.0cm
+   :align: center
+
+The command used to generate such mesh is the following::
+
+   $ nmeshmirror org.nmesh 1e-6 1e-6 1,0 mirror1.nmesh
+
+which corresponds to the following parameters::
+
+   $ nmeshmirror initial_mesh error1 error2 axes final_mesh
+
+and the errors previously defined are graphically shown in the following image:   
+
+.. image:: errors.png
+   :width: 12.0cm
+   :align: center
+
+If we want to mirror `org.nmesh <org.nmesh>`__  along the negative x-axis (that is along the
+plane defined by x=0), on the command line we run the command::
+
+   $ nmeshmirror org.nmesh 1e-6 1e-6 -1,0 mirror2.nmesh
+
+and the result is the following:
+
+.. image:: mirror2.png
+   :width: 12.0cm
+   :align: center
+
+In analogy to the previous commands, to mirror `org.nmesh
+<org.nmesh>`__  along the positive y-axis 
+(that is along the plane defined by y=1), on the command line we run the command::
+
+   $ nmeshmirror org.nmesh 1e-6 1e-6 0,1 mirror3.nmesh
+
+and obtain the following result:
+
+.. image:: mirror3.png
+   :width: 6.0cm
+   :align: center
+
+If we want to have a periodic mesh along both the x and y axes
+(for instance along the positive directions), it is sufficient 
+to set to 1 all the axis affected by this mirroring operation.
+On the command line we then run the command::
+
+   $ nmeshmirror org.nmesh 1e-6 1e-6 1,1 mirror4.nmesh
+
+which gives the following mesh:
+
+.. image:: mirror4.png
+   :width: 12.0cm
+   :align: center
+
+where the periodic points are 3, that is the four external corners
+(which account for just one point because they are periodically
+coincident), the central point on the left and right external boundaries,
+and the central point on the top and bottom external boundaries.

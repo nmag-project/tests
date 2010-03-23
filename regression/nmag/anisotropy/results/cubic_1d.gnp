@@ -1,0 +1,11 @@
+p(x, y, z) = (x - 2*y + 3*z)/sqrt(14)
+po(x, y, z) = (x - 2*y + 3*z)/sqrt(14)/(4e-4*pi)
+
+plot \
+  "cubic_1d_nmag4.dat" u (p($1, $2, $3)):(p($4, $5, $6)) t "nmag4" w l 1, \
+  "cubic_1d_nmag4.dat" u (-p($1, $2, $3)):(-p($4, $5, $6)) t "" w l 1, \
+  "cubic_1d_oommf.dat" u (po($1, $2, $3)):(p($4, $5, $6)) t "OOMMF" w l 2, \
+  "cubic_1d_oommf.dat" u (-po($1, $2, $3)):(-p($4, $5, $6)) t "" w l 2
+
+pause -1
+
