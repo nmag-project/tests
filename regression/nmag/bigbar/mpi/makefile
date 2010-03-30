@@ -1,6 +1,6 @@
 include ../msat.inc
 
-NSIM=../../../../../bin/nsim
+NSIM=../../../../../bin/nsim-raw
 NCOL=../../../../../bin/ncol
 
 MPICH2PATH=../../../../../../lib/mpich2/bin

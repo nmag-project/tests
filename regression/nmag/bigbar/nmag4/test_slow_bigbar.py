@@ -1,25 +1,19 @@
 
-
-
 def test_run_bigbar():
-
     import sys,os
 
     proper_sysargv = sys.argv
     sys.argv = sys.argv[0:1]
 
-    #work out in which directory the data files are
+    # Work out in which directory the data files are
     org_dir = os.getcwd()
     os.chdir(os.path.split(__file__)[0])
 
-    #get the data in place
+    # Get the data in place
     os.system("make clean run results > make.out")
-
     os.chdir(org_dir)
 
-
 def datafile2numpy(filename):
-
     import numpy
     times = []
     Ms = []
@@ -35,11 +29,6 @@ def datafile2numpy(filename):
     Ms_numpy = numpy.array(Ms)
 
     return times_numpy,Ms_numpy
-
-
-
-
-
 
 def do_differencecheck():
     import numpy
@@ -100,10 +89,7 @@ def do_differencecheck():
     return t,t2,M,M2
 
 
-
-
-def test_data_for_correctness():
-    
+def test_data_for_correctness():    
     import sys, os
 
     proper_sysargv = sys.argv
@@ -120,8 +106,6 @@ def test_data_for_correctness():
     do_differencecheck()
 
     os.chdir(org_dir)
-
-    
 
 
 if __name__=="__main__":

@@ -1,4 +1,4 @@
-NSIM=../../../../../bin/nsim 
+NSIM=../../../../../bin/nsim --
 NSIMIMPORT=../../../../../bin/nmeshimport
 
 sphere.nmesh: sphere.msh

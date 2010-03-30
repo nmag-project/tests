@@ -1,8 +1,7 @@
 include ../msat.inc
 
-NSIM=../../../../../bin/nsim
+NSIM=../../../../../bin/nsim-raw
 NCOL=../../../../../bin/ncol
-
 
 .PHONY: all run results clean
 
