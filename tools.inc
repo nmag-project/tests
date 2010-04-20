@@ -14,11 +14,12 @@ SHELL=/bin/bash
 # Nmag tools
 BIN_PATH=$(NMAG_ROOT)/bin
 NSIM=$(BIN_PATH)/nsim
-NMAGPP=$(NSIM) $(BIN_PATH)/nmagpp
-NCOL=$(NSIM) $(BIN_PATH)/ncol
-NMESHIMPORT=$(NSIM) $(BIN_PATH)/nmeshimport
-NMESHPP=$(NSIM) $(BIN_PATH)/nmeshpp
-NMAGPROBE=$(NSIM) $(BIN_PATH)/nmagprobe
+NSIM_RAW=$(BIN_PATH)/nsim-raw
+NMAGPP=$(NSIM_RAW) $(BIN_PATH)/nmagpp
+NCOL=$(NSIM_RAW) $(BIN_PATH)/ncol
+NMESHIMPORT=$(NSIM_RAW) $(BIN_PATH)/nmeshimport
+NMESHPP=$(NSIM_RAW) $(BIN_PATH)/nmeshpp
+NMAGPROBE=$(NSIM_RAW) $(BIN_PATH)/nmagprobe
 
 # External tools
 NETGEN=/usr/bin/netgen
