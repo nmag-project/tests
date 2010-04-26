@@ -3,9 +3,10 @@ import nmesh
 from nmag import MagMaterial
 
 # Constants
-damping_const = Constant("alpha", def_on_material=True)
 negJ = Constant("negJ", def_on_material=True)
 M_sat = Constant("M_sat", def_on_material=True)
+gamma_LL = Constant("gamma_LL", def_on_material=True)
+alpha = Constant("alpha", def_on_material=True)
 
 # All fields
 m = SpaceField("m", [3], def_on_material=True)
@@ -20,6 +21,10 @@ H_total = SpaceField("H_total", [3], def_on_material=True)
 E_demag = SpaceField("E_demag", [], def_on_material=True)
 E_ext = SpaceField("E_ext", [], def_on_material=True)
 E_anis = SpaceField("E_anis", [], def_on_material=True)
+
+# Set the values of the constants and initial values of the fields
+gamma_LL.set_value(1.0, 'Py')
+alpha.set_value(0.5, 'Py')
 
 # Computation of exchange field
 tree = OverMatNode(
@@ -39,6 +44,10 @@ tree = \
 op_div_m = OperatorContext(tree.simplify(),
                            inputs=[M_sat, rho],
                            outputs=[m])
+eq = """%range i:3, j:3, k:3, p:3, q:3;
+dmdt(i) <- (-gamma_LL) * eps(i,j,k)*m(j)*H_total(k) +
+           (-gamma_LL*alpha) * eps(i,j,k)*m(j)*eps(k,p,q)*m(p)*H_total(q);"""
+comp_llg = Equation("comp_llg", eq)
 
 # All materials
 mat_Py = MagMaterial('Py')
@@ -49,9 +58,8 @@ region_materials = [[], [mat_Py]]
 
 # Put everything together in a physical model
 p = Model("mumag", mesh, region_materials)
-p.add_quantity([damping_const,
+p.add_quantity([alpha, gamma_LL,
                 m, H_ext, E_total, dmdt, M, H_exch, H_anis, H_total,
                 E_demag, E_ext, E_anis])
-p.add_computation([op_H_exch, op_div_m])
+p.add_computation([comp_llg])
 p.build()
-

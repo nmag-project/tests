@@ -50,9 +50,7 @@ lines = [line_left + " " + line_right
 
 # Write the timings data complemented with the column "nodes per mesh"
 f = open(filename, "w")
-f.write("\n".join(lines) + "\n")
-f.close()
-
+f.write("\n".join(lines) + "
 # Now write the Gnuplot file to plot the data
 row0 = [tonum(x) for x in lines[0].split()]
 
