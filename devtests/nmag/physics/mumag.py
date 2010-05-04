@@ -1,6 +1,10 @@
+from nsim.si_units.si import SI
 from nsim.model import *
 import nmesh
 from nmag import MagMaterial
+
+# Units
+ps = SI(1e-12, "s") # Picosecond
 
 # Constants
 negJ = Constant("negJ", def_on_material=True)
@@ -44,10 +48,24 @@ tree = \
 op_div_m = OperatorContext(tree.simplify(),
                            inputs=[M_sat, rho],
                            outputs=[m])
-eq = """%range i:3, j:3, k:3, p:3, q:3;
+
+# Definition of H_total
+comp_H_total = Equation("H_total", "%range i:3; H_total(i) <- H_ext(i);")
+
+# Equation of motion
+comp_llg = Equation("comp_llg", """
+%range i:3, j:3, k:3, p:3, q:3;
 dmdt(i) <- (-gamma_LL) * eps(i,j,k)*m(j)*H_total(k) +
-           (-gamma_LL*alpha) * eps(i,j,k)*m(j)*eps(k,p,q)*m(p)*H_total(q);"""
-comp_llg = Equation("comp_llg", eq)
+           (-gamma_LL*alpha) * eps(i,j,k)*m(j)*eps(k,p,q)*m(p)*H_total(q);""")
+
+# Equation for the Jacobian
+#jacobian_llg = Equation("jacobian_llg", """
+#%range i:3, j:3, k:3, p:3, q:3;
+#dmdt(i) <- (-gamma_LL) * eps(i,j,k)*m(j)*H_total(k) +
+           #(-gamma_LL*alpha) * eps(i,j,k)*m(j)*eps(k,p,q)*m(p)*H_total(q);""")
+
+ts = Timestepper("ts_llg", x='m', dxdt='dmdt', eq_for_jacobian=comp_llg,
+                 time_unit=ps)
 
 # All materials
 mat_Py = MagMaterial('Py')
@@ -61,5 +79,9 @@ p = Model("mumag", mesh, region_materials)
 p.add_quantity([alpha, gamma_LL,
                 m, H_ext, E_total, dmdt, M, H_exch, H_anis, H_total,
                 E_demag, E_ext, E_anis])
-p.add_computation([comp_llg])
+p.add_computation([comp_llg, comp_H_total])
+p.add_timestepper(ts)
+
 p.build()
+
+ts.advance_time(100*ps)
