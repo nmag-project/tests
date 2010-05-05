@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 #
+#
 # this is how to animate a mayavi-file (here heart.mv) 
 # (No interaction allowed)
 #
@@ -11,6 +12,7 @@
 # http://mayavi.sourceforge.net/docs/guide/c827.html.
 
 import sys, math
+from spielberg import Path, sample
 
 def debug():
   from IPython.Shell import IPShellEmbed
@@ -22,68 +24,98 @@ import mayavi
 
 v = mayavi.mayavi()
 
-v.load_visualization('vtk/m.mv')
+v.load_visualization('m.mv')
 
 c = v.renwin.camera
-c.SetFocalPoint(500, 50, 5)
 
 r = 100.0
-
-status = {'img_number': 0}
-
-def save_png():
-    if 1:
-        v.renwin.save_png('anim%04d.png' % status['img_number'])
-    status['img_number'] += 1
+h = 1000.0
 
 
-import glob
+dy0 = 20.0
+camera_vars = [['ll',  1.0, [   5, -dy0, 3], [   5, 50, 1]],
+               ['ll',  3.0, [   5, -dy0, 1], [   5, 50, 1]],
+               ['ll',  5.0, [1000, -dy0, 1], [1000, 50, 1]]]
+#               ['cl',  5.0, [], []]]
 
-# directory listing...
+positions = Path()
+lookats = Path()
+viewups = Path()
+for m, d, p, l in camera_vars:
+    if m[0] == 'l':
+        positions.add_segment(to_point=p, duration=d)
+        lookats.add_segment(to_point=l, duration=d)
+        viewups.add_segment(to_point=[0, 0, 1], duration=d)
 
-input_list = glob.glob('vtk/m-*.vtk')
-input_list.sort()
-input_list = [input_list[i]
-              for i in range(0, len(input_list), 5)] # decimation
+    elif m[0] == 'c':
+        positions.add_arc()
 
-# grab the DataVizManager list
-dvms = v.get_dvm_names()
+d = 1
+positions.add_arc([1000, 50, 1],
+                  from_point=[1000, -dy0, 1],
+                  to_point=[1050+dy0, 50, 1],
+                  duration=d)
+lookats.add_segment(to_point=[1000, 50, 1], duration=d)
+viewups.add_segment(to_point=[0, 0, 1], duration=d)
 
-# Bring the camera close to the center of the wire
-dz = 50
-#for i in range(270):
-if 1:
-    i = 269
-    j = max(0, i - 100)
-    z = 2000 - j*10
-    c.SetPosition(500, 50, z)
-    c.SetClippingRange(z-dz, z+dz)
+d = 5
+positions.add_arc([500, 50, 1],
+                  from_point=[1050+dy0, 50, 1],
+                  to_point=[500, 50, 549+dy0],
+                  duration=d)
+lookats.add_segment(from_point=[500, 50, 1],
+                    to_point=[500, 50, 1], duration=d)
+viewups.add_arc(center=[0, 0, 0],
+                from_point=[0, 0, 1],
+                to_point=[-1, 0, 0],
+                duration=d)
 
+d = 2
+positions.add_segment(from_point=[500, 50, 549+dy0],
+                      to_point=[500, 50, 300],
+                      duration=d)
+lookats.add_segment(to_point=[500, 50, 1], duration=d)
+viewups.add_arc(center=[0, 0, 0],
+                from_point=[-1, 0, 0],
+                to_point=[0, 1, 0],
+                duration=d)
+
+d = 2
+positions.add_pause(duration=d)
+lookats.add_pause(duration=d)
+viewups.add_pause(duration=d)
+
+
+
+vars = [positions, lookats, viewups]
+sampled_vars = []
+def sample_fn(t):
+    sampled_vars.append([v.sample(t) for v in vars])
+
+sample(sample_fn, positions.get_max_time())
+
+i = 0
+for position, lookat, viewup in sampled_vars:
+    d = math.sqrt(sum([(pi - li)**2
+                       for pi, li in zip(position, lookat)]))
+
+    clipdist = 600.0
+    c.SetPosition(position[0], position[1], position[2])
+    c.SetClippingRange(d-clipdist, d+clipdist)
+    c.SetFocalPoint(lookat[0], lookat[1], lookat[2])
+    c.SetViewUp(viewup[0], viewup[1], viewup[2])
+
+    #debug()
+
+
+    #
+    # re-render scene
+    #
     v.Render()
-    save_png()
-
-for i in range(50):
-    v.Render()
-    save_png()
-
-countdown = 100
-i0 = 0
-for n, datafile in enumerate(input_list):
-    for j in dvms:
-        # grab a handle to the DVM
-        dvm = v.mayavi.data_viz_mgr[j]
-
-        # follow the pipeline, and load in the new data file
-        ds  = dvm.get_data_source()
-        rdr = ds.get_reader()
-
-	previous = rdr.GetFileName()
-	if not ("mesh" in previous):
-          rdr.SetFileName(datafile)
-          ds.Update()
-          ds.update_references()
-
-    # re-render the scene
-    v.Render()
-    save_png()
+    
+    #
+    # uncomment the next line to save animation in file
+    #
+    v.renwin.save_png('anim%03d.png' % i)
+    i += 1
 
