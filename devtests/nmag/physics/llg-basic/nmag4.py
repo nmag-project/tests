@@ -1,5 +1,3 @@
-# Nmag example: briefly describe what it does
-
 import os, sys
 from nmag.common import *
 from nmag import vector_set
@@ -19,4 +17,3 @@ s.set_H_ext([0, 0, 1e5], unit=SI("A/m"))
 s.set_params(stopping_dm_dt=0.0*degrees_per_ns)
 s.relax(save=[('averages', every('time', SI(10e-12, "s")))],
         do=[('exit', at('time', SI(1e-9, "s")))])
-
