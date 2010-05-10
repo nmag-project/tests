@@ -3,11 +3,12 @@ import nmesh
 from nmag import MagMaterial
 
 # Constants and fields
-M_sat = Constant("M_sat", def_on_material=True, value=Value(1e6))
-gamma_LL = Constant("gamma_LL", def_on_material=True, value=Value(1.0))
+M_sat = Constant("M_sat", def_on_material=True, value=Value(0.86e6))
+gamma_LL = Constant("gamma_LL", def_on_material=True,
+                    value=Value(2.210173e5/(1 + 0.5**2)))
 alpha = Constant("alpha", def_on_material=True, value=Value(0.5))
-m = SpaceField("m", [3], def_on_material=True, value=Value([1, 1, 1]))
-H_ext = SpaceField("H_ext", [3], value=Value([0, 0, 0]))
+m = SpaceField("m", [3], def_on_material=True, value=Value([1, 0, 0]))
+H_ext = SpaceField("H_ext", [3], value=Value([0, 0, 1.0e5]))
 dmdt = SpaceField("dmdt", [3], def_on_material=True)
 
 # Equation of motion
@@ -34,4 +35,10 @@ p.add_timestepper(ts)
 p.build()
 
 # Now we can use the model
-ts.advance_time(100e-12)
+f = open("basic-llg.dat", "w")
+f.write("%g " % 0 + "%g %g %g\n" % tuple(m.integrate()[0][1]))
+for i in range(1, 101):
+  t = i*10e-12
+  ts.advance_time(t)
+  f.write("%g " % t + "%g %g %g\n" % tuple(m.integrate()[0][1]))
+f.close()
