@@ -1,26 +1,17 @@
 # Copyright (C) 2010 University of Southampton
-#  by Name Surname
-#
-# Makefile for the example.
-#
-# I SUGGEST TO AVOID CHANGING THE TARGET NAMES: run.py, mesh.nmesh.h5, etc.
-# STICK WITH THESE, IF POSSIBLE. This will help you to avoid redefining things
-# and it will make all the examples more uniform and usable. 'make run' will
-# then work for all the examples, and will produce the same file
-# (run_dat.ndt), etc.
 
-NMAG_ROOT=../../../../..
-include ../../../../test/tools.inc
+NMAG_ROOT=../../../../../src
+include ../../../../tools.inc
 
 .PHONY: all mesh run force plot clean clean-all
 
 # Standard targets
 
-all: mesh
+all: plot
 
 mesh: mesh.nmesh.h5
 
-run: run_dat.ndt
+run: nmag4.dat model.dat
 
 force:
 	rm -f run_dat.ndt
@@ -30,14 +21,14 @@ plot: plot.eps
 
 mesh.nmesh.h5: mesh.geo
 
-run_dat.ndt: run.py mesh.nmesh.h5
-	$(NSIM) run.py --clean
+nmag4.dat: nmag4.py mesh.nmesh.h5
+	$(NSIM) nmag4.py
+	$(NCOL) nmag4 time m_Py_0 m_Py_1 m_Py_2 > nmag4.dat
 
-run.dat: run_dat.ndt
-	$(NCOL) run_dat.ndt time H_ext_0 H_ext_1 H_ext_2 \
-	  m_Py_0 m_Py_1 m_Py_2 > $@
+model.dat: model.py mesh.nmesh.h5
+	$(NSIM) model.py
 
-plot.eps: plot.gnp run.dat
+plot.eps: plot.gnp nmag4.dat model.dat
 	$(GNUPLOT) plot.gnp
 
 clean:
@@ -45,4 +36,3 @@ clean:
 
 clean-all: clean
 	rm -f mesh.nmesh.h5 plot.eps run.dat run_dat.h5 run_dat.ndt
-

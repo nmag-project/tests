@@ -35,7 +35,7 @@ p.add_timestepper(ts)
 p.build()
 
 # Now we can use the model
-f = open("llg-basic.dat", "w")
+f = open("model.dat", "w")
 f.write("%g " % 0 + "%g %g %g\n" % tuple(m.integrate()[0][1]))
 for i in range(1, 101):
   t = i*10e-12
