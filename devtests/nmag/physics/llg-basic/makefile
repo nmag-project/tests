@@ -22,7 +22,7 @@ plot: plot.eps
 mesh.nmesh.h5: mesh.geo
 
 nmag4.dat: nmag4.py mesh.nmesh.h5
-	$(NSIM) nmag4.py
+	$(NSIM) nmag4.py --clean
 	$(NCOL) nmag4 time m_Py_0 m_Py_1 m_Py_2 > nmag4.dat
 
 model.dat: model.py mesh.nmesh.h5

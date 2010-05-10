@@ -4,7 +4,7 @@ from nmag import vector_set
 
 mat_Py = MagMaterial(name='Py',
                      Ms=SI(0.86e6, 'A/m'),
-                     llg_damping=0.5,
+                     llg_damping=0.2,
                      llg_gamma_G=SI(2.210173e5, "m/A s"),
                      exchange_coupling=SI(0.0e-12, 'J/m'))
 
