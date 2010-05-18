@@ -19,9 +19,6 @@ dmdt(i) <- (-gamma_GG/(1 + alpha*alpha))*(eps(i,j,k)*m(j)*H_ext(k) +
 # Timestepper
 ts = Timestepper("ts_llg", x='m', dxdt='dmdt', eq_for_jacobian=llg)
 
-# All materials
-mat_Py = MagMaterial('Py')
-
 # Put everything together in a physical model
 mesh = nmesh.load("mesh.nmesh.h5")
 region_materials = [[], ["Py"]]
