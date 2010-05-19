@@ -31,7 +31,6 @@ def vortex_m0(r):
 
     The size of the vortex core is assumed to be twice as large as the diameter
     of the vortex core.
-
     """
 
     global lexch
@@ -53,7 +52,7 @@ def vortex_m0(r):
     result = [mx/magnitude, my/magnitude, mz/magnitude]
     return result
 
-def energy_flowerstate(name, length, m0):
+def simulate(name, length, m0):
     global Ms, A, K1, easy_axis, lexch, flower_init
 
     edgelength = lexch*length
@@ -68,7 +67,7 @@ def energy_flowerstate(name, length, m0):
     simname = "%s%020.15f" % (name, length)
     sim = Simulation(simname)
 
-    sim.load_mesh("cube.nmesh.h5", [("Mat", mat_Py)],
+    sim.load_mesh("examesh.nmesh.h5", [("Mat", mat_Py)],
                   unit_length=edgelength)
 
     sim.set_m(m0)
@@ -81,8 +80,8 @@ def energy_flowerstate(name, length, m0):
     return energy_total
 
 def ediff(length):
-    e_vortex = energy_flowerstate("cube_vortex", length, vortex_m0)
-    e_flower = energy_flowerstate("cube_flower", length, flower_m0)
+    e_vortex = simulate("cube_vortex", length, vortex_m0)
+    e_flower = simulate("cube_flower", length, flower_m0)
     e_diff = e_vortex - e_flower
 
     f = open('data.txt', 'a')
@@ -94,7 +93,10 @@ def ediff(length):
 open('data.txt','a').write('#------------\n')
 
 # Main program starts here
-e_trans = bisect(ediff, 8.44375, 8.425, xtol=0.01)
+
+
+#e_trans = bisect(ediff, 8.0, 9.0, xtol=0.01)
+e_trans = bisect(ediff, 8.44726, 8.44921, xtol=0.01)
 
 print "The phase transition occurs at %f" % e_trans
 
