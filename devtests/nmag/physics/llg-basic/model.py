@@ -22,7 +22,7 @@ ts = Timestepper("ts_llg", x='m', dxdt='dmdt', eq_for_jacobian=llg)
 # Put everything together in a physical model
 mesh = nmesh.load("mesh.nmesh.h5")
 region_materials = [[], ["Py"]]
-p = Model("mumag", mesh, region_materials)
+p = Model("mumag", mesh, 1e-9, region_materials)
 p.add_quantity([alpha, gamma_GG, m, H_ext, dmdt])
 p.add_computation(llg)
 p.add_timestepper(ts)
@@ -30,9 +30,9 @@ p.build()
 
 # Now we can use the model
 f = open("model.dat", "w")
-f.write("%g " % 0 + "%g %g %g\n" % tuple(m.compute_average()[0][1]))
+f.write("%g " % 0 + "%g %g %g\n" % tuple(m.compute_average().as_float()))
 for i in range(1, 101):
   t = i*10e-12
   ts.advance_time(t)
-  f.write("%g " % t + "%g %g %g\n" % tuple(m.compute_average()[0][1]))
+  f.write("%g " % t + "%g %g %g\n" % tuple(m.compute_average().as_float()))
 f.close()
