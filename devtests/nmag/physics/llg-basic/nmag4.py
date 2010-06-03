@@ -15,5 +15,6 @@ s.load_mesh("mesh.nmesh.h5", [('Py', mat_Py)], unit_length=SI(1e-9, 'm'))
 s.set_m([1, 0, 0])
 s.set_H_ext([0, 0, 1e5], unit=SI("A/m"))
 s.set_params(stopping_dm_dt=0.0*degrees_per_ns)
-s.relax(save=[('averages', every('time', SI(10e-12, "s")))],
-        do=[('exit', at('time', SI(1e-9, "s")))])
+s.relax(do=[('exit', at('time', SI(1e-9, "s")))],
+        save=[('averages', every('time', SI(10e-12, "s")))])
+
