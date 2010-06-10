@@ -15,6 +15,7 @@ m = SpaceField("m", [3], subfields=True, value=Value(m0, 1.0))
 M_sat = Constant("M_sat", subfields=True, value=Value(0.86e6))
 gamma_GG = Constant("gamma_GG", subfields=True, value=Value(2.210173e5))
 alpha = Constant("alpha", subfields=True, value=Value(0.2))
+norm_coeff = Constant("norm_coeff", subfields=True, value=Value(0.1e12))
 A = 13e-12 # Exchange coupling constant
 C = Constant("C", subfields=True, value=Value(-2*A/(mu0*0.86e6) * 1e18))
 H_ext = SpaceField("H_ext", [3], value=Value([0, 0, 1.0e5]))
@@ -32,16 +33,25 @@ eq_H_tot = Equation("H_tot", "%range i:3; H_tot(i) <- H_ext(i) + H_exch(i);")
 llg = Equation("llg", """
 %range i:3, j:3, k:3, p:3, q:3;
 dmdt(i) <- (-gamma_GG/(1 + alpha*alpha))*(eps(i,j,k)*m(j)*H_tot(k) +
+           alpha*eps(i,j,k)*m(j)*eps(k,p,q)*m(p)*H_tot(q)) +
+           norm_coeff*(1.0 - m(j)*m(j))*m(i);""")
+
+# Equation for the Jacobian: we omit the third term on the RHS
+llg_jacobi = Equation("llg", """
+%range i:3, j:3, k:3, p:3, q:3;
+dmdt(i) <- (-gamma_GG/(1 + alpha*alpha))*(eps(i,j,k)*m(j)*H_tot(k) +
            alpha*eps(i,j,k)*m(j)*eps(k,p,q)*m(p)*H_tot(q));""")
 
 # Timestepper
-ts = Timestepper("ts_llg", x='m', dxdt='dmdt', eq_for_jacobian=llg)
+ts = Timestepper("ts_llg", x='m', dxdt='dmdt',
+                 eq_for_jacobian=llg, derivatives=[(H_tot, op_exch)])
 
 # Put everything together in a physical model
 mesh = nmesh.load("mesh.nmesh.h5")
 region_materials = [[], ["Py"]]
 p = Model("mumag", mesh, 1e-9, region_materials)
-p.add_quantity([alpha, gamma_GG, C, m, H_exch, H_ext, H_tot, dmdt])
+p.add_quantity([alpha, gamma_GG, C, norm_coeff,
+                m, H_exch, H_ext, H_tot, dmdt])
 p.add_computation([op_exch, llg, eq_H_tot])
 p.add_timestepper(ts)
 p.build()
@@ -53,5 +63,7 @@ for i in range(1, 101):
   t = i*10e-12
   ts.advance_time(t)
   f.write("%g " % t + "%g %g %g\n" % tuple(m.compute_average().as_float()))
-  print H_exch.compute_average().as_float()
+  vm = m.compute_average().as_float()
+  print sum([mi*mi for mi in vm])**0.5
+
 f.close()
