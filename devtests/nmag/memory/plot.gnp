@@ -8,8 +8,8 @@ pause -1
 
 set ylabel "VSS - RSS (GB)"
 plot [] [0:] \
-  "./plot.dat" u 1:(gb($2 - $3)) t "" w lp, \
-  "" u 1:(gb($2 - $3)):6 t "" w labels tc lt 3 font "Helvetica,7" rotate 90
+  "./plot.dat" u 1:(gb($3 - $2)) t "" w lp, \
+  "" u 1:(gb($3 - $2)):6 t "" w labels tc lt 3 font "Helvetica,7" rotate 90
 pause -1
 
 set ylabel "Memory increase (GB)"

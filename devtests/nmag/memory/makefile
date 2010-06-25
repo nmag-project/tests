@@ -10,8 +10,8 @@ bar.nmesh.h5: bar.geo
 memlog.dat: bar.nmesh.h5 run.py
 	$(NSIM) run.py -l debug --clean --petsc-opts -malloc_info -malloc_dump -malloc_debug -info &> memlog.dat
 
-plot.dat: memlog.dat
-	python extract.py > plot.dat
+plot.dat: memlog.dat extract.py
+	python extract.py memlog.dat > plot.dat
 
 plot: plot.dat
 	gnuplot plot.gnp

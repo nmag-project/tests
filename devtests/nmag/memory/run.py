@@ -22,8 +22,8 @@ for i in range(0, 3):
     time_ = dt*i
     target_time = sim.advance_time(time_)
 
-    if i % 10 == 0:
-        sim.save_data(fields='all')
-    else:
-        sim.save_data()
+    #if i % 10 == 0:
+    #    sim.save_data(fields='all')
+    #else:
+    #    sim.save_data()
 
