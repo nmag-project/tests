@@ -1,43 +1,21 @@
 from nsim.setup import get_exec_path
+from mesh_gen import get_meshinfo
 import os
 
 filename_in = "perf.dat"
 filename = "perf-ext.dat"
 gnuplot_filename = "plot.gnp"
-meshinfo_filename = "mesh.info"
 
 nmeshpp_exec = get_exec_path('nmeshpp')
 
-# We need to know how many nodes each mesh has
-# This info is stored in a file which we read.
-# If the file is not there, we generate it!
-if not os.path.exists(meshinfo_filename):
-    from mesh_gen import mesh_filename_list
-    import commands
-    col_num_points = []
-    for mesh_filename in mesh_filename_list:
-        out = commands.getoutput("%s -i %s" % (nmeshpp_exec, mesh_filename))
-        lines = out.splitlines()
-        for line in out.splitlines():
-            if line.endswith("points"):
-                num_points = line.split()[0]
-        col_num_points.append(num_points)
-
-    f = open(meshinfo_filename, "w")
-    for entry in col_num_points:
-        f.write("%s\n" % entry)
-    f.close()
+# Get mesh info from the file
+lines_left = get_meshinfo()
 
 def tonum(x):
     try:
         return int(x)
     except:
         return float(x)
-
-# Read mesh info from the file
-f = open(meshinfo_filename, "r")
-lines_left = f.read().splitlines()
-f.close()
 
 # Read timing data
 f = open(filename_in, "r")
@@ -50,14 +28,13 @@ lines = [line_left + " " + line_right
 
 # Write the timings data complemented with the column "nodes per mesh"
 f = open(filename, "w")
-f.write("\n".join(lines) + "
+f.write("\n".join(lines))
 # Now write the Gnuplot file to plot the data
 row0 = [tonum(x) for x in lines[0].split()]
 
-src = ""
 for i, col in enumerate(row0):
     src += 'col%d = %s\n' % (i + 1, col)
-    
+
 src += (
 '''
 set key left

@@ -1,5 +1,7 @@
 import os
 
+from nsim.setup import get_exec_path
+
 netgen_bin = "netgen"
 nmeshpp_bin = "nmeshpp"
 nmeshimport_bin = "nmeshimport"
@@ -61,7 +63,6 @@ def netgen_mesh_from_string(s, mesh_filename, mesh_type=None,
     if not keep_geo:
         os.remove(geo_filename)
 
-
 geo_file = """
 algebraic3d
 solid bar = orthobrick (0, 0, 0; 100, 30, 30) -maxh=%.1f;
@@ -71,6 +72,37 @@ tlo bar;
 maxh_list = [4.0, 3.0, 2.5, 2.2, 2.1, 2.0]
 #maxh_list = [2.1]
 mesh_filename_list = ["bar-maxh%s.nmesh.h5" % maxh for maxh in maxh_list]
+
+def get_meshinfo(meshinfo_filename="mesh.info"):
+    """Get mesh information and cache it to file, so that next time
+    the function is called the info can be retrieved quickly without
+    being re-generated."""
+
+    # We need to know how many nodes each mesh has
+    # This info is stored in a file which we read.
+    # If the file is not there, we generate it!
+    if not os.path.exists(meshinfo_filename):
+        from mesh_gen import mesh_filename_list
+        import commands
+        col_num_points = []
+        for mesh_filename in mesh_filename_list:
+            out = commands.getoutput("%s -i %s" % (nmeshpp_exec, mesh_filename))
+            lines = out.splitlines()
+            for line in out.splitlines():
+                if line.endswith("points"):
+                    num_points = line.split()[0]
+            col_num_points.append(num_points)
+
+        f = open(meshinfo_filename, "w")
+        for entry in col_num_points:
+            f.write("%s\n" % entry)
+        f.close()
+
+    # Read mesh info from the file
+    f = open(meshinfo_filename, "r")
+    lines_left = f.read().splitlines()
+    f.close()
+    return lines_left
 
 if __name__ == "__main__":
     for i, maxh in enumerate(maxh_list):
