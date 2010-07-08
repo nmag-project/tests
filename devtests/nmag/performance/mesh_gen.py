@@ -70,7 +70,7 @@ tlo bar;
 """
 
 maxh_list = [4.0, 3.0, 2.5, 2.2, 2.1, 2.0]
-#maxh_list = [2.1]
+maxh_list = [1.5]
 mesh_filename_list = ["bar-maxh%s.nmesh.h5" % maxh for maxh in maxh_list]
 
 def get_meshinfo(meshinfo_filename="mesh.info"):

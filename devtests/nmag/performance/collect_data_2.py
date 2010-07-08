@@ -59,7 +59,6 @@ for sec in range(nr_sects):
 
     f = open("sec-%s.dat" % h, "w")
     for mesh in range(nr_meshes):
-        nr_nodes = 0
         for cpu in range(nr_cpus):
             nr_nodes = meshinfo[mesh]
             speedup = 1.0/whole_data[cpu][mesh][sec]
@@ -67,3 +66,26 @@ for sec in range(nr_sects):
         f.write("\n")
     f.close()
 
+# Generate tables
+f = open("tables_2.txt", "w")
+tab = ""
+for sec in range(nr_sects):
+    h = heading[sec]
+    if h.startswith("num"): continue
+
+    tab = "|    "
+    for mesh in range(nr_meshes):
+        nr_nodes = meshinfo[mesh]
+        tab += "|_.%6s" % nr_nodes
+    tab += "|\n"
+
+    for cpu in range(nr_cpus):
+        tab += "|_.%2d" % (cpu + 1)
+        for mesh in range(nr_meshes):
+            speedup = 1.0/whole_data[cpu][mesh][sec]
+            tab += "|%8.2f" % speedup
+        tab += "|\n"
+
+    f.write("Table for %s:\n\n" % h)
+    f.write(tab + "\n")
+f.close()
