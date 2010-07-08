@@ -6,8 +6,6 @@ filename_in = "perf.dat"
 filename = "perf-ext.dat"
 gnuplot_filename = "plot.gnp"
 
-nmeshpp_exec = get_exec_path('nmeshpp')
-
 # Get mesh info from the file
 lines_left = get_meshinfo()
 

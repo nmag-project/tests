@@ -57,13 +57,13 @@ for sec in range(nr_sects):
     h = heading[sec]
     if h.startswith("num"): continue
 
-    f = open("%s.dat" % h, "w")
+    f = open("sec-%s.dat" % h, "w")
     for mesh in range(nr_meshes):
         nr_nodes = 0
         for cpu in range(nr_cpus):
             nr_nodes = meshinfo[mesh]
             speedup = 1.0/whole_data[cpu][mesh][sec]
-            f.write("%s %s %s\n" % (nr_nodes, cpu + 1, speedup))
+            f.write("%s %s %s %s\n" % (mesh, nr_nodes, cpu + 1, speedup))
         f.write("\n")
     f.close()
 
