@@ -2,9 +2,17 @@ import os
 
 from nsim.setup import get_exec_path
 
+import inspect
+
+
 netgen_bin = "netgen"
 nmeshpp_bin = "nmeshpp"
 nmeshimport_bin = "nmeshimport"
+
+nmeshpp_exec = get_exec_path(nmeshpp_bin)
+
+my_path = os.path.split(inspect.getfile(inspect.currentframe()))[0]
+suggested_meshinfo_file = os.path.join(my_path, "mesh.info")
 
 def netgen_mesh_from_file(geo_filename, mesh_filename, mesh_type=None,
                           keep_neu=False, keep_logs=False):
@@ -69,14 +77,17 @@ solid bar = orthobrick (0, 0, 0; 100, 30, 30) -maxh=%.1f;
 tlo bar;
 """
 
-maxh_list = [4.0, 3.0, 2.5, 2.2, 2.1, 2.0]
-maxh_list = [1.5]
+maxh_list = [4.0, 3.0, 2.5, 2.2, 2.1, 2.0, 1.5, 1.0]
+#maxh_list = [1.0]
 mesh_filename_list = ["bar-maxh%s.nmesh.h5" % maxh for maxh in maxh_list]
 
-def get_meshinfo(meshinfo_filename="mesh.info"):
+def get_meshinfo(meshinfo_filename=None):
     """Get mesh information and cache it to file, so that next time
     the function is called the info can be retrieved quickly without
     being re-generated."""
+
+    if meshinfo_filename == None:
+        meshinfo_filename = suggested_meshinfo_file
 
     # We need to know how many nodes each mesh has
     # This info is stored in a file which we read.

@@ -1,7 +1,10 @@
+import sys, os
+
 from mesh_gen import get_meshinfo
 
-ref_filename = "perf-np1.dat"
-all_filenames = "perf-np?.dat"
+filenames = sys.argv[1:]
+ref_filename = filenames[0]
+filenames.sort()
 
 def to_num(s):
     if '.' in s:
@@ -32,16 +35,11 @@ def write_data(filename, data, header=""):
 ref_data = extract_data(ref_filename)
 header = extract_header(ref_filename) + "\n"
 
-import glob
-filenames = glob.glob(all_filenames)
-filenames.sort()
-
-import sys
 whole_data = [] # whole_data[nr_cpus][mesh_nr][simulation_section_nr]
 
 for filename in filenames:
     data = extract_data(filename)
-    out_data = [[x/ref_x for x, ref_x in zip(row, ref_row)]
+    out_data = [[float(x)/ref_x for x, ref_x in zip(row, ref_row)]
                 for row, ref_row in zip(data, ref_data)]
     whole_data.append(out_data)
     write_data("rel_" + filename, out_data, header=header)
