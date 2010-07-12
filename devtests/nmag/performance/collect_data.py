@@ -65,7 +65,7 @@ for sec in range(nr_sects):
     f.close()
 
 # Generate tables
-f = open("tables_2.txt", "w")
+f = open("tables.txt", "w")
 tab = ""
 for sec in range(nr_sects):
     h = heading[sec]
