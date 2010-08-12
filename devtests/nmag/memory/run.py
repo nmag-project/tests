@@ -18,7 +18,7 @@ sim.set_params(ts_rel_tol=2.7e-05 , ts_abs_tol=2.7e-05)
 
 dt = SI(5e-12, "s") 
 
-for i in range(0, 3):
+for i in range(0, 10):
     time_ = dt*i
     target_time = sim.advance_time(time_)
 
@@ -26,4 +26,5 @@ for i in range(0, 3):
     #    sim.save_data(fields='all')
     #else:
     #    sim.save_data()
+    sim.save_data()
 

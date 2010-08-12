@@ -1,3 +1,10 @@
+plot [] [] \
+  "./results.dat" u 1:2 t "m_Py_0" w l, \
+  "" u 1:3 t "m_Py_1" w l, \
+  "" u 1:4 t "m_Py_2" w l
+
+pause -1
+
 gb(x) = x/1e6
 set xlabel "time (s)"
 set ylabel "resident size (GB)"
