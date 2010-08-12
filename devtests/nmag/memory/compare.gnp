@@ -1,0 +1,35 @@
+plot [] [] \
+  "./results.dat" u 1:2 t "m_Py_0" w l 1, \
+  "" u 1:3 t "m_Py_1" w l 2, \
+  "" u 1:4 t "m_Py_2" w l 3, \
+  "./results-ref.dat" u 1:2 t "old m_Py_0" w p 1, \
+  "" u 1:3 t "old m_Py_1" w p 2, \
+  "" u 1:4 t "old m_Py_2" w p 3
+
+
+
+pause -1
+
+gb(x) = x/1e6
+set xlabel "time (s)"
+set ylabel "resident size (GB)"
+plot [] [0:] \
+  "./plot.dat" u 1:(gb($2)) t "" w lp, \
+  "" u 1:(gb($2)):6 t "" w labels tc lt 3 font "Helvetica,7" rotate 90, \
+  "./plot-ref.dat" u 1:(gb($2)) t "old" w lp
+pause -1
+
+set ylabel "VSS - RSS (GB)"
+plot [] [0:] \
+  "./plot.dat" u 1:(gb($3 - $2)) t "" w lp, \
+  "" u 1:(gb($3 - $2)):6 t "" w labels tc lt 3 font "Helvetica,7" rotate 90, \
+  "./plot-ref.dat" u 1:(gb($3 - $2)) t "old" w lp
+pause -1
+
+set ylabel "Memory increase (GB)"
+plot [] [0:] \
+  "./plot.dat" u 1:(gb($4)) t "" w lp, \
+  "" u 1:(gb($4)):6 t "" w labels tc lt 3 font "Helvetica,7" rotate 90, \
+  "./plot-ref.dat" u 1:(gb($4)) t "" w lp
+pause -1
+
