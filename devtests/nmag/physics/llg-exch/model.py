@@ -46,6 +46,11 @@ dmdt(i) <- (-gamma_GG/(1 + alpha*alpha))*(eps(i,j,k)*m(j)*H_tot(k) +
 ts = Timestepper("ts_llg", x='m', dxdt='dmdt',
                  eq_for_jacobian=llg, derivatives=[(H_tot, op_exch)])
 
+ts.pc_rtol = 1e-2
+ts.pc_atol = 1e-7
+ts.rtol = 1e-6
+ts.atol = 1e-6
+
 # Put everything together in a physical model
 mesh = nmesh.load("mesh.nmesh.h5")
 region_materials = [[], ["Py"]]
@@ -56,6 +61,7 @@ p.add_computation([op_exch, llg, eq_H_tot])
 p.add_timestepper(ts)
 p.build()
 
+ts.initialise(rtol=ts.rtol, atol=ts.atol)
 # Now we can use the model
 f = open("model.dat", "w")
 f.write("%g " % 0 + "%g %g %g\n" % tuple(m.compute_average().as_float()))
@@ -66,4 +72,5 @@ for i in range(1, 101):
   vm = m.compute_average().as_float()
   print sum([mi*mi for mi in vm])**0.5
 
+print "Number of steps", ts.get_num_steps()
 f.close()
