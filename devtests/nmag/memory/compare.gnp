@@ -15,8 +15,10 @@ set xlabel "time (s)"
 set ylabel "resident size (GB)"
 plot [] [0:] \
   "./plot.dat" u 1:(gb($2)) t "" w lp, \
-  "" u 1:(gb($2)):6 t "" w labels tc lt 3 font "Helvetica,7" rotate 90, \
-  "./plot-ref.dat" u 1:(gb($2)) t "old" w lp
+  "" u 1:(gb($2)):6 t "" w labels tc lt 1 font "Helvetica,7" rotate 90, \
+  "./plot-ref.dat" u 1:(gb($2)) t "old" w lp, \
+  "" u 1:(gb($2)):6 t "" w labels tc lt 3 font "Helvetica,7" rotate 90
+
 pause -1
 
 set ylabel "VSS - RSS (GB)"
@@ -29,7 +31,9 @@ pause -1
 set ylabel "Memory increase (GB)"
 plot [] [0:] \
   "./plot.dat" u 1:(gb($4)) t "" w lp, \
-  "" u 1:(gb($4)):6 t "" w labels tc lt 3 font "Helvetica,7" rotate 90, \
-  "./plot-ref.dat" u 1:(gb($4)) t "" w lp
+  "" u 1:(gb($4)):6 t "" w labels tc lt 1 font "Helvetica,7" rotate 90, \
+  "./plot-ref.dat" u 1:(gb($4)) t "" w lp, \
+  "" u 1:(gb($4)):6 t "" w labels tc lt 3 font "Helvetica,7" rotate 90
+
 pause -1
 

@@ -22,3 +22,7 @@ plot: plot.dat results.dat
 clean:
 	rm -f bar.nmesh.h5 memlog.dat run_dat.h5 run_dat.ndt run_log.log
 
+re:
+	mv memlog.dat memlog.dat.old || true
+	$(MAKE) all
+

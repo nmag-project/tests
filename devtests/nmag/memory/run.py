@@ -27,4 +27,7 @@ for i in range(0, 10):
     #else:
     #    sim.save_data()
     sim.save_data()
+    ocaml.sys_gc_print_stat()
+
+ocaml.sys_check_heap()
 
