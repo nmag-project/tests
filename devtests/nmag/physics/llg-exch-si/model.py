@@ -55,10 +55,7 @@ ts = Timestepper("ts_llg", x='m', dxdt='dmdt',
                  eq_for_jacobian=llg, derivatives=[(H_tot, op_exch)],
                  time_unit=SI(1e-12, "s"))
 
-ts.pc_rtol = 1e-2
-ts.pc_atol = 1e-7
-ts.rtol = 1e-6
-ts.atol = 1e-6
+ts.initialise(rtol=1e-6, atol=1e-6, pc_rtol=1e-2, pc_atol=1e-7)
 
 # Put everything together in a physical model
 mesh = nmesh.load("mesh.nmesh.h5")
@@ -70,7 +67,6 @@ p.add_computation([op_exch, llg, eq_H_tot])
 p.add_timestepper(ts)
 p.build()
 
-ts.initialise(rtol=ts.rtol, atol=ts.atol)
 # Now we can use the model
 f = open("model.dat", "w")
 f.write("%g " % 0 + "%g %g %g\n" % tuple(m.compute_average().as_float()))

@@ -26,7 +26,7 @@ H_tot = SpaceField("H_tot", [3], subfields=True)
 # Operators
 op_exch = Operator("exch", "C*<d/dxj H_exch(k)||d/dxj m(k)>, j:3,  k:3")
 
-# Equation the effective field H_tot
+# Equation for the effective field H_tot
 eq_H_tot = Equation("H_tot", "%range i:3; H_tot(i) <- H_ext(i) + H_exch(i);")
 
 # Equation of motion
