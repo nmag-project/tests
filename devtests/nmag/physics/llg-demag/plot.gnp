@@ -1,0 +1,7 @@
+plot "./model.dat" u 1:2 t "nsim.model, m_x" w l, \
+     "" u 1:3 t "nsim.model, m_y" w l, \
+     "" u 1:4 t "nsim.model, m_z" w l, \
+     "./nmag4.dat" u 1:2 t "nmag4, m_x" w p, \
+     "" u 1:3 t "nmag4, m_y" w p, \
+     "" u 1:4 t "nmag4, m_z" w p
+pause -1
