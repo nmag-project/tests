@@ -48,13 +48,6 @@ op_laplace_DBC = \
             "phi[outer]=phi[outer], j:3"""),
            mat_opts=["MAT_SYMMETRIC", "MAT_SYMMETRY_ETERNAL"],
            auto_dep=False)
-# Should rather be:
-#op_laplace_DBC = \
-#  Operator("laplace_DBC",
-#           ("-<d/dxj rho_s || d/dxj phi2b>;"
-#            "phi[outer]=phi[outer], j:3"""),
-#           mat_opts=["MAT_SYMMETRIC", "MAT_SYMMETRY_ETERNAL"],
-#           auto_dep=False)
 
 op_load_DBC = \
   Operator("load_DBC",
@@ -90,7 +83,8 @@ commands=[["SM*V", op_div_m, "v_m", "v_rho"],
           ["AXPBY", 1.0, "v_phi2", 1.0, "v_phi"],
           ["SM*V", op_grad_phi, "v_phi", "v_H_demag"],
           ["CFBOX", "H_demag", "v_H_demag"]]
-prog_set_H_demag = LAMProgram("set_H_demag", commands)
+prog_set_H_demag = LAMProgram("set_H_demag", commands,
+                              inputs=["m"], outputs=["H_demag"])
 
 # Equation for the effective field H_tot
 eq_H_tot = Equation("H_tot", """
@@ -128,6 +122,8 @@ p.add_computation([op_exch, op_div_m, op_load_DBC, op_grad_phi,
                    prog_set_H_demag, llg, eq_H_tot])
 p.add_timestepper(ts)
 p.build()
+
+p.write_dependency_tree()
 
 # Now we can use the model
 f = open("model.dat", "w")
