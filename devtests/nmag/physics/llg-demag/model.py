@@ -25,22 +25,37 @@ H_demag = SpaceField("H_demag", [3])
 rho = SpaceField("rho", [])
 phi = SpaceField("phi", [])
 H_tot = SpaceField("H_tot", [3], subfields=True)
+phi1b = SpaceField("phi1b", [], restrictions="phi1b[outer]")
+phi2b = SpaceField("phi2b", [], restrictions="phi2b[outer]")
+extra = ([SpaceField(name, []) for name in ["phi1", "phi2", "rho_s"]]
+         + [phi1b, phi2b])
 
 # Operator for the exchange
 op_exch = Operator("exch", "C*<d/dxj H_exch(k)||d/dxj m(k)>, j:3,  k:3")
 
 # Operators for the demag
-op_div_m = Operator("div_m", "<d/dxj rho || d/dxj phi>, j:3")
+op_div_m = Operator("div_m", "  M_sat*<rho||d/dxj m(j)>"
+                             "+ M_sat*<rho||D/Dxj m(j)>, j:3")
+
 op_neg_laplace_phi = \
   Operator("neg_laplace_phi", "<d/dxj rho || d/dxj phi>, j:3",
            mat_opts=["MAT_SYMMETRIC", "MAT_SYMMETRY_ETERNAL"])
 op_grad_phi = Operator("grad_phi", "-<H_demag(j) || d/dxj phi>, j:3")
+
 op_laplace_DBC = \
   Operator("laplace_DBC",
            ("-<d/dxj phi[not outer] || d/dxj phi[not outer]>;"
             "phi[outer]=phi[outer], j:3"""),
            mat_opts=["MAT_SYMMETRIC", "MAT_SYMMETRY_ETERNAL"],
            auto_dep=False)
+# Should rather be:
+#op_laplace_DBC = \
+#  Operator("laplace_DBC",
+#           ("-<d/dxj rho_s || d/dxj phi2b>;"
+#            "phi[outer]=phi[outer], j:3"""),
+#           mat_opts=["MAT_SYMMETRIC", "MAT_SYMMETRY_ETERNAL"],
+#           auto_dep=False)
+
 op_load_DBC = \
   Operator("load_DBC",
            ("<d/dxj phi[not outer] || d/dxj phi[outer]>;"
@@ -60,19 +75,21 @@ ksp_solve_laplace_DBC = KSP("solve_laplace_DBC", op_laplace_DBC,
                             initial_guess_nonzero=True,
                             rtol=1e-5, atol=1e-5, maxits=1000000)
 
+bem = BEM("BEM", mwe_name="phi", dof_name="phi")
+
 # The LAM program for the demag
-commands=[["SM*V","op_div_m","v_m","v_rho"],
-          ["SCALE","v_rho",-1.0],
-          ["SOLVE","solve_neg_laplace_phi","v_rho","v_phi1"],
-          ["PULL-FEM","phi","phi[outer]","v_phi1","v_phi1b"],
-          ["DM*V","BEM","v_phi1b","v_phi2b"],
-          ["SM*V","op_load_DBC","v_phi2b","v_rho_s"],
-          ["SOLVE","solve_laplace_DBC","v_rho_s","v_phi2"],
-          ["PUSH-FEM","phi","phi[outer]","v_phi2b","v_phi2"],
-          ["AXPBY",1.0,"v_phi1",0.0,"v_phi"],
-          ["AXPBY",1.0,"v_phi2",1.0,"v_phi"],
-          ["SM*V","op_grad_phi","v_phi","v_H_demag"],
-          ["CFBOX","H_demag","v_H_demag"]]
+commands=[["SM*V", op_div_m, "v_m", "v_rho"],
+          ["SCALE", "v_rho", -1.0],
+          ["SOLVE", ksp_solve_neg_laplace_phi, "v_rho", "v_phi1"],
+          ["PULL-FEM", "phi", "phi[outer]", "v_phi1", "v_phi1b"],
+          ["DM*V", bem, "v_phi1b", "v_phi2b"],
+          ["SM*V", op_load_DBC, "v_phi2b", "v_rho_s"],
+          ["SOLVE", ksp_solve_laplace_DBC, "v_rho_s", "v_phi2"],
+          ["PUSH-FEM", "phi", "phi[outer]", "v_phi2b", "v_phi2"],
+          ["AXPBY", 1.0, "v_phi1", 0.0, "v_phi"],
+          ["AXPBY", 1.0, "v_phi2", 1.0, "v_phi"],
+          ["SM*V", op_grad_phi, "v_phi", "v_H_demag"],
+          ["CFBOX", "H_demag", "v_H_demag"]]
 prog_set_H_demag = LAMProgram("set_H_demag", commands)
 
 # Equation for the effective field H_tot
@@ -95,7 +112,7 @@ dmdt(i) <- (-gamma_GG/(1 + alpha*alpha))*(eps(i,j,k)*m(j)*H_tot(k) +
 
 # Timestepper
 ts = Timestepper("ts_llg", x='m', dxdt='dmdt',
-                 eq_for_jacobian=llg, derivatives=[(H_tot, op_exch)])
+                 eq_for_jacobian=llg_jacobi, derivatives=[(H_tot, op_exch)])
 
 ts.initialise(rtol=1e-6, atol=1e-6, pc_rtol=1e-2, pc_atol=1e-7)
 
@@ -104,9 +121,9 @@ mesh = nmesh.load("mesh.nmesh.h5")
 region_materials = [[], ["Py"]]
 p = Model("mumag", mesh, 1e-9, region_materials)
 p.add_quantity([alpha, gamma_GG, C, norm_coeff,
-                m, H_exch, H_demag, phi, rho, H_ext, H_tot, dmdt])
+                m, M_sat, H_exch, H_demag, phi, rho, H_ext, H_tot, dmdt] + extra)
 p.add_computation([op_exch, op_div_m, op_load_DBC, op_grad_phi,
-                   op_laplace_DBC, op_neg_laplace_phi,
+                   op_laplace_DBC, op_neg_laplace_phi, bem,
                    ksp_solve_laplace_DBC, ksp_solve_neg_laplace_phi,
                    prog_set_H_demag, llg, eq_H_tot])
 p.add_timestepper(ts)

@@ -52,7 +52,7 @@ dmdt(i) <- (-gamma_GG/(1 + alpha*alpha))*(eps(i,j,k)*m(j)*H_tot(k) +
 
 # Timestepper
 ts = Timestepper("ts_llg", x='m', dxdt='dmdt',
-                 eq_for_jacobian=llg, derivatives=[(H_tot, op_exch)],
+                 eq_for_jacobian=llg_jacobi, derivatives=[(H_tot, op_exch)],
                  time_unit=SI(1e-12, "s"))
 
 ts.initialise(rtol=1e-6, atol=1e-6, pc_rtol=1e-2, pc_atol=1e-7)
