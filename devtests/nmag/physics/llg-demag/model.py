@@ -84,7 +84,7 @@ commands=[["SM*V", op_div_m, "v_m", "v_rho"],
           ["SM*V", op_grad_phi, "v_phi", "v_H_demag"],
           ["CFBOX", "H_demag", "v_H_demag"]]
 prog_set_H_demag = LAMProgram("set_H_demag", commands,
-                              inputs=["m"], outputs=["H_demag"])
+                              inputs=["m"], outputs=["rho", "phi", "H_demag"])
 
 # Equation for the effective field H_tot
 eq_H_tot = Equation("H_tot", """
