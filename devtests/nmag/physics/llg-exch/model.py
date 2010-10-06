@@ -37,7 +37,7 @@ dmdt(i) <- (-gamma_GG/(1 + alpha*alpha))*(eps(i,j,k)*m(j)*H_tot(k) +
            norm_coeff*(1.0 - m(j)*m(j))*m(i);""")
 
 # Equation for the Jacobian: we omit the third term on the RHS
-llg_jacobi = Equation("llg", """
+llg_jacobi = Equation("llg-jacobi", """
 %range i:3, j:3, k:3, p:3, q:3;
 dmdt(i) <- (-gamma_GG/(1 + alpha*alpha))*(eps(i,j,k)*m(j)*H_tot(k) +
            alpha*eps(i,j,k)*m(j)*eps(k,p,q)*m(p)*H_tot(q));""")

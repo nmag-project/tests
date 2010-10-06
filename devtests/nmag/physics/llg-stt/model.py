@@ -5,7 +5,6 @@
 import math
 from nsim.model import *
 import nmesh
-from nmag import MagMaterial
 
 mu0 = 4e-7*math.pi
 
@@ -45,9 +44,7 @@ def add_demag(m):
     m.add_quantity([H_demag, phi1b, phi2b] + extra)
 
     # Operators for the demag
-    op_div_m = Operator("div_m", "  M_sat*<rho||d/dxj m(j)>"nmag4       707m 353m 7:12 4222
-nsim.model  640m 294m 4:58 2411
-
+    op_div_m = Operator("div_m", "  M_sat*<rho||d/dxj m(j)>"
                                  "+ M_sat*<rho||D/Dxj m(j)>, j:3")
     op_neg_laplace_phi = \
       Operator("neg_laplace_phi", "<d/dxj rho || d/dxj phi>, j:3",

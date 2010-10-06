@@ -19,14 +19,14 @@ gamma_GG = Constant("gamma_GG", subfields=True,
 alpha = Constant("alpha", subfields=True, value=Value(0.2), unit=SI(1))
 
 norm_coeff = Constant("norm_coeff", subfields=True,
-                      value=Value(0.1e12, SI("s")), unit=SI(1e12, "s"))
+                      value=Value(0.1e12, SI("1/s")), unit=SI(1e12, "1/s"))
 
 A = SI(13e-12, "J/m") # Exchange coupling constant
 C = Constant("C", subfields=True, value=Value(-2*A/(mu0*SI(0.86e6, "A/m"))*1e18),
              unit=SI(1e6, "m A"))
 
 H_exch = SpaceField("H_exch", [3], subfields=True, unit=SI(1e6, "A/m"))
-dmdt = SpaceField("dmdt", [3], subfields=True, unit=SI(1e12, "s"))
+dmdt = SpaceField("dmdt", [3], subfields=True, unit=SI(1e12, "1/s"))
 H_tot = SpaceField("H_tot", [3], subfields=True, unit=SI(1e6, "A/m"))
 H_ext = SpaceField("H_ext", [3],
                    value=Value([0, 0, 1.0e5], SI("A/m")), unit=SI(1e6, "A/m"))

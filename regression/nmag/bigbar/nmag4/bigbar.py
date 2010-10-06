@@ -70,8 +70,8 @@ host = commands.getoutput("uname -n")
 date = time.asctime()
 rev = "$Revision$"[11:-2] #This file's version
 import nsim
-import nsim.svnversion
-rev = nsim.svnversion.svnversion #global version -> more useful
+import nsim.versions
+rev = nsim.versions.get_version_string()
 out("# Timings for the bigbar unit test\n" \
     "# host\t Rev\t date sim\t init\t writing-data\t sim&writing-data\t total\tRev\n", header=True)
 out("%s \t%s \t%s \t%g \t%g \t%g \t%g \t%g\n" % (host, rev, date,time_simulating, time_initialising, time_writing, time_loop, time_total))
