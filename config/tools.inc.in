@@ -12,7 +12,7 @@
 SHELL=/bin/bash
 
 # Nmag tools
-BIN_PATH=$(NMAG_ROOT)/bin
+BIN_PATH="$NSIM_BIN_PATH$"
 NSIM=$(BIN_PATH)/nsim
 NSIM_RAW=$(BIN_PATH)/nsim-raw
 NMAGPP=$(NSIM_RAW) $(BIN_PATH)/nmagpp
