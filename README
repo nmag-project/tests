@@ -1,0 +1,12 @@
+To use the test suite you'll need first to configure it.
+Either enter the config directory and type
+
+  bash find_nsim.bash
+
+Or explicitly select which version of nsim to test by doing:
+
+  /path/to/nsim/exec/to/test/nsim setup.py
+
+After doing that the test suite will be configured and all the examples
+contained in it should work using the found/selected nsim executable.
+
