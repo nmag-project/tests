@@ -1,7 +1,6 @@
 .PHONY: run clean results
 
-NSIM=../../../../../bin/nsim
-NCOL=../../../../../bin/ncol
+include ../../../../config/tools.inc
 
 run:
 	rm -f 1d_dat.*

@@ -1,7 +1,6 @@
-include ../msat.inc
+include ../../../../config/tools.inc
 
-NSIM=../../../../../bin/nsim-raw
-NCOL=../../../../../bin/ncol
+include ../msat.inc
 
 .PHONY: all run results clean
 
@@ -20,12 +19,9 @@ run:
 	time $(NSIM) bigbar.py | tee output.txt	
 
 results:
-	$(NSIM) $(NCOL) bigbar_dat.ndt 0 M_Py_0 M_Py_1 M_Py_2 > ../results/nmag4_M.dat
+	$(NCOL) bigbar_dat.ndt 0 M_Py_0 M_Py_1 M_Py_2 > ../results/nmag4_M.dat
 
 results_mpi:
-
-
-
 
 clean:
 	rm -fv bigbar_dat.ndt
@@ -40,10 +36,6 @@ mpi-clean:
 	rm -fv output.txt
 	rm -fv bigbar_par_ocaml.conf
 	rm -fv bigbar_par_nmag.conf
-
-
-NMESHSORT=../../../../../bin/nmeshsort
-NMESHPP=../../../../../bin/nmeshpp
 
 mpi-sortmesh:
 	$(NMESHPP) -c ../bar30_30_100.nmesh.h5 tmp.nmesh
