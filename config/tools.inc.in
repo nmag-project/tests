@@ -1,12 +1,7 @@
 # Copyright (C) 2010 University of Southampton
 #  by Matteo Franchin
 #
-# This file is intended to be included in the Makefile of the Nmag examples.
-# Before including this file, you should define the NMAG_ROOT variable.
-# Finally, it should look like that:
-#
-# NMAG_ROOT=../..
-# include $(NMAG_ROOT)/tests/tools.inc
+# This file is intended to be included in the Makefile of the Nmag tests.
 
 # Make sure we use always the Bash shell
 SHELL=/bin/bash
@@ -20,6 +15,11 @@ NCOL=$(NSIM_RAW) $(BIN_PATH)/ncol
 NMESHIMPORT=$(NSIM_RAW) $(BIN_PATH)/nmeshimport
 NMESHPP=$(NSIM_RAW) $(BIN_PATH)/nmeshpp
 NMAGPROBE=$(NSIM_RAW) $(BIN_PATH)/nmagprobe
+
+# Other tools
+CUBICMESH_PATH=$(BIN_PATH)/../utils/cubicmesh
+CUBICMESH=$(CUBICMESH_PATH)/cubicmesh
+EXAMESH=$(CUBICMESH_PATH)/examesh
 
 # External tools
 NETGEN=/usr/bin/netgen
@@ -40,4 +40,9 @@ GNUPLOT=/usr/bin/gnuplot
 	  -meshfile=$$BN.neu -batchmode && \
 	$(NMESHIMPORT) --netgen $$BN.neu $@ && \
 	rm -f $$BN.neu
+
+$(CUBICMESH):
+	(cd $(CUBICMESH_PATH) && make)
+
+$(EXAMESH): $(CUBICMESH)
 

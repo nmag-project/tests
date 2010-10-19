@@ -1,10 +1,17 @@
 # RUN WITH: mpirun -np 2 /home/you/nsim_path/bin/nsim hyst.py --clean
 
 import time
-import nmag
-from nmag import SI, mesh
-from nsim import sets
+import sys
 import os
+
+if "nmag5" in sys.argv:
+    from nmag.nmag5 import SI
+    import nmag.nmag5 as nmag
+else:
+  import nmag
+  from nmag import SI
+
+from nsim import sets
 
 class Timer:
   def __init__(self):
@@ -33,7 +40,7 @@ mat_Py = nmag.MagMaterial(name="Py",
                           llg_gamma_G=SI(0.2211e6, "m/A s"),
                           llg_damping=0.5)
 
-sim = nmag.Simulation(use_pvode=True)
+sim = nmag.Simulation()
 
 sim.load_mesh("bigbar.nmesh.h5",
               [("Py", mat_Py)],
