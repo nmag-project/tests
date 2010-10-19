@@ -1,10 +1,10 @@
 .PHONY: all_uniaxial all_cubic uniaxial cubic results_uniaxial results_cubic
 
-include ../../../../config/tools.inc
-
 all_uniaxial: uniaxial results_uniaxial
 
 all_cubic: cubic results_cubic
+
+include ../../../../config/tools.inc
 
 bar.nmesh.h5: $(CUBICMESH)
 	$(CUBICMESH) bar.nmesh,10.0:2,5.0:1,5.0:1

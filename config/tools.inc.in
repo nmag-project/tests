@@ -25,6 +25,10 @@ EXAMESH=$(CUBICMESH_PATH)/examesh
 NETGEN=/usr/bin/netgen
 GNUPLOT=/usr/bin/gnuplot
 
+.PHONY: first_target
+
+first_target: all
+
 # Make NEU from GEO file
 %.neu: %.geo
 	$(NETGEN) -geofile=$< -moderate -meshfiletype="Neutral Format" -meshfile=$@ -batchmode

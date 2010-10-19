@@ -2,6 +2,8 @@
 
 include ../../../../config/tools.inc
 
+all: all_uniaxial
+
 all_uniaxial: uniaxial results_uniaxial
 
 all_cubic: cubic results_cubic
