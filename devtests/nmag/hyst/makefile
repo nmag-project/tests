@@ -1,19 +1,8 @@
-DIR=../../../../src
-CUBICMESH_DIR=$(DIR)/utils/cubicmesh
-CUBICMESH=$(CUBICMESH_DIR)/cubicmesh
-EXAMESH=$(CUBICMESH_DIR)/examesh
-NSIM=$(DIR)/bin/nsim-raw
-NMESHPP=$(NSIM) $(DIR)/bin/nmeshpp
-NCOL=$(DIR)/bin/ncol
-MACHINEFILE=/tmp/machinefile.txt
-MPIRUN=$(DIR)/../lib/mpich/bin/mpirun -machinefile $(MACHINEFILE)
+include ../../../config/tools.inc 
 
 .PHONY: all clean
 
 all: results.eps
-
-$(CUBICMESH):
-	(cd $(CUBICMESH_DIR) && make)
 
 $(MACHINEFILE):
 	echo `hostname` >> $(MACHINEFILE)
