@@ -9,8 +9,7 @@
 # then work for all the examples, and will produce the same file
 # (run_dat.ndt), etc.
 
-NMAG_ROOT=../../../../..
-include $(NMAG_ROOT)/tests/tools.inc
+include ../../../../config/tools.inc
 
 .PHONY: all mesh run force plot clean clean-all
 

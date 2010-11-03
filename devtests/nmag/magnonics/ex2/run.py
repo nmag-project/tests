@@ -1,7 +1,7 @@
 # Nmag example: briefly describe what it does
 
 import os, sys, math
-from nmag.tools import *
+from nmag.common import *
 from nmag import vector_set
 
 import ocaml
