@@ -1,7 +1,7 @@
 # Copyright (C) 2010 University of Southampton
 
-NMAG_ROOT=../../../../../src
-include ../../../../tools.inc
+#NMAG_ROOT=../../../../../src
+include ../../../../config/tools.inc
 
 .PHONY: all mesh run force plot clean clean-all
 
