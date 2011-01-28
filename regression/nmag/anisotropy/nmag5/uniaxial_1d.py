@@ -41,19 +41,20 @@ Hs = vector_set(direction=[1, -2, 3],
 ## Here we set up the simulation
 
 # Create the simulation object
-sim = nmag.Simulation("uniaxial_1d", do_demag=False)
+sim = nmag.Simulation("uniaxial_1d", do_demag=True)
 
 # Creates the mesh from the layer structure
 sim.load_mesh("bar.nmesh.h5", [("Co", mat_Co)], unit_length=SI(1e-9, "m"))
 
 sim.model.write_dependency_tree()
-raw_input()
+#raw_input()
 
 
 sim.set_m(m0) # Set the initial magnetisation
 
 # Set additional parameters for the time-integration
 #sim.set_timestepper_params(stopping_dm_dt=1*degrees_per_ns)
+sim.set_params(ts_abs_tol=1e-6, ts_rel_tol=1e-6)
 
 #--------------------------------------------
 ## Run the simulation to calculate the hysteresis loop

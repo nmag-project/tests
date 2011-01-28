@@ -33,6 +33,8 @@ sim.set_params(ts_rel_tol=2.7e-05 , ts_abs_tol=2.7e-05)
 
 dt = SI(5e-12, "s") 
 
+target_time = sim.advance_time(SI(1e-14, "s"))
+
 time_initialising += time.time()
 time_loop = -time.time()
 for i in range(0, 61):
