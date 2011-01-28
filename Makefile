@@ -13,10 +13,10 @@ include ./config/tools.inc
 
 .PHONY: all check checkall checkslow checkmpi checkhlib
 
-NSIM_PYTEST=$(NSIM) --nolog $(PYTEST_EXEC) --
+TEST_DIRS=$(NSIM_ROOT_PATH)/interface .
+NSIM_PYTEST=$(NSIM) --nolog $(PYTEST_EXEC) -- $(TEST_DIRS)
 
 all: check
-	$(NSIM) --nolog $(PYTEST_EXEC) -- -k "-test_slow -test_mpi -test_hlib"
 
 check:
 	@echo "Testing all reasonably fast tests..."
