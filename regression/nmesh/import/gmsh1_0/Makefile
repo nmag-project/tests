@@ -1,13 +1,15 @@
-NSIM=../../../../../bin/nsim --
-NSIMIMPORT=../../../../../bin/nmeshimport
+include ../../../../config/tools.inc
+
+#NSIM=../../../../../bin/nsim --
+#NSIMIMPORT=../../../../../bin/nmeshimport
 
 sphere.nmesh: sphere.msh
-	$(NSIM) $(NSIMIMPORT) --gmsh sphere.msh sphere.nmesh
+	$(NMESHIMPORT) --gmsh sphere.msh sphere.nmesh
 
 sphere2.nmesh:  sphere.msh
 	cp -f sphere.msh sphere2.msh
 	gzip -f sphere2.msh
-	$(NSIM) $(NSIMIMPORT) --gmsh sphere2.msh.gz sphere2.nmesh
+	$(NMESHIMPORT) --gmsh sphere2.msh.gz sphere2.nmesh
 
 
 sphere.msh: sphere.geo

@@ -1,7 +1,9 @@
 """This test program is called by py.test (from many directory levels above)."""
 
-import nmag
 import os
+
+#from nsim.setup import get_exec_path
+import nmag
 
 def test_gmsh_1_0_import():
     #py.test will pass on any command line arguments to the code it tests.

@@ -1,5 +1,9 @@
-import nmag
 import os
+
+from nsim.setup import get_exec_path
+import nmag
+
+nmeshmirror_exec = get_exec_path("nmeshmirror")
 
 #work out in which directory the data files are
 org_dir = os.getcwd()
@@ -26,7 +30,7 @@ def test_nmeshmirror():
     nmesh.visual.plot2d_ps(mesh,'org.ps')
 
     # mirror along the x axis (horizontal direction)
-    command = "../../../bin/nmeshmirror org.nmesh 1e-6 1e-6 1,0 mirror1.nmesh"
+    command = "%s org.nmesh 1e-6 1e-6 1,0 mirror1.nmesh" % nmeshmirror_exec
 
     status = os.system(command)
 
@@ -44,7 +48,7 @@ def test_nmeshmirror():
     assert [2.0, 0.0] in periodicmesh.points," [2.0, 0.0] not in periodic points"
     assert [2.0, 1.0] in periodicmesh.points," [2.0, 1.0] not in periodic points"
 
-    command = "../../../bin/nmeshmirror org.nmesh 1e-6 1e-6 -1,0 mirror2.nmesh"
+    command = "%s org.nmesh 1e-6 1e-6 -1,0 mirror2.nmesh" % nmeshmirror_exec
 
     status = os.system(command)
 
@@ -63,7 +67,7 @@ def test_nmeshmirror():
     assert [-1.0, 1.0] in periodicmesh.points," [-1.0, 1.0] not in periodic points"
 
     # mirror along the y axis (vertical direction)
-    command = "../../../bin/nmeshmirror org.nmesh 1e-6 1e-6 0,1 mirror3.nmesh"
+    command = "%s org.nmesh 1e-6 1e-6 0,1 mirror3.nmesh" % nmeshmirror_exec
 
     status = os.system(command)
 
@@ -83,7 +87,7 @@ def test_nmeshmirror():
 
 
     # mirror along the x and y axis (horizontal and vertical directions)
-    command = "../../../bin/nmeshmirror org.nmesh 1e-6 1e-6 1,1 mirror4.nmesh"
+    command = "%s org.nmesh 1e-6 1e-6 1,1 mirror4.nmesh" % nmeshmirror_exec
 
     status = os.system(command)
 
