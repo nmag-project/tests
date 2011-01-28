@@ -11,8 +11,31 @@
 
 include ./config/tools.inc
 
-.PHONY: all
+.PHONY: all check checkall checkslow checkmpi checkhlib
 
-all:
+NSIM_PYTEST=$(NSIM) --nolog $(PYTEST_EXEC) --
+
+all: check
 	$(NSIM) --nolog $(PYTEST_EXEC) -- -k "-test_slow -test_mpi -test_hlib"
+
+check:
+	@echo "Testing all reasonably fast tests..."
+	@echo "Skipping tests with name test_slow* test_mpi* test_hlib*".
+	$(NSIM_PYTEST) -k "-test_slow -test_mpi -test_hlib"
+
+checkslow:
+	@echo "Running only slow tests..."
+	$(NSIM_PYTEST) -k test_slow
+
+checkmpi:
+	@echo "Running only MPI tests..."
+	$(NSIM_PYTEST) -k test_mpi
+
+checkhlib:
+	@echo "Running only HLib tests..."
+	$(NSIM_PYTEST) -k test_hlib
+
+checkall:
+	@echo "Running all available tests..."
+	$(NSIM_PYTEST)
 

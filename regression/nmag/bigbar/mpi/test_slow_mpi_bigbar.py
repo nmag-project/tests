@@ -28,9 +28,7 @@ def test_run_mpi_bigbar():
     org_dir = os.getcwd()
     os.chdir(os.path.split(__file__)[0])
 
-    mpiversion = find_mpi_version()
-
-
+    mpiversion = 'mpich2' #find_mpi_version()
     if mpiversion == 'mpich1':
         print "Doing MPICH1 test"
         os.system("make clean run-mpich1 results-mpich1 > make.out")

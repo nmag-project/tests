@@ -30,6 +30,15 @@ def which(filename, other_paths=None):
 
     raise ValueError("Command '%s' not found!" % full_filename)
 
+def trywhich(filename, other_paths=None):
+    filenames = [filename] if type(filename ) == str else filename
+    for filename in filenames:
+        try:
+            return which(filename, other_paths=other_paths)
+        except ValueError:
+            pass
+    return None
+
 try:
     import nsim
 
@@ -53,12 +62,19 @@ if dist_mode == None:
     sys_preferred_path = None
 
 elif dist_mode == "all-source":
-    sys_preferred_path = [realpath(join(nsim_root_path, ".."))]
+    ps = ["../bin", "../lib/mpich2/bin"]
+    sys_preferred_path = [realpath(join(nsim_root_path, p))
+                          for p in ps]
 
 else:
     raise ValueError("nsim.version.dist_mode=%s: Unexpected value"
                      % repr(dist_mode))
 
+# Now we try to locate the required executables
+true_exec = which("true")
+mpd_exec = trywhich("mpd", sys_preferred_path)
+mpdallexit_exec = trywhich("mpdallexit", sys_preferred_path)
+mpiexec_exec = trywhich(["mpirun", "mpiexec"], sys_preferred_path)
 pytest_exec = which("py.test", sys_preferred_path)
 
 print "Nsim root path:", nsim_root_path
@@ -66,6 +82,9 @@ print "Nsim bin path:", nsim_bin_path
 print "Nsim dist mode:", dist_mode
 print
 print "System preferred path:", sys_preferred_path
+print "mpd executable:", mpd_exec
+print "mpdallexit executable:", mpdallexit_exec
+print "mpiexec executable:", mpiexec_exec
 print "py.test executable:", pytest_exec
 
 toolfile_in_name = "tools.inc.in"
@@ -78,9 +97,12 @@ f.close()
 f = open(toolfile_name, "w")
 substs = [("$NSIM_BIN_PATH$", nsim_bin_path),
           ("$NSIM_ROOT_PATH$", nsim_root_path),
+          ("$MPD_EXEC$", mpd_exec),
+          ("$MPDALLEXIT_EXEC$", mpdallexit_exec),
+          ("$MPIEXEC_EXEC$", mpiexec_exec),
           ("$PYTEST_EXEC$", pytest_exec)]
 for src, dest in substs:
-    content = content.replace(src, dest)
+    content = content.replace(src, dest or true_exec)
 f.write(content)
 f.close()
 
