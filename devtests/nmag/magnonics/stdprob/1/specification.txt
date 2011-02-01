@@ -1,0 +1,90 @@
+Problem N1 - new edition
+
+Added by Volodymyr Kruglyak 54 days ago
+
+Dear All
+In light of the discussions informed by solutions of problem N1 set at M12
+meeting in Bangalore, I propose to change the definition of the problem to the
+one below. The rational is based on the points raised before and also repeated
+here:
+
+(a) The length is irrelevant to the dispersion calculation (e.g. one could
+    even use PBC)
+(b) The cell size, the sampling frequency, and the bandwidth of excitation
+    should be up to the researcher
+(c) The excitation geometry (field profile, amplitude, and direction) should
+    also be up to the researcher, provided that the spin waves are linear.
+(d) The field should be applied in the all three symmetry directions, while
+    its value should be large enough to saturate the sample.
+(e) The values of parameters are chosen equal to those accepted for Permalloy
+    at muMag.
+(f) The thickness is chosen to be small enough to safely assume the dynamics
+    uniform along the thickness, while I will propose a fully 3D problem
+    separately.
+(g) The width is selected to facilitate observation of some standing modes in
+    the cross-section, while their frequency should be not too much higher
+    than that of the uniform FMR mode. I believe that these are all points I
+    have, but I will add more if and as necessary.
+    We will base the Intermag digest on the solutions we have obtained so far,
+    while I propose to tackle the new one (for a publication) in the following
+    way:
+
+    (a) Exeter will obtain a solution for a very long but finite sample using
+        OOMMF and absorbing boundary conditions.
+    (b) Kolkata will obtain a solution for an infinitely long sample using
+        OOMMF and periodic boundary conditions.
+    (c) Madras (or Sothampton?) will obtain a solution for an infinitely long
+        sample using Nmag and periodic boundary conditions.
+    (d) Southampton (or Madras?) will obtain a solution for a very long but
+        finite sample using Nmag and no additional boundary conditions.
+    (e) Poznan (or Ferrara?) will supply an analytical solution for an
+        infinitely long sample.
+
+    This will let us to avoid duplication of efforts.
+
+What do you think?
+
+"To calculate the dispersion relation of small amplitude (linear regime) spin
+waves propagating in a thin film magnetic stripe with rectangular cross-section.
+
+Geometry:
+The cross section is rectangular (50 nm width x 1 nm thickness).
+The length is long enough to make the notion of dispersion omega(k) meaningful
+and make the effect of the ends minimised, if any.
+The static bias field of 10.1 KOe is applied (1) along the length of stripe, (2)
+in-plane orthogonal to the length of the stripe, and (3) perpendicular to the
+plane of the stripe.
+
+Material parameters (similar to those of Permalloy):
+A = 1.3e-11 J/m (1.3e-6 erg/cm)
+Ms = 8.0e5 A/m (800 emu/cc)
+K = 0.0
+For dynamics calculated using the Landau-Lifshitz equation,
+gamma = 221 km/(As)
+
+The following outputs are desired for comparison at each direction of the
+applied magnetic field:
+(a) The dispersion of spin waves propagating along the length of the sample in a
+form of a bitmap of FFT amplitude as a function of k and omega, where k is the
+wave number in the direction of the length of the sample.
+(b) The dispersion of spin waves propagating along the length of the sample as a
+function omega(k), obtained via post processing data in (a).
+(c) The frequency line-width for spin waves propagating along the length of the
+sample as a function delta_omega(omega), obtained via post processing data in
+(a).
+(d) The amplitude of spin waves propagating along the length of the sample as a
+function amplitude(omega), obtained via post processing data in (a).
+
+Comments:
+The dispersion should be first calculated for each pixel in the cross-section of
+the sample.
+Then, the absolute values of the dispersions obtained for each pixel should be
+summed up to yield the final plot (a), therefore containing all dispersion
+branches.
+The post processed data in (b)-(d) is desired so that a detailed comparison can
+be made between solutions.
+The damping is not specified but should be chosen close to or smaller than the
+typical values in Permalloy, e.g. of the order of or smaller than 0.01-0.02.
+Please see the µMAG standard problem strategy page for information on
+publicizing your results."
+
