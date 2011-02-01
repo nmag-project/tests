@@ -83,22 +83,11 @@ def test_gmsh_1_0_import():
     os.chdir(org_dir)
 
 def test_gmsh_1_0_import_gzipped():
-    #py.test will pass on any command line arguments to the code it tests.
-    #This will confuse nmag (as it doesn't know how to handle py.test's '-k'
-    #and '--verbose' switches, etc.
-    #
-    #We thus manually delete all other entries that the name of the executable
-    #from sys.argv.
-    import sys
-
-    proper_sysargv = sys.argv
-    sys.argv = sys.argv[0:1]
-
-    #work out in which directory the data files are
+    # Work out in which directory the data files are
     org_dir = os.getcwd()
     os.chdir(os.path.split(__file__)[0])
 
-    os.system('make sphere2.nmesh &> test_stdoutstderr3.log')
+    os.system('make sphere2.nmesh >test_stdoutstderr3.log 2>&1')
 
     import nmesh
     mesh = nmesh.load('sphere2.nmesh')
