@@ -13,3 +13,5 @@ mpich2-hello: clean
 	time $(MPIEXEC_EXEC) -n 4 $(NSIM) mpi_hello.py > output.txt
 	$(MPDALLEXIT_EXEC)
 
+unknown-hello: mpich2-hello
+

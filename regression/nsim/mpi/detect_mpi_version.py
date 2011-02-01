@@ -29,7 +29,7 @@ def detect_mpi_version():
         return 'mpich1'
     else:
         print "Found NO mpi (or unknown: %s)" % conf.mpich_ldflags
-        return None #this means unknown MPI
+        return "unknown"
 
 
 
