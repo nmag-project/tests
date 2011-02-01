@@ -11,7 +11,7 @@ Hz = 1/SI("s")
 
 args = sys.argv
 
-H_strength = 2000*Oe
+H_strength = 10100*Oe
 m0 = [1, 0, 0]
 
 if "parallel" in args:
@@ -37,7 +37,7 @@ gaussian_t0 = 5*gaussian_sigma
 gaussian_x0 = 500.0e-9
 relaxed_start_file='relaxed.h5'
 
-def setup_simulation(name, damping, demag_tol=1.0, pc_tol=1.0, use_hlib=False):
+def setup_simulation(name, damping, demag_tol=1.0, pc_tol=1.0, use_hlib=True):
     mat_Py = nmag.MagMaterial(name="Py",
                               Ms=SI(0.8e6,"A/m"),
                               exchange_coupling=SI(13.0e-12, "J/m"),
