@@ -4,10 +4,21 @@ NMAGPROBE="$NSIM -- $NSIM_ROOT/bin/nmagprobe"
 
 PREFIX=$1
 
+if [ x$PREFIX == xpar ]; then
+    COMP=y
+elif [ x$PREFIX == xorty ]; then
+    COMP=x
+elif [ x$PREFIX == xortz ]; then
+    COMP=x
+else
+    echo "Choose either par, orty or ortz"
+    exit 1
+fi
+
 $NMAGPROBE \
   --verbose $PREFIX-dyn_dat.h5 --field=m_Py \
-  --time=0,5000e-12,251 --space=0,1000,251/25/0 --ref-time=0.0 \
-  --scalar-mode=component,2 --ft-axes=0,1 --ft-out=norm \
+  --time=10e-12,500e-12,25 --space=0,1000,251/25/0.5 --ref-time=0.0 \
+  --scalar-mode=component,$COMP --ft-axes=x,t --ft-out=norm \
   --out=$PREFIX-real-space.dat --ft-out=$PREFIX-rec-space.dat
 
 
