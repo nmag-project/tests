@@ -17,7 +17,7 @@ fi
 
 $NMAGPROBE \
   --verbose $PREFIX-dyn_dat.h5 --field=m_Py \
-  --time=10e-12,500e-12,25 --space=0,1000,251/25/0.5 --ref-time=0.0 \
+  --time=0e-12,100e-12,51 --space=0,1000,251/25/0.5 --ref-time=0.0 \
   --scalar-mode=component,$COMP --ft-axes=x,t --ft-out=norm \
   --out=$PREFIX-real-space.dat --ft-out=$PREFIX-rec-space.dat
 

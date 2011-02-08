@@ -14,17 +14,17 @@ args = sys.argv
 H_strength = 10100*Oe
 m0 = [1, 0, 0]
 
-if "parallel" in args:
+if "par" in args:
   prefix = "par-"
   bias_H = [H_strength, 0*Oe, 0*Oe]
   pulse = [0.0, 1.0, 0.0]
 
-elif "orthogonaly" in args:
+elif "orty" in args:
   prefix = "orty-"
   bias_H = [0*Oe, H_strength, 0*Oe]
   pulse = [1.0, 0.0, 0.0]
 
-elif "orthogonalz" in args:
+elif "ortz" in args:
   prefix = "ortz-"
   bias_H = [0*Oe, 0*Oe, H_strength]
   pulse = [1.0, 0.0, 0.0]
@@ -36,7 +36,7 @@ else:
         "  nsim a.py --clean orthogonalz\n")
   sys.exit(1)
 
-gaussian_amplitude = 40*Oe
+gaussian_amplitude = 100*Oe
 gaussian_FWHM = 10*ps
 gaussian_sigma = gaussian_FWHM/(2.0*math.sqrt(2.0*math.log(2.0)))
 gaussian_t0 = 5*gaussian_sigma
@@ -98,7 +98,7 @@ def update_H_ext(t_su):
     def H_setter(r):
         x, y, z = r
         return ([H[0] + amp[0], H[1] + amp[1], H[2] + amp[2]]
-                if abs(x - gaussian_x0) < 6.5e-9 else H)
+                if abs(x - gaussian_x0) < 5.0e-9 else H)
         # ^^^ apply the pulse only to the first dot
 
     H_value = H_setter if abs(amplitude) > 1e-4 else H
@@ -118,6 +118,6 @@ sim.pre_rhs_funs.append(update_H_ext)
 
 sim.set_params(stopping_dm_dt=0) # Never stop for convergence
 sim.relax(save=[#('averages', every('time', 2.5*ps)),
-                ('fields', every('time', 20*ps))],
+                ('fields', every('time', 2*ps))],
           do=[('exit', at('stage_time', 5000*ps))])
 
