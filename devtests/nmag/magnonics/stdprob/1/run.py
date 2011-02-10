@@ -8,6 +8,7 @@ from nsim.si_units.si import Oe, degrees_per_ns
 
 ps = SI(1e-12, "s")
 Hz = 1/SI("s")
+GHz = 1e9*Hz
 
 args = sys.argv
 
@@ -31,9 +32,9 @@ elif "ortz" in args:
 
 else:
   print("Usage:\n"
-        "  nsim a.py --clean parallel\n"
-        "  nsim a.py --clean orthogonaly\n"
-        "  nsim a.py --clean orthogonalz\n")
+        "  nsim a.py --clean par\n"
+        "  nsim a.py --clean orty\n"
+        "  nsim a.py --clean ortz\n")
   sys.exit(1)
 
 gaussian_amplitude = 100*Oe
@@ -41,6 +42,10 @@ gaussian_FWHM = 10*ps
 gaussian_sigma = gaussian_FWHM/(2.0*math.sqrt(2.0*math.log(2.0)))
 gaussian_t0 = 5*gaussian_sigma
 gaussian_x0 = 500.0e-9
+
+sinc_t0 = 0*ps
+sinc_omega = 250*GHz * 2*math.pi
+
 relaxed_start_file=prefix+'relaxed.h5'
 
 def setup_simulation(name, damping, demag_tol=1.0, pc_tol=1.0, use_hlib=False):
@@ -87,7 +92,9 @@ sim.load_m_from_h5file(relaxed_start_file)
 # Here we update the time dependent field
 def update_H_ext(t_su):
     t = ps*t_su
-    amplitude = math.exp(-0.5*float((t - gaussian_t0)/gaussian_sigma)**2)
+    ut = float(sinc_omega*(t - sinc_t0))
+    #amplitude = math.exp(-0.5*float((t - gaussian_t0)/gaussian_sigma)**2)
+    amplitude = math.sin(ut)/ut if abs(ut) > 1e-10 else 1.0
     amp = [amplitude*pi for pi in pulse]
 
     H = [float(Hi/gaussian_amplitude) for Hi in bias_H]
@@ -118,6 +125,6 @@ sim.pre_rhs_funs.append(update_H_ext)
 
 sim.set_params(stopping_dm_dt=0) # Never stop for convergence
 sim.relax(save=[#('averages', every('time', 2.5*ps)),
-                ('fields', every('time', 2*ps))],
+                ('field_m', every('time', 2*ps))],
           do=[('exit', at('stage_time', 5000*ps))])
 
