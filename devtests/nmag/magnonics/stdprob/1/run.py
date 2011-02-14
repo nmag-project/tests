@@ -38,12 +38,7 @@ else:
         "  nsim a.py --clean ortz\n")
   sys.exit(1)
 
-gaussian_amplitude = 100*Oe
-gaussian_FWHM = 10*ps
-gaussian_sigma = gaussian_FWHM/(2.0*math.sqrt(2.0*math.log(2.0)))
-gaussian_t0 = 5*gaussian_sigma
-gaussian_x0 = 500.0e-9
-
+sinc_amplitude = 100*Oe
 sinc_t0 = 0*ps
 sinc_r0 = (500e-9, 25e-9, 0.5e-9)
 sinc_omega = 250*GHz * 2*math.pi
@@ -97,20 +92,19 @@ sim.load_m_from_h5file(relaxed_start_file)
 def update_H_ext(t_su):
     t = ps*t_su
     ut = float(sinc_omega*(t - sinc_t0))
-    #amplitude = math.exp(-0.5*float((t - gaussian_t0)/gaussian_sigma)**2)
     t_amp = math.sin(ut)/ut if abs(ut) > 1e-10 else 1.0
     #t_amp = [amplitude*pi for pi in pulse]
 
-    H = [float(Hi/gaussian_amplitude) for Hi in bias_H]
+    H = [float(Hi/sinc_amplitude) for Hi in bias_H]
     # ^^^ this is a technicality: functions have to return pure numbers.
-    #     H_setter returns the field in units of gaussian_amplitude.
+    #     H_setter returns the field in units of sinc_amplitude.
     #     We then compute H, the float components in such units.
 
     def H_setter(r):
         x, y, z = r
 
         ur = tuple(sinc_k[i]*(r[i] - xi) for i, xi in enumerate(sinc_r0))
-        r_amps = tuple((math.sin(uxi)/uxi if abs(uxi) > 1e-10 else 1.0)
+        r_amp = tuple((math.sin(uxi)/uxi if abs(uxi) > 1e-10 else 1.0)
                        for uxi in ur)
         amp = t_amp * r_amp[0] * r_amp[1] * r_amp[2]
 
@@ -118,13 +112,13 @@ def update_H_ext(t_su):
                 if abs(x - sinc_r0[0]) < 5.0e-9 else H)
         # ^^^ apply the pulse only to the first dot
 
-    H_value = H_setter if abs(amplitude) > 1e-4 else H
+    H_value = H_setter if abs(t_amp) > 1e-4 else H
     # ^^^ to speed up things
 
     fieldname = 'H_ext'
     sim._fields.set_subfield(None, # subfieldname
                              H_value,
-                             gaussian_amplitude,
+                             sinc_amplitude,
                              fieldname=fieldname,
                              auto_normalise=False)
     (mwe, field) = sim._master_mwes_and_fields_by_name[fieldname]
