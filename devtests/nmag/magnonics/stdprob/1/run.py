@@ -9,6 +9,7 @@ from nsim.si_units.si import Oe, degrees_per_ns
 ps = SI(1e-12, "s")
 Hz = 1/SI("s")
 GHz = 1e9*Hz
+nm = 1e-9*SI("m")
 
 args = sys.argv
 
@@ -44,7 +45,10 @@ gaussian_t0 = 5*gaussian_sigma
 gaussian_x0 = 500.0e-9
 
 sinc_t0 = 0*ps
+sinc_r0 = (500e-9, 25e-9, 0.5e-9)
 sinc_omega = 250*GHz * 2*math.pi
+k = 1e9 * 2*math.pi
+sinc_k = (k, k, k)
 
 relaxed_start_file=prefix+'relaxed.h5'
 
@@ -94,8 +98,8 @@ def update_H_ext(t_su):
     t = ps*t_su
     ut = float(sinc_omega*(t - sinc_t0))
     #amplitude = math.exp(-0.5*float((t - gaussian_t0)/gaussian_sigma)**2)
-    amplitude = math.sin(ut)/ut if abs(ut) > 1e-10 else 1.0
-    amp = [amplitude*pi for pi in pulse]
+    t_amp = math.sin(ut)/ut if abs(ut) > 1e-10 else 1.0
+    #t_amp = [amplitude*pi for pi in pulse]
 
     H = [float(Hi/gaussian_amplitude) for Hi in bias_H]
     # ^^^ this is a technicality: functions have to return pure numbers.
@@ -104,8 +108,14 @@ def update_H_ext(t_su):
 
     def H_setter(r):
         x, y, z = r
-        return ([H[0] + amp[0], H[1] + amp[1], H[2] + amp[2]]
-                if abs(x - gaussian_x0) < 5.0e-9 else H)
+
+        ur = tuple(sinc_k[i]*(r[i] - xi) for i, xi in enumerate(sinc_r0))
+        r_amps = tuple((math.sin(uxi)/uxi if abs(uxi) > 1e-10 else 1.0)
+                       for uxi in ur)
+        amp = t_amp * r_amp[0] * r_amp[1] * r_amp[2]
+
+        return ([H[0] + amp*pulse[0], H[1] + amp*pulse[1], H[2] + amp*pulse[2]]
+                if abs(x - sinc_r0[0]) < 5.0e-9 else H)
         # ^^^ apply the pulse only to the first dot
 
     H_value = H_setter if abs(amplitude) > 1e-4 else H
