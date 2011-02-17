@@ -2,6 +2,8 @@ import os
 import sys
 import math
 
+import numpy
+
 import nmag
 from nmag import SI, every, at
 from nsim.si_units.si import Oe, degrees_per_ns
@@ -38,12 +40,12 @@ else:
         "  nsim a.py --clean ortz\n")
   sys.exit(1)
 
-sinc_amplitude = 100*Oe
+sinc_amplitude = 5000*Oe
 sinc_t0 = 0*ps
 sinc_r0 = (500e-9, 25e-9, 0.5e-9)
 sinc_omega = 250*GHz * 2*math.pi
-k = 1e9 * 2*math.pi
-sinc_k = (k, k, k)
+k = 0.2e9 * 2*math.pi
+sinc_k = (k, k, 0.0)
 
 relaxed_start_file=prefix+'relaxed.h5'
 
@@ -73,7 +75,7 @@ def setup_simulation(name, damping, demag_tol=1.0, pc_tol=1.0, use_hlib=False):
     sim.set_H_ext(bias_H)
     return sim
 
-# Relaxation
+# Relaxation: if the relaxed magnetisation is not there, compute it and exit!
 if not os.path.exists(relaxed_start_file):
     sim = setup_simulation("relax", 1.0)
     sim.set_m(m0)
@@ -84,41 +86,42 @@ if not os.path.exists(relaxed_start_file):
     sim.save_restart_file(relaxed_start_file)
     sys.exit(0)
 
-# Dynamics
+# Dynamics: otherwise we run the dynamical simulation
 sim = setup_simulation("dyn", 0.0)
 sim.load_m_from_h5file(relaxed_start_file)
 
-# Here we update the time dependent field
+# Set the applied field only in space
+def H_setter(r):
+    ur = tuple(sinc_k[i]*(r[i] - xi) for i, xi in enumerate(sinc_r0))
+    r_amp = tuple((math.sin(uxi)/uxi if abs(uxi) > 1e-10 else 1.0)
+                  for uxi in ur)
+    amp = r_amp[0] * r_amp[1] * r_amp[2]
+    return [amp*pulse[0], amp*pulse[1], amp*pulse[2]]
+sim.set_H_ext(H_setter, sinc_amplitude)
+
+# Now retrieve the corresponding NumPy array
+H_pulse_data = sim.get_subfield("H_ext")
+
+# Do the same for the bias field
+sim.set_H_ext(bias_H)
+H_bias_data = sim.get_subfield("H_ext")
+
+# Now the applied field at time t will be expressed as
+#   H_bias_data + f(t)*H_pulse_data,
+# where f(t) is the time dependence of the pulse
 def update_H_ext(t_su):
-    t = ps*t_su
-    ut = float(sinc_omega*(t - sinc_t0))
+    ut = float(sinc_omega*(t_su*ps - sinc_t0))
     t_amp = math.sin(ut)/ut if abs(ut) > 1e-10 else 1.0
-    #t_amp = [amplitude*pi for pi in pulse]
 
-    H = [float(Hi/sinc_amplitude) for Hi in bias_H]
-    # ^^^ this is a technicality: functions have to return pure numbers.
-    #     H_setter returns the field in units of sinc_amplitude.
-    #     We then compute H, the float components in such units.
-
-    def H_setter(r):
-        x, y, z = r
-
-        ur = tuple(sinc_k[i]*(r[i] - xi) for i, xi in enumerate(sinc_r0))
-        r_amp = tuple((math.sin(uxi)/uxi if abs(uxi) > 1e-10 else 1.0)
-                       for uxi in ur)
-        amp = t_amp * r_amp[0] * r_amp[1] * r_amp[2]
-
-        return ([H[0] + amp*pulse[0], H[1] + amp*pulse[1], H[2] + amp*pulse[2]]
-                if abs(x - sinc_r0[0]) < 5.0e-9 else H)
-        # ^^^ apply the pulse only to the first dot
-
-    H_value = H_setter if abs(t_amp) > 1e-4 else H
-    # ^^^ to speed up things
+    if t_amp > 1e-4:
+        H_value = H_bias_data + t_amp*H_pulse_data
+    else:
+        H_value = bias_H # <-- To speed up things
 
     fieldname = 'H_ext'
     sim._fields.set_subfield(None, # subfieldname
                              H_value,
-                             sinc_amplitude,
+                             SI("A/m"),
                              fieldname=fieldname,
                              auto_normalise=False)
     (mwe, field) = sim._master_mwes_and_fields_by_name[fieldname]
