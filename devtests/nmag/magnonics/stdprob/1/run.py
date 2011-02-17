@@ -4,6 +4,10 @@ import math
 
 import numpy
 
+# Enabling experimental features
+from nsim.features import Features
+Features().set("etc", "experimental", "true")
+
 import nmag
 from nmag import SI, every, at
 from nsim.si_units.si import Oe, degrees_per_ns
