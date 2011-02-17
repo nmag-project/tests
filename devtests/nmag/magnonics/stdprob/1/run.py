@@ -44,11 +44,14 @@ else:
         "  nsim a.py --clean ortz\n")
   sys.exit(1)
 
+# Be careful below to choose the right omega and k: try to choose numbers
+# which are not multiple of the save time/mesh discretization length,
+# otherwise strange weird effects may occour.
 sinc_amplitude = 5000*Oe
 sinc_t0 = 0*ps
 sinc_r0 = (500e-9, 25e-9, 0.5e-9)
-sinc_omega = 250*GHz * 2*math.pi
-k = 0.2e9 * 2*math.pi
+sinc_omega = 239*GHz * 2*math.pi
+k = 0.17e9 * 2*math.pi
 sinc_k = (k, k, 0.0)
 
 relaxed_start_file=prefix+'relaxed.h5'
@@ -117,17 +120,14 @@ def update_H_ext(t_su):
     ut = float(sinc_omega*(t_su*ps - sinc_t0))
     t_amp = math.sin(ut)/ut if abs(ut) > 1e-10 else 1.0
 
-    if t_amp > 1e-4:
+    if t_amp > 1e-4 and False:
         H_value = H_bias_data + t_amp*H_pulse_data
     else:
-        H_value = bias_H # <-- To speed up things
+        H_value = map(lambda x: float(x/SI("A/m")), bias_H)
 
     fieldname = 'H_ext'
-    sim._fields.set_subfield(None, # subfieldname
-                             H_value,
-                             SI("A/m"),
-                             fieldname=fieldname,
-                             auto_normalise=False)
+    sim._fields.set_subfield(None, H_value, SI("A/m"),
+                             fieldname=fieldname, auto_normalise=False)
     (mwe, field) = sim._master_mwes_and_fields_by_name[fieldname]
     ocaml.lam_set_field(sim._lam, field, "v_" + fieldname)
     print "*",
