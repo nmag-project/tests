@@ -120,7 +120,7 @@ def update_H_ext(t_su):
     ut = float(sinc_omega*(t_su*ps - sinc_t0))
     t_amp = math.sin(ut)/ut if abs(ut) > 1e-10 else 1.0
 
-    if t_amp > 1e-4 and False:
+    if abs(t_amp) > 1e-4:
         H_value = H_bias_data + t_amp*H_pulse_data
     else:
         H_value = map(lambda x: float(x/SI("A/m")), bias_H)
@@ -136,6 +136,6 @@ sim.pre_rhs_funs.append(update_H_ext)
 
 sim.set_params(stopping_dm_dt=0) # Never stop for convergence
 sim.relax(save=[#('averages', every('time', 2.5*ps)),
-                ('field_m', every('time', 2*ps))],
+                ('field_m', every('time', 1*ps))],
           do=[('exit', at('stage_time', 5000*ps))])
 
