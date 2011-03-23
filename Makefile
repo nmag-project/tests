@@ -9,7 +9,7 @@
 # LICENSE: GNU General Public License 2.0
 #          (see <http://www.gnu.org/licenses/>)
 
-include ./config/tools.inc
+sinclude ./config/tools.inc
 
 .PHONY: all check checkall checkslow checkmpi checkhlib
 
@@ -18,24 +18,34 @@ NSIM_PYTEST=$(NSIM) --nolog $(PYTEST_EXEC) -- $(TEST_DIRS)
 
 all: check
 
-check:
+check_is_configured:
+	@if [ ! -f ./config/tools.inc ]; then \
+	  SEPL="-----------------------------------------------------"; \
+	  echo $$SEPL; \
+	  echo "You need to configure the test suite before using it."; \
+	  echo "Please, read the file README for further information."; \
+	  echo $$SEPL; \
+	  exit 1; \
+	fi
+
+check: check_is_configured
 	@echo "Testing all reasonably fast tests..."
 	@echo "Skipping tests with name test_slow* test_mpi* test_hlib*".
 	$(NSIM_PYTEST) -k "-test_slow -test_mpi -test_hlib"
 
-checkslow:
+checkslow: check_is_configured
 	@echo "Running only slow tests..."
 	$(NSIM_PYTEST) -k test_slow
 
-checkmpi:
+checkmpi: check_is_configured
 	@echo "Running only MPI tests..."
 	$(NSIM_PYTEST) -k test_mpi
 
-checkhlib:
+checkhlib: check_is_configured
 	@echo "Running only HLib tests..."
 	$(NSIM_PYTEST) -k test_hlib
 
-checkall:
+checkall: check_is_configured
 	@echo "Running all available tests..."
 	$(NSIM_PYTEST)
 
