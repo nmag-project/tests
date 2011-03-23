@@ -1,0 +1,97 @@
+\documentclass[11pt]{article}
+
+\usepackage[colorlinks=true, linkcolor=blue, citecolor=red, urlcolor=red]{hyperref}
+
+\newcommand{\vv}[1]{\vec{#1}}
+\newcommand{\vvM}{\vv{M}}
+\newcommand{\vvm}{\vv{m}}
+\newcommand{\vvH}{\vv{H}_{\mathrm{eff}}}
+\newcommand{\vvfix}{\vv{p}}
+
+\newcommand{\Msat}{M_{\mathrm{s}}}
+
+\newcommand{\derivp}[2]{\partial_{#2} #1}
+
+\begin{document}
+\section{Implementation of Slonczewski in Nmag}
+
+\subsection{The original equation}
+Here we write down the equation as it appears in the original paper
+by Slonczewski [JMMM 159 (1996) L1-L7].
+First, the quantity $g$ is defined:
+$$
+g = \left[ -4 + (1 + P)^3 (3 + \vv{s}_1 \cdot \vv{s}_2)/ 4 P^{3/2} \right]^{-1}
+$$
+$\vv{s}_1$ and $\vv{s}_2$ are two unit vectors.
+$\vv{s}_1$ is the direction of the magnetisation in the pinned layer,
+$\vv{s}_2$ is the direction of the magnetisation in the free layer.
+$P$ is the spin polarisation (of the fixed layer, I guess???).
+The LLG equation reads:
+$$
+\derivp{\vv{S}_2}{t} = 
+  \vv{s}_2 \times 
+    \left( \gamma H_{\mathrm{u}} \, (\vv{c} \cdot \vv{S}_2) \, \vv{c}
+          - \alpha \, \derivp{\vv{S}_2}{t}
+          + e^{-1} I_{\mathrm{e}} g \, \vv{s}_1 \times \vv{s}_2 \right)
+$$
+
+\subsection{LLG in terms of magnetisation}
+The equation above is formulated in terms of spins.
+We need an equation which describes the evolution of the magnetisation.
+We then follow the procedure described:
+\href{http://wpage.unina.it/mdaquino/PhD\_thesis/main/node47.html}{here}.
+$$
+\derivp{\vvm}{t} =
+   -\gamma \, \vvm \times \vvH 
+  + \alpha \, \vvm \times \derivp{\vvm}{t}
+  + \frac{g_{\mathrm{e}} \mu_{\mathrm{B}} I_{\mathrm{e}} g}{ed\Msat} \vvm \times (\vvm \times \vv{s}_1)
+$$
+This is basically Eq. (2.87) from the link above.
+
+\subsection{What we actually implement}
+We define the following factor:
+$$
+C(\vvm) = 
+  \gamma \,
+  \frac{I_{\mathrm{e}} \, \hbar}{\mu_0 \Msat |e| d} \,
+  \frac{a(P)}{(3 + \vvm \cdot \vvfix) - 4 a(P)},
+\quad
+a(P) = 4 \, \left( \frac{\sqrt{P}}{1 + P} \right)^3,
+$$
+where $J_{\mathrm{e}}$ is the applied current density, $P$ the polarisation,
+$d$ the thickness of the free layer, $\vvfix$ the direction of the
+magnetisation in the pinned layer (a unit vector).
+%
+And, $\gamma$ is the gyromagnetic ratio,
+$\Msat$ is the saturation magnetisation,
+$\vvm = \vvM/\Msat$ the normalised magnetisation, $\mu_0$ the permeability
+of free space, $e$ the electric charge of the electron,
+$\hbar$ the reduced Plank constant.
+
+The Landau-Lifshitz equation with the Slonczewski spin torque can then be written as:
+$$
+\derivp{\vvm}{t} = 
+  -\gamma \, \vvm \times \vvH
+  + \alpha \, \vvm \times \derivp{\vvm}{t}
+  + C(\vvm) \, \vvm \times (\vvm \times \vvfix),
+$$
+where $\alpha$ is the damping constant.
+In order to numerically integrate it, we reduce it to the following:
+$$
+\begin{array}{ccc}
+\derivp{\vvm}{t} & = & 
+  -\gamma' \, \vvm \times \vvH
+  - \alpha \gamma' \, \vvm \times (\vvm \times \vvH) - {} \\
+& & {} - \alpha C'(\vvm) \, \vvm \times \vvfix
+  + C'(\vvm) \, \vvm \times (\vvm \times \vvfix),
+\end{array}
+$$
+which is obtained by substituting the former into itself and proceeding
+with some trivial algebraic manipulations.
+$\gamma'$ and $C'(\vvm)$ are defined as
+\begin{eqnarray}
+\gamma' = \frac{\gamma}{1 + \alpha^2}, \nonumber \\
+C'(\vvm) = \frac{C(\vvm)}{1 + \alpha^2}. \nonumber
+\end{eqnarray}
+\end{document}
+
