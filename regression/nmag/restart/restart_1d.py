@@ -32,7 +32,7 @@ m0 = [1, 0, 1] # Initial direction for the magnetisation
 
 H_direction = [1, 1, 1] # The direction of the applied field
 #The list of values taken by the norm of the applied field
-H_norms = [10.0, 9.5, [], -10.0]
+H_norms = [10.0, 9.5, [], 0.0]
 H_unit = SI(1e6, "A/m") # The unit for these values
 
 # From the norms and the direction (which is constant) we derive
@@ -72,16 +72,12 @@ else:
 
 sim.set_m(m0) # Set the initial magnetisation
 
-# Set additional parameters for the time-integration
-sim.set_params(stopping_dm_dt=1*degrees_per_ns,
-               ts_rel_tol=1e-5, ts_abs_tol=1e-5)
-
 #--------------------------------------------
 ## Run the simulation to calculate the hysteresis loop
 
 from nsim.when import every, at
 sim.hysteresis(Hs,
                save=[('averages', 'restart', at('convergence'))],
-               do=[(simulate_kill, at('time', 100*ps))],
+               do=[(simulate_kill, at('time', 105*ps))],
                convergence_check=every(5, 'step'))
 
