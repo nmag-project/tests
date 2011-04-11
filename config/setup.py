@@ -72,6 +72,7 @@ else:
 
 # Now we try to locate the required executables
 true_exec = which("true")
+bash_exec = which("bash")
 mpd_exec = trywhich("mpd", sys_preferred_path)
 mpdallexit_exec = trywhich("mpdallexit", sys_preferred_path)
 mpiexec_exec = trywhich(["mpirun", "mpiexec"], sys_preferred_path)
@@ -86,6 +87,7 @@ print "mpd executable:", mpd_exec
 print "mpdallexit executable:", mpdallexit_exec
 print "mpiexec executable:", mpiexec_exec
 print "py.test executable:", pytest_exec
+print "path to bash:", bash_exec
 
 toolfile_in_name = "tools.inc.in"
 toolfile_name = "tools.inc"
@@ -100,7 +102,8 @@ substs = [("$NSIM_BIN_PATH$", nsim_bin_path),
           ("$MPD_EXEC$", mpd_exec),
           ("$MPDALLEXIT_EXEC$", mpdallexit_exec),
           ("$MPIEXEC_EXEC$", mpiexec_exec),
-          ("$PYTEST_EXEC$", pytest_exec)]
+          ("$PYTEST_EXEC$", pytest_exec),
+	  ("$BASH_EXEC$", bash_exec) ]
 for src, dest in substs:
     content = content.replace(src, dest or true_exec)
 f.write(content)

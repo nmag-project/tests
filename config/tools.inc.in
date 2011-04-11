@@ -4,7 +4,7 @@
 # This file is intended to be included in the Makefile of the Nmag tests.
 
 # Make sure we use always the Bash shell
-SHELL=/bin/bash
+SHELL=$BASH_EXEC$
 
 # Nmag tools
 BIN_PATH="$NSIM_BIN_PATH$"
