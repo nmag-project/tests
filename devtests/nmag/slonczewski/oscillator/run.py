@@ -18,8 +18,8 @@ mat = MagMaterial("Py",
                   exchange_coupling=SI(13e-12, "J/m"),
                   llg_damping=SI(0.5 if do_relaxation else 0.01))
 
-mat.sl_P = 0.0 if do_relaxation else 0.4
-mat.sl_d = SI(3e-9, "m")
+mat.sl_P = 0.0 if do_relaxation else 0.4  # Polarisation
+mat.sl_d = SI(3e-9, "m")                  # Free layer thickness
 
 sim = Simulation()
 sim.load_mesh("mesh.nmesh.h5", [("region1", mat)], unit_length=SI(1e-9, "m"))
@@ -33,7 +33,11 @@ def m0(r):
 sim.set_m(m0)
 
 sim.set_H_ext([0, 0, 0], SI("A/m"))
+
+# Direction of the polarization
 sim.model.quantities["sl_fix"].set_value(Value([0, 1, 0]))
+
+# Current density
 sim.model.quantities["sl_current_density"].set_value(Value(SI(0.1e12, "A/m^2")))
 
 if do_relaxation:

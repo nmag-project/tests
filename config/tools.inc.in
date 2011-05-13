@@ -20,6 +20,7 @@ NCOL=$(NSIM_RAW) $(BIN_PATH)/ncol
 NMESHIMPORT=$(NSIM_RAW) $(BIN_PATH)/nmeshimport
 NMESHPP=$(NSIM_RAW) $(BIN_PATH)/nmeshpp
 NMAGPROBE=$(NSIM_RAW) $(BIN_PATH)/nmagprobe
+NMESHMIRROR=$(NSIM_RAW) $(BIN_PATH)/nmeshmirror
 
 # Other tools
 CUBICMESH_PATH=$(BIN_PATH)/../utils/cubicmesh
