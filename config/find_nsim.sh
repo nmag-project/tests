@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 POSSIBLE_EXECS="../bin/nsim ../../src/bin/nsim"
 
@@ -11,7 +11,7 @@ for EXEC in $POSSIBLE_EXECS; do
   fi
 done
 
-if [ x$NSIM == x ]; then
+if [ x$NSIM = x ]; then
   echo "Nsim executable not found."
   echo "Using: nsim"
   NSIM=nsim

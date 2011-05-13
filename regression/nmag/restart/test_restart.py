@@ -7,8 +7,8 @@ from commands import getoutput as shexec
 out1 = "out1.txt"
 out2 = "out2.txt"
 restart_file = "restart_1d_restart.h5"
-interrupted_stage = 6
-final_stage = 41
+interrupted_stage = 10
+final_stage = 21
 
 def enter_dir(*args):
     try:
