@@ -7,7 +7,7 @@ then first call:
     /home/user/programs/nsim setup.py
     make
 
-setup.py will bound the test suite to the particular nsim executable used to
+setup.py will bind the test suite to the particular nsim executable used to
 launch it.
 """
 
@@ -55,6 +55,8 @@ except:
     print("ERROR: This script works only with Nsim version 0.1.0 or above.")
     sys.exit(1)
 
+my_path = os.path.split(__file__)[0]
+nsim_test_path = os.path.realpath(os.path.join(my_path, os.path.pardir))
 nsim_root_path = get_root_path()
 nsim_bin_path = get_root_path(["bin"])
 
@@ -78,6 +80,7 @@ mpdallexit_exec = trywhich("mpdallexit", sys_preferred_path)
 mpiexec_exec = trywhich(["mpirun", "mpiexec"], sys_preferred_path)
 pytest_exec = which("py.test", sys_preferred_path)
 
+print "Test root path:", nsim_test_path
 print "Nsim root path:", nsim_root_path
 print "Nsim bin path:", nsim_bin_path
 print "Nsim dist mode:", dist_mode
@@ -97,7 +100,8 @@ content = f.read()
 f.close()
 
 f = open(toolfile_name, "w")
-substs = [("$NSIM_BIN_PATH$", nsim_bin_path),
+substs = [("$NSIM_TEST_PATH$", nsim_test_path),
+          ("$NSIM_BIN_PATH$", nsim_bin_path),
           ("$NSIM_ROOT_PATH$", nsim_root_path),
           ("$MPD_EXEC$", mpd_exec),
           ("$MPDALLEXIT_EXEC$", mpdallexit_exec),

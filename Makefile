@@ -28,24 +28,35 @@ check_is_configured:
 	  exit 1; \
 	fi
 
+# NOTE: below we invoke pytest using "MAKE=$(MAKE) $(NSIM_PYTEST)"
+#   We do this because the tests may invoke 'make' themselves and they will
+#   do that by inspecting the environment variable MAKE. In particular,
+#   nsim.testtools uses the environment variable MAKE to decide how to invoke
+#   make.
+
 check: check_is_configured
 	@echo "Testing all reasonably fast tests..."
 	@echo "Skipping tests with name test_slow* test_mpi* test_hlib*".
-	$(NSIM_PYTEST) -k "-test_slow -test_mpi -test_hlib"
+	MAKE=$(MAKE) NSIM_TEST_PATH=$(NSIM_TEST_PATH) \
+	  $(NSIM_PYTEST) -k "-test_slow -test_mpi -test_hlib"
 
 checkslow: check_is_configured
 	@echo "Running only slow tests..."
-	$(NSIM_PYTEST) -k test_slow
+	MAKE=$(MAKE) NSIM_TEST_PATH=$(NSIM_TEST_PATH) \
+	  $(NSIM_PYTEST) -k test_slow
 
 checkmpi: check_is_configured
 	@echo "Running only MPI tests..."
-	$(NSIM_PYTEST) -k test_mpi
+	MAKE=$(MAKE) NSIM_TEST_PATH=$(NSIM_TEST_PATH) \
+	  $(NSIM_PYTEST) -k test_mpi
 
 checkhlib: check_is_configured
 	@echo "Running only HLib tests..."
-	$(NSIM_PYTEST) -k test_hlib
+	MAKE=$(MAKE) NSIM_TEST_PATH=$(NSIM_TEST_PATH) \
+	  $(NSIM_PYTEST) -k test_hlib
 
 checkall: check_is_configured
 	@echo "Running all available tests..."
-	$(NSIM_PYTEST)
+	MAKE=$(MAKE) NSIM_TEST_PATH=$(NSIM_TEST_PATH) \
+	  $(NSIM_PYTEST)
 
