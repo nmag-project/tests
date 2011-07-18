@@ -32,6 +32,9 @@ EXAMESH=$(CUBICMESH_PATH)/examesh
 NETGEN=/usr/bin/netgen
 GNUPLOT=/usr/bin/gnuplot
 
+# Other settings
+MORE_TEST_DIRS="$MORE_TEST_DIRS$"
+
 .PHONY: first_target
 
 first_target: all
