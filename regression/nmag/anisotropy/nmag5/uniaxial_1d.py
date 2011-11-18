@@ -46,8 +46,8 @@ sim = nmag.Simulation("uniaxial_1d", do_demag=True)
 # Creates the mesh from the layer structure
 sim.load_mesh("bar.nmesh.h5", [("Co", mat_Co)], unit_length=SI(1e-9, "m"))
 
-sim.model.write_dependency_tree()
-#raw_input()
+with open("debug.txt", "w") as f:
+  sim.model.write_debug_info(f)
 
 
 sim.set_m(m0) # Set the initial magnetisation
