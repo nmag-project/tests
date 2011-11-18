@@ -13,7 +13,7 @@ sinclude ./config/tools.inc
 
 .PHONY: all check checkall checkslow checkmpi checkhlib
 
-TEST_DIRS=$(NSIM_ROOT_PATH)/interface .
+TEST_DIRS=$(NSIM_INTERFACE_PATH) .
 NSIM_PYTEST=$(NSIM) --nolog $(PYTEST_EXEC) -- $(TEST_DIRS) $(MORE_TEST_DIRS)
 
 all: check

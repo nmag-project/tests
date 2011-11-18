@@ -57,7 +57,7 @@ except:
     sys.exit(1)
 
 try:
-    from nsim.setup import get_root_path
+    from nsim.setup import get_root_path, get_interface_path
     from nsim.version import dist_mode
 
 except:
@@ -93,6 +93,7 @@ for opt, val in opts:
 my_path = os.path.split(__file__)[0]
 nsim_test_path = os.path.realpath(os.path.join(my_path, os.path.pardir))
 nsim_root_path = get_root_path()
+nsim_interface_path = get_interface_path()
 nsim_bin_path = get_root_path(["bin"])
 
 if dist_mode == None:
@@ -146,6 +147,7 @@ f = open(toolfile_name, "w")
 
 substs = [("$NSIM_TEST_PATH$", nsim_test_path),
           ("$NSIM_BIN_PATH$", nsim_bin_path),
+          ("$NSIM_INTERFACE_PATH$", nsim_interface_path),
           ("$NSIM_ROOT_PATH$", nsim_root_path),
           ("$MPD_EXEC$", mpd_exec),
           ("$MPDALLEXIT_EXEC$", mpdallexit_exec),
