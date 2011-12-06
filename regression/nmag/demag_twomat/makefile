@@ -1,24 +1,15 @@
-.PHONY: init init_rm
+include ../../../config/tools.inc
 
-ROOT_DIR=../../../..
-BIN_DIR=$(ROOT_DIR)/bin
-NSIM=$(BIN_DIR)/nsim
-NETGEN=netgen
-NMESHIMPORT=$(BIN_DIR)/nmeshimport
+.PHONY: all run clean
 
-bar.nmesh.h5:
-	$(NETGEN) -geofile=bar.geo -meshfiletype="Neutral Format" -meshfile=bar.neu -batchmode
-	$(NMESHIMPORT) --netgen bar.neu bar.nmesh.h5
-	rm -f bar.neu
+all: clean run
 
-bar_oneregion.nmesh.h5:
-	$(NETGEN) -geofile=bar_oneregion.geo -meshfiletype="Neutral Format" -meshfile=bar_oneregion.neu -batchmode
-	$(NMESHIMPORT) --netgen bar_oneregion.neu bar_oneregionn.nmesh.h5
-	rm -f bar.neu
+bar.nmesh.h5: bar.geo
 
+bar_oneregion.nmesh.h5: bar_oneregion.geo
 
-init_rm:
+run: bar.nmesh.h5 bar_oneregion.nmesh.h5
+	$(NSIM) bug_ticket175.py --clean
+
+clean:
 	rm -f simulation1* simulation2* 
-
-init: bar.nmesh.h5 bar_oneregion.nmesh.h5
-

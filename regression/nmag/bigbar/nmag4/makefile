@@ -1,50 +1,30 @@
 include ../../../../config/tools.inc
 
-include ../msat.inc
+TIME=time
 
 .PHONY: all run results clean
 
-all:
-	make clean
-	make run
-	make results
+all: clean run results
 
-mpi:
-	make mpi-clean
-	make mpi-sortmesh
-	make mpi-run
-	make mpi-results
+mpi: mpi-clean mpi-sortmesh mpi-run mpi-results
 
 run:
-	time $(NSIM) bigbar.py | tee output.txt	
+	$(TIME) $(NSIM) bigbar.py | tee output.txt	
 
 results:
 	$(NCOL) bigbar_dat.ndt 0 M_Py_0 M_Py_1 M_Py_2 > ../results/nmag4_M.dat
 
-results_mpi:
-
 clean:
-	rm -fv bigbar_dat.ndt
-	rm -fv bigbar_dat.h5
-	rm -fv output.txt
-	rm -fv bigbar_ocaml.conf
-	rm -fv bigbar_nmag.conf
-
-mpi-clean:
-	rm -fv bigbar_par_dat.ndt
-	rm -fv bigbar_par_dat.h5
-	rm -fv output.txt
-	rm -fv bigbar_par_ocaml.conf
-	rm -fv bigbar_par_nmag.conf
-
-mpi-sortmesh:
-	$(NMESHPP) -c ../bar30_30_100.nmesh.h5 tmp.nmesh
-	$(NMESHSORT) tmp.nmesh 2 bar_sorted.nmesh
-	$(NMESHPP) -c bar_sorted.nmesh bar_sorted.nmesh.h5
+	rm -fv bigbar_dat.ndt bigbar_dat.h5 output.txt bigbar_ocaml.conf \
+	  bigbar_nmag.conf
 
 mpi-run:
-	time mpirun -np 2 $(NSIM) bigbar_par.py | tee output_mpi.txt	
+	$(TIME) mpirun -np 2 $(NSIM) bigbar_par.py | tee output_mpi.txt	
 
 mpi-results:
-	$(NCOL) bigbar_par_dat.ndt 0 M_Py_0 M_Py_1 M_Py_2 > ../results/nmag4mpi_M.dat
+	$(NCOL) bigbar_par_dat.ndt 0 M_Py_0 M_Py_1 M_Py_2 \
+	  > ../results/nmag4mpi_M.dat
 
+mpi-clean:
+	rm -fv bigbar_par_dat.ndt bigbar_par_dat.h5 output.txt \
+	  bigbar_par_ocaml.conf bigbar_par_nmag.conf
