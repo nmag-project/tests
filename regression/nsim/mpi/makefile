@@ -1,17 +1,15 @@
 include ../../../config/tools.inc
 
+all: mpi-hello
+
 clean:
 	rm -f output.txt
 	rm -f make.out
 
-mpich1-hello: clean
-	$(MPIEXEC_EXEC) -np 4 $(NSIM) mpi_hello.py > output.txt
-
-mpich2-hello: clean
+mpi-hello: clean
 	$(MPD_EXEC) &
 	sleep 1
 	time $(MPIEXEC_EXEC) -n 4 $(NSIM) mpi_hello.py > output.txt
 	$(MPDALLEXIT_EXEC)
 
-unknown-hello: mpich2-hello
-
+unknown-hello: mpi-hello

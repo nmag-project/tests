@@ -10,17 +10,14 @@ org_dir = os.getcwd()
 if __file__[0]=='/': #absolute path, displayed when file is imported
     thispath = __file__
 else:
-    thispath = os.path.join(os.getcwd(),__file__)
+    thispath = os.path.join(os.getcwd(), __file__)
     
 
 os.chdir(os.path.split(thispath)[0])
 
-import detect_mpi_version
-
 def test_nr_cpus():
     os.chdir(os.path.split(thispath)[0])
-    version = detect_mpi_version.detect_mpi_version()
-    command = "make %s-hello > make.out" % version
+    command = "make mpi-hello > make.out"
     print "Running '%s'" % command
     os.system(command)
 
@@ -33,7 +30,6 @@ def test_nr_cpus():
 def test_things():
     """The output we expect is
 
-    
     MPI-status: There are 4 nodes (this is the master, rank=0)
     [Node   0/4] Hello from eta
     [Node   2/4] Hello from eta
@@ -89,13 +85,11 @@ def test_things():
 
       """
             
-    assert nr_cpu_seen == NCPU,"Not all cpus found (seen %d/%d) %s" % (nr_cpu_seen,NCPU,msg)
+    assert nr_cpu_seen == NCPU, \
+      "Not all cpus found (seen %d/%d) %s" % (nr_cpu_seen,NCPU,msg)
 
     os.chdir(org_dir)
 
 if __name__ == "__main__":
     test_nr_cpus()
     test_things()
-
-
-
