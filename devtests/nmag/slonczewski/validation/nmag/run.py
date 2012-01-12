@@ -49,6 +49,7 @@ mat = MagMaterial("Py",
 
 if do_sl_stt:
   mat.sl_P = 0.4             # Polarisation
+  mat.sl_lambda = 2.0
   mat.sl_d = SI(5.0e-9, "m") # Free layer thickness
 
 sim = Simulation(do_sl_stt=do_sl_stt, do_demag=False)

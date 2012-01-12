@@ -11,6 +11,7 @@ Parameter Happ 10.0 ;# Field in mT
 Parameter Ms  860e3
 
 Parameter Polarization 0.4
+Parameter Lambda 2.0
 
 Parameter theta 40  ;# Polarization direction,
 Parameter phi   90  ;# in spherical coordinates
@@ -22,6 +23,8 @@ Parameter thick    5e-9
 
 set current_density [expr {$I*$scale*$scale/($length*$width)}]
 
+# THE NOTE BELOW DOES NOT APPLY ANYMORE, AS THE NMAG CODE HAS BEEN CHANGED
+# TO IMPLEMENT THE SAME AS OOMMF.
 # NOTE: the model implemented in OOMMF is not the original Slonczewski model
 #  given in the paper published in the 1996 [JMMM 159 (1996)]. It is a more
 #  recent model, result of the work of Slonczewski [JMMM 247 (2002)] with the
@@ -86,8 +89,8 @@ Specify Oxs_SpinXferEvolve:evolve [subst {
       [expr {cos($theta)}]}
   J_direction "-z"
   J $current_density
-  Lambda $lambda
-  P $P
+  Lambda $Lambda
+  P $Polarization
   eps_prime 0.0
 }]
 
