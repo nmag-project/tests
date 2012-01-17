@@ -1,5 +1,6 @@
 \documentclass[11pt,oneside,openany]{book}
 
+\usepackage{graphicx}
 \usepackage{color}    % to define macros for colors
 \usepackage{listings} % package to include source code
 
@@ -53,18 +54,27 @@
 \section{Example: bilayer film (strongly exchange coupled)}
 Here is the example.
 
+\begin{figure}[t]
+\begin{center}
+\includegraphics[width=10.0cm]{sketch}
+\caption[Sketch]{A sketch of the system simulated in the script.}
+\label{fig_es_types}
+\end{center}
+\end{figure}
+
+
 \begin{figure}[!p]
-\lstinputlisting[linerange=1-41]{spacevarying.py}
+\lstinputlisting[linerange=1-41]{spatially.py}
 \caption{Part 1.}
 \end{figure}
 
 \begin{figure}[!p]
-\lstinputlisting[linerange=42-84,firstnumber=42]{spacevarying.py}
+\lstinputlisting[linerange=42-84,firstnumber=42]{spatially.py}
 \caption{Part 2.}
 \end{figure}
 
 \begin{figure}[!p]
-\lstinputlisting[linerange=85-126,firstnumber=85]{spacevarying.py}
+\lstinputlisting[linerange=85-126,firstnumber=85]{spatially.py}
 \caption{Part 3.}
 \end{figure}
 

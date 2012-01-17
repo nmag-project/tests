@@ -1,0 +1,67 @@
+(**expand:boot*)
+(**boxer-version:0,2,0*)
+include "g"
+GUI = Void
+
+(**boxer-refpoints:
+bbox1 1 5.617857142857144 41.82854586129754 bbox2 1 89.01964285714286 0.0 p1 1
+20.068027210884352 30.17956043478261 p2 1 77.21530612244896 21.68025140468227
+p3 1 50.680952380952384 7.550596973244147 p4 1 85.2392857142857
+37.852983595317724 p5 1 49.999999999999986 14.612342458193982 p6 1
+63.789285714285704 25.766076571906357 origin1 1 19.94177891156462
+2.4512521571906305
+*)
+(**end:expand*)(**expand:define-all*)
+bbox1 = Point[.x=5.61785714286, .y=41.8285458613]
+bbox2 = Point[.x=89.0196428571, .y=0.0]
+p1 = Point[.x=20.0680272109, .y=30.1795604348]
+p2 = Point[.x=77.2153061224, .y=21.6802514047]
+p3 = Point[.x=50.680952381, .y=7.55059697324]
+p4 = Point[.x=85.2392857143, .y=37.8529835953]
+p5 = Point[.x=50.0, .y=14.6123424582]
+p6 = Point[.x=63.7892857143, .y=25.7660765719]
+origin1 = Point[.x=19.9417789116, .y=2.45125215719]
+
+(**end:expand*)
+
+include "arrows"
+
+w = Window[][
+  BBox[bbox1, bbox2]
+
+  c1 = Color[(0.118, 0.565, 1.000)]
+  c2 = color.yellow
+  s = Style[Border[color.black, 0.1]]
+  Rectangle[p1, p2, s, c1]
+  Rectangle[Point[p3, .x=p1.x], p2, s, c2]
+
+  Poly[v = Point[p1 - p2, .y=0], p = Point[p2, .y=p1.y]
+       p, p4, p4 + v, p + v, s, Dark[c1, 0.8]]
+  Poly[v = Point[p1 - p2, .x=0], p = Point[p2, .y=p1.y]
+       p, p4, p4 - v, p - v, s, Dark[c1, 0.6]]
+  Poly[q1 = Point[p3, .x=p2.x], v = p4 - Point[.x=p2.x, .y=p1.y]
+       q1, p2, p2 + v, q1 + v, s, Dark[c2, 0.6]]
+
+  f = Font["sans", 5, color.black]
+  f2 = Font["sans", 3, color.black]
+  Texts[f, "Hard", p5; "Soft", Point[p6, .x=p5.x]]
+
+  color.black
+  origin1 = Point[.x=p1.x, .y=p2.y]
+  origin2 = origin1 + (6, 0)
+  origin3 = origin1 + (0, 18)
+  origin4 = origin1 + (3, 3)
+  Lines[0.2, Scale[0.5], origin1, arrow, origin2;
+        origin1 - (0, 17), arrow, origin3;
+        origin1, arrow, origin4]
+  Circle[origin1, 0.5]
+
+  Texts[f2
+        origin2, "y", From[(0, 0.5)];
+        origin3, "x", From[(0.5, 0)];
+        origin4, "z", From[(0, 0)]]
+]
+
+w.Save["sketch.pdf"]
+
+(**expand:view:w*)(**end:expand*)
