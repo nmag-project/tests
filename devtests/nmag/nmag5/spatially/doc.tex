@@ -103,16 +103,21 @@ shown in Fig. \ref{fig:sketch}.
 \label{fig:sketch}
 \end{center}
 \end{figure}
+The Netgen geo file is shown below:
+\lstinputlisting{spatially.geo}
 
-A description of the script line-by-line is given below:
+The Nmag script is shown in Fig. \ref{fig:script_1of2} and 
+\ref{fig:script_2of2}. A description line-by-line is given below:
 \begin{figure}[!p]
 \lstinputlisting[linerange=1-46]{spatially.py}
-\caption{Part 1.}
+\caption{The first half of the script.}
+\label{fig:script_1of2}
 \end{figure}
 
 \begin{figure}[!p]
 \lstinputlisting[linerange=47-94,firstnumber=47]{spatially.py}
-\caption{Part 2.}
+\caption{The second half of the script.}
+\label{fig:script_2of2}
 \end{figure}
 
 \textbf{Lines 1-9.} The usual Python modules are imported.
@@ -130,7 +135,7 @@ Finally, the simulation object is created as usual.
 
 \textbf{Lines 24-26.} These lines are the first Nmag5 specific lines.
 We here specify that the damping constant (\verb|"alpha"|) the saturation
-magnetisation (\verb|"Ms"|) the gyromagnetic ratio (\verb|"gamma_g"|)
+magnetisation (\verb|"Ms"|) the gyromagnetic ratio (\verb|"gamma_G"|)
 the exchange factor (\verb|"exchange_factor"|) and the anisotropy constant
 $K_1$ (\verb|"K1"|) have to be defined as fields that change continuously
 in space. Here there are two things to notice. First, if this line is not
@@ -195,11 +200,13 @@ and are there only for debugging purposes.
 
 \textbf{Lines 64-74 and 87-92.} These lines define a dictionary \verb|vs|,
 which is used for setting the various spatially inhomogeneous quantities. For
-example, the entry \verb|"Ms": (SI("A/m"), 0.69e6, 0.80e6)| is used to indicate
+example, the entry
+\lstinputlisting[linerange=71-71,firstnumber=71]{spatially.py}
+ is used to indicate
 that \verb|Ms| (the saturation magnetisation) is measured in units of
 \verb|SI("A/m")| and has the value \verb|0.69e6*SI("A/m")| inside the bottom
-layer and \verb|0.69e6*SI("A/m")| inside the top layer. This dictionary is
-interpreted in the for loop which first extract the quantity from the
+layer and \verb|0.80e6*SI("A/m")| inside the top layer. This dictionary is
+read in the for loop which first extracts the quantity from the
 simulation object with \verb|sim.model.quantities[name]| and calls
 \verb|create_setter| to set its value. Note that \verb|sim.model| returns
 the \verb|Model| object associated to the given simulation object.
