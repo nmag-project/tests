@@ -42,9 +42,9 @@ w = Window[][
   Poly[q1 = Point[p3, .x=p2.x], v = p4 - Point[.x=p2.x, .y=p1.y]
        q1, p2, p2 + v, q1 + v, s, Dark[c2, 0.6]]
 
-  f = Font["sans", 5, color.black]
+  f = Font["sans", 4, color.black]
   f2 = Font["sans", 3, color.black]
-  Texts[f, "Hard", p5; "Soft", Point[p6, .x=p5.x]]
+  Texts[f, "Material A", p5; "Material B", Point[p6, .x=p5.x]]
 
   color.black
   origin1 = Point[.x=p1.x, .y=p2.y]

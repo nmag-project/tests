@@ -4,12 +4,11 @@ from nmag.constants import degrees_per_ns, mu0
 from nmag.common import * # import every, at, etc.
 
 # New Nmag5 imports: import nmag5 under the name "nmag"
-from nmag.nmag5 import SI, MagMaterial
-import nmag.nmag5 as nmag
+from nmag.nmag5 import MagMaterial, Simulation, uniaxial_anisotropy, SI
 from nsim.model import Value
 
 anisotropy = \
-  nmag.uniaxial_anisotropy(axis=[0, 0, 1], K1=SI(0.0, "J/m^3"))
+  uniaxial_anisotropy(axis=[0, 0, 1], K1=SI(0.0, "J/m^3"))
 
 mag = \
   MagMaterial(name="a",
@@ -20,7 +19,7 @@ mag = \
               llg_gamma_G=SI(0.2211e6, "m/A s"))
 
 # Create the simulation object
-sim = nmag.Simulation()
+sim = Simulation()
 
 # We want some constants to be spatially dependent
 sim.declare("spacefield", "alpha", "Ms", "gamma_G", "exchange_factor")
