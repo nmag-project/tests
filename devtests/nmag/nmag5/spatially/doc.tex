@@ -133,22 +133,21 @@ in order to comply with the old interface. These parameters will be
 redefined later in the script as spatially varying parameters.
 Finally, the simulation object is created as usual.
 
-\textbf{Lines 24-26.} These lines are the first Nmag5 specific lines.
-We here specify that the damping constant (\verb|"alpha"|) the saturation
-magnetisation (\verb|"Ms"|) the gyromagnetic ratio (\verb|"gamma_G"|)
-the exchange factor (\verb|"exchange_factor"|) and the anisotropy constant
-$K_1$ (\verb|"K1"|) have to be defined as fields that change continuously
-in space. Here there are two things to notice. First, if this line is not
-given these quantities are treated as constants, meaning that the system
-does not allocate any arrays to store their values. Their values are inserted
-directly into the equations of motion and are simplified if possible
-(e.g. if \verb|alpha == 0.0|, then the whole damping term is removed).
-Second, the reader must understand here that the quantity
-\verb|"exchange_factor"| is not referring to the exchange coupling constant
-$A$, but rather to the prefactor of the exchange field 
-$C = 2A/(\mu_0 \Ms)$ 
-($\mathbf{H_{\mathrm{exch}}} = C \, \nabla^2 \mathbf{m}$,
-where $\mathbf{m} = \mathbf{M}/\Ms$).
+\textbf{Lines 24-26.} These lines are the first Nmag5 specific lines.  We here
+specify that the damping constant (\verb|"alpha"|) the saturation magnetisation
+(\verb|"Ms"|) the gyromagnetic ratio (\verb|"gamma_G"|) the exchange factor
+(\verb|"exchange_factor"|) and the anisotropy constant $K_1$ (\verb|"K1"|) have
+to be defined as fields that change continuously in space
+(\verb|"spacefield"|). Here there are two things to notice. First, when this
+line is not given these quantities are treated as constants, meaning that the
+system does not allocate any arrays to store their values. Their values are
+inserted directly into the equations of motion and are simplified if possible
+(e.g. if \verb|alpha == 0.0|, then the whole damping term is removed).  Second,
+the reader must understand here that the quantity \verb|"exchange_factor"| is
+not referring to the exchange coupling constant $A$, but rather to the
+prefactor of the exchange field $C = 2A/(\mu_0 \Ms)$
+($\mathbf{H_{\mathrm{exch}}} = C \, \nabla^2 \mathbf{m}$, where $\mathbf{m} =
+\mathbf{M}/\Ms$). This will help to understand some other parts of the script.
 
 \textbf{Lines 27-38.} These lines follow the Nmag4 interfaces.
 Briefly: the mesh is loaded, the tolerances for the simulation and
@@ -191,8 +190,8 @@ there are many material parameters which have to be set in this way.
 \textbf{Lines 59-63.} These lines are useful only for debugging purposes.
 Nmag5 does quite a number of ``clever'' things for you: it examines
 the equations of motion and understands how one equation may depend on
-some others (static dependency computation), it parses the equations
-and simplifies the expression when needed (if there is no spin torque, then
+some others (static dependency inference), it parses the equations
+and simplifies the expressions when needed (if there is no spin torque, then
 the corresponding term is eliminated from the equations, etc.).
 These two lines tell Nmag5 to save to the file \verb|model.desc| information
 about what Nmag5 did. These lines can be safely removed from the script
@@ -224,7 +223,7 @@ to the fact that many anisotropies can be added, and each of them will have
 its own constants and its own axes (e.g. \verb|a0_K1| for the first
 anisotropy, \verb|a1_K1| for the second, etc.).
 
-\textbf{Lines 93-94.} These simulation is launched as usual.
+\textbf{Lines 93-94.} A relaxation is set up as usual in Nmag4.
 
 \section{What Nmag5 cannot do, yet} \label{sec:missing_from_nmag5}
 Here is a list of what is missing from Nmag5:
