@@ -26,8 +26,8 @@ sim.declare("spacefield", "alpha", "Ms", "gamma_G", "exchange_factor")
 anisotropy.declare("spacefield", "K1")
 
 # Load the mesh
-mat_allocation = [("bottom", mag), ("top", mag)]
-sim.load_mesh("periodic.nmesh", mat_allocation, unit_length=SI(1e-9, "m"))
+mats = [("bottom", mag), ("top", mag)]
+sim.load_mesh("spatially.nmesh.h5", mats, unit_length=SI(1e-9, "m"))
 
 # Set additional parameters for the time-integration
 sim.set_params(stopping_dm_dt=1*degrees_per_ns,
