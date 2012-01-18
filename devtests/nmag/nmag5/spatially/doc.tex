@@ -60,30 +60,34 @@
 \subsection{Introduction}
 Sometimes, when studying certain kinds of micromagnetic structures, it is
 useful to define material parameters which vary in space. For example, this is
-necessary for studying samples with material defects. One way of achieving this
-is defining every micromagnetic parameter (damping constant, gyromagnetic
-ratio, saturation magnetisation, exchange coupling constant, etc.)  as
-functions of space. This is the main reason for the development of Nmag5,
-the latest version of the Nmag micromagnetic software package.
+necessary for studying samples with material defects: a defect may be
+represented by a localised variation in the saturation magnetisation.  Having
+spatially varying parameters is also useful for simulating systems composed by
+different materials (e.g. magnetic multilayers).
+Unfortunately, this kind of simulations is not possible with the old version of
+Nmag, where the material parameters are forced to be constant in space and time
+for each \verb|MagMaterial| instance. This limitation is one of the main
+reasons for the development of the latest version of the Nmag micromagnetic
+software package, Nmag5.
 
 \subsection{The content of this document}
-In this document we show how to use Nmag5 to run a simulation where
-the damping constant, the gyromagnetic ratio, the saturation magnetisation
-and the magnetic anisotropy (both the axes and the anisotropy constants)
-are varying in space (i.e. are not constant throughout the material).
-We show the source code of a simulation script and explain how it works.
+In this document we show how to use Nmag5 to run a simulation where the damping
+constant, the gyromagnetic ratio, the saturation magnetisation and the magnetic
+anisotropy are varying in space (i.e. are not constant throughout the
+material).  We show the source code of a simulation script and explain how it
+works.
 
 \subsection{Remarks on the Nmag5 interface}
-It is useful at this stage to remark that having spatially varying material
-parameters was not possible with the previous version of Nmag, Nmag4. The
-simulation interface of Nmag4 was designed without taking this possibility into
-account. Nmag5 is work in progress. It provides most of the functionality
-provided by Nmag4 (see Section \ref{sec:missing_from_nmag5}) and does this by
-sticking to the old interface. All the new functionality of Nmag5, however, is
-provided with a temporary interface. In other words, a proper user interface to
-expose the new Nmag5 functionality has not been designed, yet.  The new
-functionality can be used, but using quite dirty code, which may not work
-anymore once the Nmag5 interface is finalised (which may never happen).
+The previous version of Nmag, Nmag4, did not allow to have spatially varying
+material parameters: its user interface was designed without taking this
+possibility into account. When developing Nmag5 we then faced a problem: how
+can we extend the Nmag interface to allow defining non-homogeneous materials
+but keeping --- at the same time --- full compatibility with the old interface?
+We want new versions of Nmag to be able to run old scripts, if necessary! The
+problem is not solved, yet. Nmag5 currently provides most of the functionality
+of Nmag4 (see Section \ref{sec:missing_from_nmag5}) under the same user
+interface, but a good interface for the new features of Nmag5 is still to be
+found.  The new functionality can be used, but only through quite dirty code.
 
 \subsection{The script}
 We want to simulate a bilayer film made by two materials A and B.
