@@ -60,7 +60,7 @@
 \subsection{Introduction}
 Sometimes, when studying certain kinds of micromagnetic structures, it is
 useful to define material parameters which vary in space. For example, this is
-necessary for studying samples with material defects: a defect may be
+desirable when studying samples with material defects: a defect may be
 represented by a localised variation in the saturation magnetisation.  Having
 spatially varying parameters is also useful for simulating systems composed by
 different materials (e.g. magnetic multilayers).
@@ -224,6 +224,35 @@ its own constants and its own axes (e.g. \verb|a0_K1| for the first
 anisotropy, \verb|a1_K1| for the second, etc.).
 
 \textbf{Lines 93-94.} A relaxation is set up as usual in Nmag4.
+
+\subsection{Results}
+In Fig. \ref{fig:results} (right) we show the relaxed magnetization.
+We note that:
+\begin{itemize}
+\item in the bottom hard layer, the strong magnetic anisotropy forces
+the magnetisation to be orthogonal to the film plane, against the action
+of the applied field (which pulls the magnetisation toward the right in the
+figure) and against the action of the demagnetising field (which pulls the
+magnetisation into the plane of the film);
+\item the top soft layer, is strongly exchange coupled with the bottom layer
+and, consequently, its magnetization points out of the plane of the film
+in the region close to the interface between the soft and the hard layer;
+\item in the top part of the soft layer, however, the magnetisation bends
+to follow the applied field and to reduce the surface charges at the
+interface.
+\end{itemize}
+
+\begin{figure}[t]
+\begin{center}
+\includegraphics[width=6.0cm]{mesh}
+\includegraphics[width=7.0cm]{m-final}
+\caption[Sketch]{\textbf{Left:} The mesh used in the simulation.
+  The two layers are coloured respectively with a light and a dark tone
+  of green. \textbf{Right:} The final magnetisation (after relaxation).}
+\label{fig:results}
+\end{center}
+\end{figure}
+
 
 \section{What Nmag5 cannot do, yet} \label{sec:missing_from_nmag5}
 Here is a list of what is missing from Nmag5:

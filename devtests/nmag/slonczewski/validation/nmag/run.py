@@ -52,7 +52,7 @@ if do_sl_stt:
   mat.sl_lambda = 2.0
   mat.sl_d = SI(5.0e-9, "m") # Free layer thickness
 
-sim = Simulation(do_sl_stt=do_sl_stt, do_demag=False)
+sim = Simulation(do_sl_stt=do_sl_stt, do_demag=True)
 sim.load_mesh(mesh_filename, [("region1", mat)], unit_length=nm)
 
 sim.set_m([1, 0.01, 0.01])
@@ -72,7 +72,9 @@ if do_sl_stt:
   sim.model.quantities["sl_current_density"].set_value(Value(current_density))
 
 sim.set_params(stopping_dm_dt=0*degrees_per_ns,
-               ts_rel_tol=1e-7, ts_abs_tol=1e-7)
+               ts_rel_tol=1e-8, ts_abs_tol=1e-8,
+               ts_pc_rel_tol=1e-3, ts_pc_abs_tol=1e-8,
+               demag_dbc_rel_tol=1e-6, demag_dbc_abs_tol=1e-6)
 sim.relax(save=[("averages", every("time", 5*ps))],
           do=[("exit", at("time", 10000*ps))])
 

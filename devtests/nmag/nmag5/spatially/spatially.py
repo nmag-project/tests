@@ -33,8 +33,8 @@ sim.load_mesh("spatially.nmesh.h5", mats, unit_length=SI(1e-9, "m"))
 sim.set_params(stopping_dm_dt=1*degrees_per_ns,
                ts_rel_tol=1e-6, ts_abs_tol=1e-6)
 
-sim.set_m([0, 0, 1])
-sim.set_H_ext([0, 0, 1], SI(100000, 'A/m'))
+sim.set_m([0.1, 0.1, 1])
+sim.set_H_ext([1, 0, 0], SI(100000, 'A/m'))
 
 def create_setter(value_bottom, value_top, value_middle=None):
   # Fields in Nmag are defined on the nodes, which means that it is not
