@@ -157,17 +157,18 @@ relaxed magnetisation is saved using the method
 function \verb|setup_simulation| and load the initial magnetisation from the
 file which was saved at the end of the relaxation simulation.
 
-\textbf{Lines 60-67:} these lines are used to speed-up the process of setting
-the external field. First the external field is set in the normal way using the
-method \verb|Simulation.set_H_ext|, then the method
+\textbf{Lines 60-67:} these lines are used to speed-up the computation of the
+function \verb|update_H_ext|. First the external field is set in the normal way
+using the method \verb|Simulation.set_H_ext|, then the method
 \verb|Simulation.get_subfield| is called to retrieve the Numpy array
-corresponding to this field. It must be noted here, that the purpose of
-these lines is not to set the external field, but rather to get a Numpy
-array which is needed later in the function \verb|update_H_ext|. This is
-just a trick to set the applied field in the fastest way possible.
+corresponding to this value of the field. It must be noted here, that the
+purpose of these lines is not to set the external field, but rather to
+precompute two Numpy arrays which are needed later in the function
+\verb|update_H_ext|. This is just a trick to make \verb|update_H_ext| as fast
+as possible.
 
-\textbf{Lines 68-88:} these are the most interesting lines in the script.
-the line:
+\textbf{Lines 68-88:} these are likely to be the most interesting lines in the
+script. The line:
 %
 \lstinputlisting[linerange=87-87,firstnumber=87]{script.py}
 %
@@ -181,17 +182,27 @@ which is computed as a sum of two Numpy arrays: \verb|H_bias_data|, which was
 precomputed before, and \verb|t_amp*H_pulse_data| where \verb|t_amp| is a float
 value computed as function of \verb|t_su| and \verb|H_pulse_data| is again a
 precomputed Numpy array.  The if statement is used to truncate the sinc
-function, when the time has exceeded a value for which the amplitude of the
-sinc is very small.  Lines 80 to 84 are used to set the field in such a way
-that the timestepper is not automatically reinitialised.  There is a final
-point to stress: expressing and computing the field in terms of Numpy arrays
-allows to greatly speedup the execution of the function \verb|update_H_ext|.
+function to zero, when its amplitude is very small (this may make the
+simulation faster).  Lines 80 to 84 are used to set the field in such a way
+that the timestepper is not automatically reinitialised (which is what would
+happen is \verb|Simulation.set_H_ext| was used.  There is a final point to
+stress: expressing and computing the field in terms of Numpy arrays allows to
+greatly speedup the execution of the function \verb|update_H_ext|.
 
-\textbf{Lines 89-91:} The stopping criterion is disabled and the relaxation
-is started. The simulation is stopped at time $t = 10240\,\mathrm{ps}$ and
-the fields are saved every 10 picoseconds. Notice, that you may want to
-replace \verb|save=[('fields'| with \verb|save=['field_m'| to reduce the
-size of the output files (as the data is saved very often, it makes sense
-to save just the magnetisation, rather than all the fields). 
+\textbf{Lines 89-91:} The stopping criterion is disabled and the relaxation is
+started. The simulation is stopped at time $t = 10240\,\mathrm{ps}$ and the
+fields are saved every 10 picoseconds. Note, that you may want to replace
+``\verb|save=[('fields'|'' with ``\verb|save=['field_m'|'' to reduce the size
+of the output files (as the data is saved very often, it makes sense to save
+just the magnetisation, rather than all the fields).
+
+\subsection{Final remarks}
+This script can also be used as a model for computing dispersion relations.
+Typically one would then use the mesh of a wire.  He would also use a pulse
+which is not homogeneous in space, but has rather a sinc dependency along the
+direction of the propagation of the spin waves. This requires little
+modifications: it is just enough to redefine the variable \verb|pulse| (which
+was set to the value \verb|[0.0, 0.0, 1.0]| in the script) as a function
+(\verb|def pulse(r): ...|).
 
 \end{document}
