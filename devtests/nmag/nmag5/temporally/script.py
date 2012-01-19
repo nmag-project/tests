@@ -57,9 +57,8 @@ if not os.path.exists(relaxed_start_file):
 sim = setup_simulation("dyn", 0.01)
 sim.load_m_from_h5file(relaxed_start_file)
 
+# We set the external field and retrieve the corresponding NumPy array
 sim.set_H_ext(pulse, sinc_amplitude)
-
-# Now retrieve the corresponding NumPy array
 H_pulse_data = sim.get_subfield("H_ext")
 
 # Do the same for the bias field
