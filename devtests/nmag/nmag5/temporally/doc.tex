@@ -48,6 +48,7 @@
 \lstset{backgroundcolor=\color{lightgrey}}
 
 \newcommand{\vecs}[2]{\mathbf{#1_{\mathrm{#2}}}}
+\newcommand{\vect}[1]{\mathbf{#1}}
 
 \begin{document}
 
@@ -195,6 +196,27 @@ fields are saved every 10 picoseconds. Note, that you may want to replace
 ``\verb|save=[('fields'|'' with ``\verb|save=['field_m'|'' to reduce the size
 of the output files (as the data is saved very often, it makes sense to save
 just the magnetisation, rather than all the fields).
+
+\subsection{Results}
+Fig. \ref{fig:results} shows the results of the dynamical simulation.
+In order to obtain it, the script was used once to relax the system
+and a second time to compute the dynamical response of the magnetisation
+to the applied sinc pulse.
+
+The plot shows the time dependence of the normalised magnetisation,
+$\vect{m} = \vect{M}/M_\mathrm{sat}$,
+in the same direction along which the pulse is applied ($z$).
+
+\begin{figure}[!h]
+\begin{center}
+\includegraphics[width=10.0cm]{plot}
+\end{center}
+\caption{The plot shows the time dependency of the normalised magnetisation
+  along the $z$ direction (the direction where the pulse is applied)
+  for time between 0 and 4 ns. The magnetisation dynamics is produced as
+  a response to the sinc pulse (varying in time as a sinc function).}
+\label{fig:results}
+\end{figure}
 
 \subsection{Final remarks}
 This script can also be used as a model for computing dispersion relations.
