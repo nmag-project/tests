@@ -45,15 +45,18 @@
 \lstset{numbers=left,frame=single}
 \lstset{backgroundcolor=\color{lightgrey}}
 
+\newcommand{\vect}[1]{\mathbf{#1}}
 \newcommand{\vecs}[2]{\mathbf{#1_{\mathrm{#2}}}}
+\newcommand{\vm}{\vect{m}}
+\newcommand{\vM}{\vect{M}}
 
 \begin{document}
 
 \titlepage
 
 \section{The Slonczewski Spin Transfer Torque in Nmag5}
-In this document we explain how to use Nmag5 to run simulation where the
-spin transfer torque (Slonczewski model) is included. This is particular
+In this document we explain how to use Nmag5 to run simulations which
+include the spin transfer torque (Slonczewski model). This is particular
 useful to simulate spin valves. We notice that Nmag5 implements the same
 term which is implemented in OOMMF 1.2a4 (extension \verb|Oxs_SpinXferEvolve|
 in \verb|oommf/app/oxs/local/spinxferevolve.cc| where \verb|oommf| is the
@@ -70,30 +73,57 @@ This paper generalised what was derived by Slonczewski in 2002
 A clearer formulation of the equations can be found in OOMMF user guide
 (\verb|oommf/doc/userguide/userguide.pdf|).
 
+Below we provide the Landau-Lifshitz-Gilbert with the additional STT term
+included (as given in the OOMMF user guide):
+\begin{equation}
+  \frac{d\vm}{dt} = -|\gamma|\,\vm\times\vecs{H}{eff}
+   + \alpha
+     \left(\vm\times\frac{d\vm}{dt}\right)
+   + |\gamma|\beta\epsilon
+     \left(\vm\times\vm_p\times\vm\right)
+   - |\gamma|\beta\epsilon^\prime\,\vm\times\vm_p,
+\label{eq:oxsllgspinxfer}
+\end{equation}
+where
+\begin{eqnarray*}
+\vm & = & \mbox{reduced magnetization, $\vM/M_s$} \\
+\gamma & = & \mbox{Gilbert gyromagnetic ratio} \\
+\beta & = & \left|\frac{\hbar}{\mu_0 e}\right|\frac{J}{t M_s} \\
+\vm_p & = & \mbox{(unit) electron polarization direction} \\
+\epsilon & = &
+\frac{P\Lambda^2}{(\Lambda^2+1)+(\Lambda^2-1)(\vm\cdot\vm_p)} \\
+\epsilon^\prime & = & \mbox{secondary spin tranfer term}.
+\end{eqnarray*}
+In the definition of $\beta$, $e$ is the electron charge in C, $J$ is
+current density in A/m${}^2$, $t$ is the free layer thickness in meters,
+and $M_s$ is the saturation magnetization in A/m.
+
+Note that, in the Nmag implementation we take $\epsilon^\prime = 0$.
+We also have the following correspondences:
+
+\begin{tabular}{ll}
+$P$ & \verb|MagMaterial.sl_P| \\
+$\lambda$ & \verb|MagMaterial.sl_lambda| \\
+$t$ & \verb|MagMaterial.sl_d| \\
+$\vecs{m}{P}$ & \verb|Simulation.model.quantities["sl_fix"]| \\
+$J$ & \verb|Simulation.model.quantities["sl_current_density"]| \\
+\end{tabular}
 
 \subsection{Example: dynamics of a disk excited by a sinc pulse}
-In this example we consider a disk. We create the mesh using Netgen and
-the following geometry specification file:
-%
-%\lstinputlisting{disk.geo}
-%
-The resulting mesh is shown in Fig. \ref{fig:mesh}.
+We now show an example where we use the extension to model the dynamics
+in a spin valve.
+The system geometry is shown in Fig. \ref{fig:sketch}.
 %
 \begin{figure}[h]
 \begin{center}
 %\includegraphics[width=10.0cm]{disk}
-\caption[Sketch]{A picture of the mesh used in the simulation.}
+\caption[Sketch]{A sketch of the system modeled in the simulation.}
 \label{fig:mesh}
 \end{center}
 \end{figure}
 %
 The simulation script is split in the two figures Fig. \ref{fig:script1of2} and
-\ref{fig:script2of2}.  The script can be used to perform two simulations: if
-the script is ran for the first time, it just perform a relaxation and saves
-the relaxed magnetisation to a file with name \verb|relaxed.h5|. If the script
-is ran for a second time, it checks whether this file exist, it finds it, and
-loads the initial magnetisation from it. It then applies a pulsed magnetic
-field and records the dynamics to disk.
+\ref{fig:script2of2}. 
 
 \begin{figure}[!p]
 \lstinputlisting[linerange=1-39]{../../slonczewski/validation/nmag/run.py}
@@ -167,19 +197,33 @@ which also means that one cannot change them later on in the simulation).
 %
 
 \subsection{Results}
+In Fig. \ref{fig:mif1of2} and \ref{fig:mif2of2} we provide the OOMMF script
+which implements the same simulation we described for Nmag.
 
 \begin{figure}[!p]
   \lstinputlisting[language=tcl,linerange=1-47]%
   {../../slonczewski/validation/oommf/run.mif}
 \caption{Part 1.}
-\label{fig:script1of2}
+\label{fig:mif1of2}
 \end{figure}
 
 \begin{figure}[!h]
   \lstinputlisting[language=tcl,linerange=48-89,firstnumber=48]%
   {../../slonczewski/validation/oommf/run.mif}
 \caption{Part 2.}
-\label{fig:script2of2}
+\label{fig:mif2of2}
+\end{figure}
+
+The comparison of the results is shown in Fig. \ref{fig:results}.
+
+\begin{figure}[!h]
+\includegraphics[width=10.0cm]{plot}
+\caption{Comparison between the OOMMF and the Nmag implementation of the STT.
+  The plot shows the time dependency of the $x$ component of the normalised
+  magnetisation. Note that in the simulation the demag is disabled (the
+  agreement is then expected to be very good, as it does not depend
+  on the spatial discretisation).}
+\label{fig:results}
 \end{figure}
 
 \subsection{Final remarks}

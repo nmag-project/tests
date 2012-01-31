@@ -32,7 +32,7 @@ mat.sl_P = 0.4             # Polarisation
 mat.sl_lambda = 2.0        # lambda parameter
 mat.sl_d = SI(5.0e-9, "m") # Free layer thickness
 
-sim = Simulation(do_sl_stt=True, do_demag=True)
+sim = Simulation(do_sl_stt=True, do_demag=False)
 sim.load_mesh(mesh_filename, [("region1", mat)], unit_length=nm)
 sim.set_m([1, 0.01, 0.01])
 sim.set_H_ext(Happ_dir, 0.001*Tesla/mu0)

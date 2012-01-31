@@ -1,0 +1,12 @@
+
+set term postscript enhanced eps color
+set out "plot.eps"
+set size 0.7, 0.7
+
+t(x) = x*1e9
+
+set xlabel "time (ns)"
+set ylabel "M_x/M_{sat}"
+plot [:4.0] \
+  "./oommf/m.dat" u (t($1)):2 t "OOMMF" w l ls 3, \
+  "./nmag/m.dat" u (t($1)):2 t "Nmag5" w p ls 1
