@@ -52,22 +52,23 @@
 \titlepage
 
 \section{The Slonczewski Spin Transfer Torque in Nmag5}
-In this document we explain how to use Nmag to create a simulation where
-the applied field changes continuously with time.
-This is an undocumented feature, which can be used, but for which a clean
-user interface has not been defined, yet.
-Defining a field which changes continuously in time can be useful for many
-purposes: applying a pulse with optimal time dependency to excite spin waves
-inside a system (with a well controlled window of frequencies) or extending
-Nmag by adding an extra term to the applied field.
-In this document we will show and explain one example which was used
-in the course of the DYNAMAG project to compute the susceptibility
-of a disk (spin waves where excited for a defined window of frequencies).
-In this example, it is important to apply an homogeneous (in space) magnetic
-field with a time dependecy which goes as
-$\mathrm{sinc} \, \omega_{\mathrm{max}} t$,
-as this allows exciting spin waves with freqencies from 0 to
-$\omega_{\mathrm{max}}$.
+In this document we explain how to use Nmag5 to run simulation where the
+spin transfer torque (Slonczewski model) is included. This is particular
+useful to simulate spin valves. We notice that Nmag5 implements the same
+term which is implemented in OOMMF 1.2a4 (extension \verb|Oxs_SpinXferEvolve|
+in \verb|oommf/app/oxs/local/spinxferevolve.cc| where \verb|oommf| is the
+directory produced untarring the tarball). Notice that OOMMF comes with some
+\verb|mif| example files where the extension is used.
+
+It may be useful to know that the term we implement \emph{is not} the one
+described in the original paper that Slonczewski wrote/submitted in 1996
+(J. C. Slonczewski, J. Magn. Magn. Mater. 159, L1 (1996)).
+The term we implement was theoretically described in 2004
+in [J. Xiao, \emph{et. al.}, Phys. Rev. B, 70, 172405 (2004)].
+This paper generalised what was derived by Slonczewski in 2002
+[J. C. Slonczewski, J. Magn. Magn. Mater. 247, 324 (2002)].
+A clearer formulation of the equations can be found in OOMMF user guide
+(\verb|oommf/doc/userguide/userguide.pdf|).
 
 
 \subsection{Example: dynamics of a disk excited by a sinc pulse}
@@ -109,8 +110,8 @@ field and records the dynamics to disk.
 We will now describe the script line-by-line:
 
 \textbf{Lines 1-6:} these are the usual import statements, which often occur
-in Nmag scripts. Notice the nmag5 specific imports (\verb|from nmag.nmag5 ...|
-and \verb|from nsim.model ...|).
+in Nmag scripts. Notice the nmag5 specific imports (\verb|from nmag.nmag5|
+\verb|import| $\ldots$ and \verb|from| \verb|nsim.model import| $\ldots$).
 
 \textbf{Lines 7-12:} these lines define some useful variables such as
 \verb|ps| for picosecond, \verb|nm| for nanometre.  The also define the
@@ -165,13 +166,32 @@ which also means that one cannot change them later on in the simulation).
 %\lstinputlisting[linerange=87-87,firstnumber=87]{script.py}
 %
 
-\subsection{Final remarks}
-This script can also be used as a model for computing dispersion relations.
-Typically one would then use the mesh of a wire.  He would also use a pulse
-which is not homogeneous in space, but has rather a sinc dependency along the
-direction of the propagation of the spin waves. This requires little
-modifications: it is just enough to redefine the variable \verb|pulse| (which
-was set to the value \verb|[0.0, 0.0, 1.0]| in the script) as a function
-(\verb|def pulse(r): ...|).
+\subsection{Results}
 
+\begin{figure}[!p]
+  \lstinputlisting[language=tcl,linerange=1-47]%
+  {../../slonczewski/validation/oommf/run.mif}
+\caption{Part 1.}
+\label{fig:script1of2}
+\end{figure}
+
+\begin{figure}[!h]
+  \lstinputlisting[language=tcl,linerange=48-89,firstnumber=48]%
+  {../../slonczewski/validation/oommf/run.mif}
+\caption{Part 2.}
+\label{fig:script2of2}
+\end{figure}
+
+\subsection{Final remarks}
+As stated before, the term implemented in OOMMF and Nmag is not the one
+given in the paper published in the 1996 [JMMM 159 (1996)]. It is a more
+recent model, result of the work of Slonczewski [JMMM 247 (2002)] with the
+extensions from Xiao [PRB 70, 172405 (2004)]. This model requires the user
+to give, beside the polarization $P$, also another quantity $\lambda^2$.
+It can be seen from the mathematics, that taking:
+$$
+P = a/(2 - 2a) \mathrm{ and } \lambda^2 = (2 - 2a)/(1 - 2a),
+$$
+where $a = 4 (sqrt(P_0)/(1 + P_0))^3$ and P0 is the polarisation in the
+Slonczewski model, the Xiao model reduces to the Slonczewski model.
 \end{document}
