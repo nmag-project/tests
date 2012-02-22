@@ -1,17 +1,16 @@
 \documentclass[11pt,oneside,openany]{article}
-
+\usepackage{hyperref}
 \usepackage{graphicx}
 \usepackage{color}    % to define macros for colors
 \usepackage{listings} % package to include source code
 
-\author{Matteo Franchin}
 
 %TYPESETTING:----------------------------------------------------------
 
 % Reset page margins properly for doublesided pages
 
 % No headings
-\pagestyle{plain}
+%\pagestyle{plain}
 
 % 1.5 interline spacing --> corresponds to linespread 1.3
 % 2.0 interline spacing --> corresponds to linespread 1.6
@@ -52,7 +51,13 @@
 
 \begin{document}
 
-\titlepage
+\title{The Slonczewski Spin Transfer Torque in Nmag}
+\author{Matteo Franchin, Hans Fangohr, DYNAMAG Project}
+\date{University of Southampton, 2012}
+
+\maketitle
+
+The Slonczewski spin torque transfer term has been implemented as part of revision 5 of Nmag.
 
 \section{The Slonczewski Spin Transfer Torque in Nmag5}
 In this document we explain how to use Nmag5 to run simulations which
@@ -70,10 +75,10 @@ The term we implement was theoretically described in 2004
 in [J. Xiao, \emph{et. al.}, Phys. Rev. B, 70, 172405 (2004)].
 This paper generalised what was derived by Slonczewski in 2002
 [J. C. Slonczewski, J. Magn. Magn. Mater. 247, 324 (2002)].
-A clearer formulation of the equations can be found in OOMMF user guide
-(\verb|oommf/doc/userguide/userguide.pdf|).
+A clearer formulation of the equations can be found in OOMMF user guide. The Guide can be found in the source code distribution of OOMMF as (\verb|oommf/doc/userguide/userguide.pdf|). Currently these releases by the NIST team are hosted at \href{http://math.nist.gov/oommf/software-12a4pre.html}{http://math.nist.gov/oommf/software-12a4pre.html}.
 
-Below we provide the Landau-Lifshitz-Gilbert with the additional STT term
+
+Below we provide the Landau-Lifshitz-Gilbert equation with the additional STT term
 included (as given in the OOMMF user guide):
 \begin{equation}
   \frac{d\vm}{dt} = -|\gamma|\,\vm\times\vecs{H}{eff}
@@ -114,11 +119,11 @@ We now show an example where we use the extension to model the dynamics
 in a spin valve.
 The system geometry is shown in Fig. \ref{fig:sketch}.
 %
-\begin{figure}[h]
+\begin{figure}
 \begin{center}
-%\includegraphics[width=10.0cm]{disk}
-\caption[Sketch]{A sketch of the system modeled in the simulation.}
-\label{fig:mesh}
+\includegraphics[width=7.0cm]{geometry.png}
+\caption[Sketch]{A sketch of the system modeled in the simulation. The simulated free layer is shown in red and has dimensions 12.5nm$\times$12.5nm$\times$5nm. The current is flowing from bottom to top in positive $z$-direction.}
+\label{fig:sketch}
 \end{center}
 \end{figure}
 %
@@ -137,21 +142,21 @@ The simulation script is split in the two figures Fig. \ref{fig:script1of2} and
 \label{fig:script2of2}
 \end{figure}
 
-We will now describe the script line-by-line:
+\textbf{Lines 1-6:} the usual import statements, which often occur in
+Nmag scripts. Notice the nmag5 specific imports
+(\verb|from nmag.nmag5| \verb|import| $\ldots$ and \verb|from|
+\verb|nsim.model import| $\ldots$) to allow access to the Slonczewski
+term capability.
 
-\textbf{Lines 1-6:} these are the usual import statements, which often occur
-in Nmag scripts. Notice the nmag5 specific imports (\verb|from nmag.nmag5|
-\verb|import| $\ldots$ and \verb|from| \verb|nsim.model import| $\ldots$).
-
-\textbf{Lines 7-12:} these lines define some useful variables such as
-\verb|ps| for picosecond, \verb|nm| for nanometre.  The also define the
-spherical angles for the polarisation direction \verb|theta| and \verb|phi|,
-the size of the mesh, the applied current density and the applied field
-(in milli-Tesla).
+\textbf{Lines 7-12:} define some useful variables such as \verb|ps|
+for picosecond, \verb|nm| for nanometre.  The also define the
+spherical angles for the polarisation direction \verb|theta| and
+\verb|phi|, the size of the mesh, the applied current density and the
+applied field (in milli-Tesla).
 
 \textbf{Lines 13-21:} if the mesh \verb|film.nmesh.h5| does not exist, then
 we create it, by using the \verb|netgen_mesh_from_string| function from the
-\verb|nsim.netgen| module. Note that we provide the geo file as a Python
+\verb|nsim.netgen| module. Note that we provide the \texttt{geo} file as a Python
 string. The function does automatically invoke Netgen (which must be installed
 on the system) and does convert automatically the Neutral output to the
 Nsim \verb|nmesh.h5| file format.
@@ -159,11 +164,12 @@ Nsim \verb|nmesh.h5| file format.
 \textbf{Lines 22-30:} the material is defined, together with its anisotropy
 parameters.
 
-\textbf{Lines 31-34:} Other three STT-related parameters are defined for the
-material. Notice that here the interface is not polished and the material
-parameters are added just as attributes of the material \verb|mat|. (we should
-repair this, either by adding these extra parameters to the \verb|MagMaterial|
-class or by accepting a \verb|**kwargs| in \verb|MagMaterial|.
+\textbf{Lines 31-34:} Other three STT-related parameters are defined
+for the material. Notice that the material parameters are added just
+as attributes of the material \verb|mat|. (Given the required
+resources, this could be improved by either by adding these extra
+parameters to the \verb|MagMaterial| class or by accepting a
+\verb|**kwargs| in \verb|MagMaterial|.)
 
 \textbf{Lines 35-38:} the function \verb|setup_simulation| is used to create
 the materials, create the simulation object and load the mesh. These operations
@@ -197,8 +203,10 @@ which also means that one cannot change them later on in the simulation).
 %
 
 \subsection{Results}
-In Fig. \ref{fig:mif1of2} and \ref{fig:mif2of2} we provide the OOMMF script
-which implements the same simulation we described for Nmag.
+In Fig. \ref{fig:mif1of2} and \ref{fig:mif2of2} we provide the OOMMF
+script which implements the same simulation we described for Nmag, and
+which has been used to guide this example as the primary purpose is
+verification of the correctness of the new implementation of the model.
 
 \begin{figure}[!p]
   \lstinputlisting[language=tcl,linerange=1-47]%
@@ -214,10 +222,10 @@ which implements the same simulation we described for Nmag.
 \label{fig:mif2of2}
 \end{figure}
 
-The comparison of the results is shown in Fig. \ref{fig:results}.
+The comparison of some of the results is shown in Fig. \ref{fig:results}.
 
 \begin{figure}[!h]
-\includegraphics[width=10.0cm]{plot}
+\includegraphics[width=1\textwidth]{plot}
 \caption{Comparison between the OOMMF and the Nmag implementation of the STT.
   The plot shows the time dependency of the $x$ component of the normalised
   magnetisation. Note that in the simulation the demag is disabled (the
