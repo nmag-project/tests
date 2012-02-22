@@ -6,6 +6,14 @@ from nsim.si_units.si import SI, degrees_per_ns
 from nmag.nmag5 import Simulation, MagMaterial
 from nmag import at, every
 from nsim.model import Value
+from nsim.netgen import netgen_mesh_from_file
+
+mesh_filename = "mesh.nmesh.h5"
+mesh_geo = "mesh.geo"
+#create mesh if required
+if not os.path.exists(mesh_filename):
+  netgen_mesh_from_file(mesh_geo, mesh_filename)
+
 
 relaxed_m = "m0.h5"
 film_centre = (5, 50, 50)
@@ -22,7 +30,7 @@ mat.sl_P = 0.0 if do_relaxation else 0.4  # Polarisation
 mat.sl_d = SI(3e-9, "m")                  # Free layer thickness
 
 sim = Simulation()
-sim.load_mesh("mesh.nmesh.h5", [("region1", mat)], unit_length=SI(1e-9, "m"))
+sim.load_mesh(mesh_filename, [("region1", mat)], unit_length=SI(1e-9, "m"))
 
 def m0(r):
   dx, dy, dz = tuple(ri - ri0*1e-9 for ri, ri0 in zip(r, film_centre))
