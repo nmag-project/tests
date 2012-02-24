@@ -29,7 +29,7 @@ mat = MagMaterial("Py",
 mat.sl_P = 0.0 if do_relaxation else 0.4  # Polarisation
 mat.sl_d = SI(3e-9, "m")                  # Free layer thickness
 
-sim = Simulation()
+sim = Simulation(do_sl_stt=True)
 sim.load_mesh(mesh_filename, [("region1", mat)], unit_length=SI(1e-9, "m"))
 
 def m0(r):
@@ -46,7 +46,8 @@ sim.set_H_ext([0, 0, 0], SI("A/m"))
 sim.model.quantities["sl_fix"].set_value(Value([0, 1, 0]))
 
 # Current density
-sim.model.quantities["sl_current_density"].set_value(Value(SI(0.1e12, "A/m^2")))
+#sim.model.quantities["sl_current_density"].set_value(Value(SI(0.1e12, "A/m^2")))
+sim.model.quantities["sl_current_density"].set_value(Value(SI(0.0e12, "A/m^2")))
 
 if do_relaxation:
   print "DOING RELAXATION"
