@@ -53,10 +53,7 @@ We define the following factor:
 $$
 C(\vvm) = 
   \gamma \,
-  \frac{I_{\mathrm{e}} \, \hbar}{\mu_0 \Msat |e| d} \,
-  \frac{a(P)}{(3 + \vvm \cdot \vvfix) - 4 a(P)},
-\quad
-a(P) = 4 \, \left( \frac{\sqrt{P}}{1 + P} \right)^3,
+  \frac{J_{\mathrm{e}} \, \hbar}{\mu_0 \Msat |e| d} \frac{P \Lambda^2}{(\Lambda^2+1)+(\Lambda^2-1)\vvm \cdot \vvfix}
 $$
 where $J_{\mathrm{e}}$ is the applied current density, $P$ the polarisation,
 $d$ the thickness of the free layer, $\vvfix$ the direction of the
@@ -67,6 +64,7 @@ $\Msat$ is the saturation magnetisation,
 $\vvm = \vvM/\Msat$ the normalised magnetisation, $\mu_0$ the permeability
 of free space, $e$ the electric charge of the electron,
 $\hbar$ the reduced Plank constant.
+$\Lambda$ is a paramater which is set to 2.
 
 The Landau-Lifshitz equation with the Slonczewski spin torque can then be written as:
 $$
@@ -77,15 +75,13 @@ $$
 $$
 where $\alpha$ is the damping constant.
 In order to numerically integrate it, we reduce it to the following:
-$$
-\begin{array}{ccc}
-\derivp{\vvm}{t} & = & 
-  -\gamma' \, \vvm \times \vvH
-  - \alpha \gamma' \, \vvm \times (\vvm \times \vvH) - {} \\
-& & {} - \alpha C'(\vvm) \, \vvm \times \vvfix
-  + C'(\vvm) \, \vvm \times (\vvm \times \vvfix),
-\end{array}
-$$
+\begin{eqnarray*}
+	\derivp{\vvm}{t} = 
+	&-& \gamma' \, \vvm \times \vvH
+	- \alpha \gamma' \, \vvm \times (\vvm \times \vvH) {} \\
+	&+& \alpha C'(\vvm) \, \vvm \times \vvfix
+	- C'(\vvm) \, \vvm \times (\vvm \times \vvfix),
+\end{eqnarray*}
 which is obtained by substituting the former into itself and proceeding
 with some trivial algebraic manipulations.
 $\gamma'$ and $C'(\vvm)$ are defined as
