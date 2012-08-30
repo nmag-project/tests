@@ -42,7 +42,7 @@ def create_setter(value_bottom, value_top, value_middle=None):
   # decide to set them as half of the values they have on each side.
   value_middle = \
     ([0.5*(v + value_top[i]) for i, v in enumerate(value_bottom)]
-      if hasattr(value_middle, "__iter__")
+      if hasattr(value_top, "__iter__")
       else 0.5*(value_top + value_bottom))
 
   def setter(position):
